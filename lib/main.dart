@@ -1,16 +1,20 @@
 import 'package:flutter/material.dart';
 
+void main () {
+    runApp(MyApp());
+}
+
 class MyApp extends StatelessWidget {
-  const MyApp({super.key});
+  MyApp({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(home: const MyHomePage(title: 'Flutter demo home page'));
+    return MaterialApp(home: MyHomePage());
   }
 }
 
 class MyHomePage extends StatefulWidget {
-  const MyHomePage({Key? key}) : super(key: key);
+  MyHomePage({Key? key}) : super(key: key);
 
   @override
   State<MyHomePage> createState() => _MyHomePageState();
@@ -27,10 +31,11 @@ class _MyHomePageState extends State<MyHomePage> {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           crossAxisAlignment: CrossAxisAlignment.center,
-          children: <Widget>[const Text('This is yo')],
+          children: <Widget>[Text('This is yo')],
         ),
       ),
       floatingActionButton: FloatingActionButton(
+        onPressed: () {},
         tooltip: 'Increment',
         child: Icon(Icons.add),
       ),
