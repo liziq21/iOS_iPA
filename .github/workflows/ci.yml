@@ -63,7 +63,7 @@ jobs:
           flutter build ios --no-codesign
           cd build/ios/iphoneos
           ln -sf ./build/ios/iphoneos Payload
-          zip -r9 app.ipa Payload/runner.app
+          zip -r9 app.ipa Payload/Runner.app
 
       - name: Upload IPA as artifact
         uses: actions/upload-artifact@v4
