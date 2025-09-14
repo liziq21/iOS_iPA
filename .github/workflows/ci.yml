@@ -7,7 +7,7 @@ on:
   pull_request:
 
 concurrency:
-  group: build-${{ replace(github.ref, '/', '-') }}
+  group: build-${{ github.ref }}
   cancel-in-progress: true
 
 jobs:
@@ -29,9 +29,9 @@ jobs:
       
       - name: Setup Flutter
         uses: subosito/flutter-action@v2
-          with:
-            channel: stable
-            flutter-version-file: pubspec.yaml
+        with:
+          channel: stable
+          flutter-version-file: pubspec.yaml
       
       - run: flutter pub get
       - run: flutter --version
