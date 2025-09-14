@@ -69,9 +69,11 @@ jobs:
           zip -r app.ipa Payload
 
       - name: Upload IPA as artifact
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         with:
           name: app.ipa
+          retention-days: 5
+          if-no-files-found: warn
 
   build_androidApk:
     name: Build Flutter App (Android)
@@ -96,7 +98,9 @@ jobs:
       - run: flutter build apk --debug
       
       - name: Upload APK as artifact
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         with:
           name: app.apk
           path: 'build/app/outputs/apk/debug/*'
+          retention-days: 5
+          if-no-files-found: warn
