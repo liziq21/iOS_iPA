@@ -43,9 +43,9 @@ jobs:
     needs: [flutter_test]
     runs-on: macos-latest
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
       
-      - uses: actions/setup-java@v3
+      - uses: actions/setup-java@v4
         with:
           distribution: 'temurin'
           java-version: '17'
@@ -62,16 +62,15 @@ jobs:
       - run: |
           flutter build ios --no-codesign
           cd build/ios/iphoneos
-          mkdir Payload
-          cd Payload
-          ln -s ../Runner.app
-          cd ..
-          zip -r app.ipa Payload
+          ln -sf ./build/ios/iphoneos Payload
+          zip -r9 app.ipa Payload/runner.app
 
       - name: Upload IPA as artifact
         uses: actions/upload-artifact@v4
         with:
           name: app.ipa
+          path: app.ipa
+          compression-level: 1
           retention-days: 5
           if-no-files-found: warn
 
@@ -80,9 +79,9 @@ jobs:
     needs: [flutter_test]
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
       
-      - uses: actions/setup-java@v3
+      - uses: actions/setup-java@v4
         with:
           distribution: 'temurin'
           java-version: '17'
@@ -102,5 +101,6 @@ jobs:
         with:
           name: app.apk
           path: 'build/app/outputs/apk/debug/*'
+          compression-level: 1
           retention-days: 5
           if-no-files-found: warn
