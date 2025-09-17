@@ -22,7 +22,7 @@
         <item name="android:windowLayoutInDisplayCutoutMode" tools:targetApi="o_mr1">shortEdges</item>
     </style>
 
-    <style name="Ucrop.CropTheme" parent="Theme.Light.NoTitleBar"/>
+    <style name="Ucrop.CropTheme" parent="@android:style/Theme.Light.NoTitleBar"/>
 
     <!-- Allows us to override night specific attributes in the
          values-night folder. -->
