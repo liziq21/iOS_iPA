@@ -11,7 +11,7 @@ class UserScreen extends StatefulWidget {
   });
 
   @override
-  State<UserScreenState> createState() => _UserScreenState();
+  State<UserScreen> createState() => _UserScreenState();
 }
 
 class _UserScreenState extends State<UserScreen> {
@@ -30,7 +30,7 @@ class _UserScreenState extends State<UserScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(title: const Text('User')),
-      body: Center(
+      body: Center(Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
           Text(': ${widget.mid}'),
@@ -39,7 +39,7 @@ class _UserScreenState extends State<UserScreen> {
             child: const Text('Back'),
           ),
         ],
-      ),
+      )),
     );
   }
 }

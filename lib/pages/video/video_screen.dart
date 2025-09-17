@@ -11,7 +11,7 @@ class VideoScreen extends StatefulWidget {
   });
 
   @override
-  State<VideoScreenState> createState() => _VideoScreenState();
+  State<VideoScreen> createState() => _VideoScreenState();
 }
 
 class _VideoScreenState extends State<VideoScreen> {
@@ -30,7 +30,7 @@ class _VideoScreenState extends State<VideoScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(title: const Text('Video')),
-      body: Center(
+      body: Center(Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
           Text('id: ${widget.id}'),
@@ -39,7 +39,7 @@ class _VideoScreenState extends State<VideoScreen> {
             child: const Text('Back'),
           ),
         ],
-      ),
+      )),
     );
   }
 }

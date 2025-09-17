@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 
 class HomeScreen extends StatefulWidget {
-  final Function(String: roomId) onLive;
-  final Function(String?: quray) onSearch;
-  final Function(String: mid) onUser;
-  final Function(String: id) onVideo;
+  final Function(String roomId) onLive;
+  final Function(String? quray) onSearch;
+  final Function(String mid) onUser;
+  final Function(String id) onVideo;
   
   HomeScreen({
     super.key,
@@ -15,7 +15,7 @@ class HomeScreen extends StatefulWidget {
   });
 
   @override
-  State<HomeScreenState> createState() => _HomeScreenState();
+  State<HomeScreen> createState() => _HomeScreenState();
 }
 
 class _HomeScreenState extends State<HomeScreen> {
@@ -34,7 +34,7 @@ class _HomeScreenState extends State<HomeScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(title: const Text('Home')),
-      body: Center(
+      body: Center(Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
           ElevatedButton(
@@ -53,8 +53,7 @@ class _HomeScreenState extends State<HomeScreen> {
             onPressed: () => widget.onVideo('33'),
             child: const Text('onSearch'),
           ),
-        ],
-      ),
+      )),
     );
   }
 }

@@ -1,11 +1,12 @@
-//import 'package:go_router/go_router.dart';
-import '../pages/live_page.dart';
-import '../pages/search_page.dart';
-import '../pages/user_page.dart';
-import '../pages/video_page.dart';
+import 'package:go_router/go_router_builder.dart';
+import 'package:flutter/material.dart';
+import '../screens/live_screen.dart';
+import '../screens/search_screen.dart';
+import '../screens/user_screen.dart';
+import '../screens/video_screen.dart';
 //import 'route_paths.dart';
 
-part 'routes.g.dart'
+part 'routes.g.dart';
 
 @TypedGoRoute<HomeRouteData>(path: '/')
 class HomeRouteData extends GoRouteData with $HomeRouteData {
@@ -24,8 +25,9 @@ class HomeRouteData extends GoRouteData with $HomeRouteData {
 
 @TypedGoRoute<LiveRouteData>(path: '/live/:roomId')
 class LiveRouteData extends GoRouteData with LiveRouteData {
-  const LiveRouteData({ required this.roomId});
   final String roomId;
+  
+  const LiveRouteData({ required this.roomId});
 
   @override
   Widget build(BuildContext context, GoRouterState state) {
@@ -38,8 +40,9 @@ class LiveRouteData extends GoRouteData with LiveRouteData {
 
 @TypedGoRoute<SearchRouteData>(path: '/search')
 class SearchRouteData extends GoRouteData with $SearchRouteData {
-  const SearchRouteData({this.query = ''});
   final String query;
+  
+  const SearchRouteData({this.query = ''});
 
   @override
   Widget build(BuildContext context, GoRouterState state) {
@@ -52,8 +55,9 @@ class SearchRouteData extends GoRouteData with $SearchRouteData {
 
 @TypedGoRoute<UesrRouteData>(path: '/user/:mid')
 class UserRouteData extends GoRouteData with $UserRouteData {
-  const UserRouteData({ required this.mid});
   final String mid;
+  
+  const UserRouteData({ required this.mid});
 
   @override
   Widget build(BuildContext context, GoRouterState state) {
@@ -66,6 +70,12 @@ class UserRouteData extends GoRouteData with $UserRouteData {
 
 @TypedGoRoute<VideoRouteData>(path: '/video/:id')
 class VideoRouteData extends GoRouteData with $VideoRouteData {
+  final String id;
+  /*final String? cid;
+  final String? comment_root_id;
+  final String? comment_secondary_id;
+  final String? dm_progress;*/
+  
   const VideoRouteData({
     required this.id,
     /*this.cid,
@@ -73,12 +83,6 @@ class VideoRouteData extends GoRouteData with $VideoRouteData {
     this.comment_secondary_id,
     this.dm_progress,*/
   });
-  
-  final String id;
-  /*final String? cid;
-  final String? comment_root_id;
-  final String? comment_secondary_id;
-  final String? dm_progress;*/
 
   @override
   Widget build(BuildContext context, GoRouterState state) {

@@ -11,7 +11,7 @@ class SearchScreen extends StatefulWidget {
   });
 
   @override
-  State<SearchScreenState> createState() => _SearchScreenState();
+  State<SearchScreen> createState() => _SearchScreenState();
 }
 
 class _SearchScreenState extends State<SearchScreen> {
@@ -30,7 +30,7 @@ class _SearchScreenState extends State<SearchScreen> {
   }
   
   void _onSearch() {
-    final query = _controller.text.trim();
+    //final query = _controller.text.trim();
     if (query.isNotEmpty) {
       //Provider.of<SearchProvider>(context, listen: false).search(query);
     }
@@ -39,7 +39,7 @@ class _SearchScreenState extends State<SearchScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: SearchBar(
+      appBar: AppBar(SearchBar(
         hintText: 'Search',
         onChanged: (value) {
           // 处理搜索输入的逻辑
@@ -48,8 +48,8 @@ class _SearchScreenState extends State<SearchScreen> {
           icon: Icon(Icons.arrow_back),
           onPressed: () { Navigator.pop(context); },
         ),
-      ),
-      body: Center(
+      )),
+      body: Center(Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
           Text('Search query: ${widget.initialQuery ?? 'No query'}'),
@@ -58,7 +58,7 @@ class _SearchScreenState extends State<SearchScreen> {
             child: const Text('Back'),
           ),
         ],
-      ),
+      )),
     );
   }
 }

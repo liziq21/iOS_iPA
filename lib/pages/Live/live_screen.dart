@@ -11,7 +11,7 @@ class LiveScreen extends StatefulWidget {
   });
 
   @override
-  State<LiveScreenState> createState() => _LiveScreenState();
+  State<LiveScreen> createState() => _LiveScreenState();
 }
 
 class _LiveScreenState extends State<LiveScreen> {
@@ -30,7 +30,7 @@ class _LiveScreenState extends State<LiveScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(title: const Text('Live')),
-      body: Center(
+      body: Center(Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
           Text('roomId: ${widget.roomId}'),
@@ -39,7 +39,7 @@ class _LiveScreenState extends State<LiveScreen> {
             child: const Text('Back'),
           ),
         ],
-      ),
+      )),
     );
   }
 }
