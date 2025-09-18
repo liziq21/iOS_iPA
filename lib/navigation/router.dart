@@ -59,7 +59,7 @@ class SearchRouteData extends GoRouteData with $SearchRouteData {
   }
 }
 
-@TypedGoRoute<UesrRouteData>(path: '/user/:mid')
+@TypedGoRoute<UserRouteData>(path: '/user/:mid')
 class UserRouteData extends GoRouteData with $UserRouteData {
   final String mid;
   
