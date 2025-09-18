@@ -29,7 +29,7 @@ class HomeRouteData extends GoRouteData with $HomeRouteData {
 }
 
 @TypedGoRoute<LiveRouteData>(path: '/live/:roomId')
-class LiveRouteData extends GoRouteData with LiveRouteData {
+class LiveRouteData extends GoRouteData with $LiveRouteData {
   final String roomId;
   
   const LiveRouteData({ required this.roomId});
@@ -92,7 +92,7 @@ class VideoRouteData extends GoRouteData with $VideoRouteData {
   @override
   Widget build(BuildContext context, GoRouterState state) {
     return VideoScreen(
-      onBackClick: () => { context.pop(); },
+      onBackClick: () => context.pop(),
       id: id,
       /*cid: cid,
       commentRootId: comment_root_id,
