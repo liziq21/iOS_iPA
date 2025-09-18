@@ -69,33 +69,3 @@ jobs:
           path: app.ipa
           retention-days: 5
           if-no-files-found: warn
-
-  build_androidApk:
-    name: Build Flutter App (Android)
-    needs: [flutter_test]
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v4
-      
-      - uses: subosito/flutter-action@v2
-        with:
-          cache: true
-          channel: 'stable'
-          flutter-version-file: pubspec.yaml
-      - run: flutter pub get
-      
-      - name: Run build_runner
-        run: dart run build_runner build --delete-conflicting-outputs --verbose
-      
-      - run: flutter clean
-      
-      - run: flutter build apk --debug
-      
-      - name: Upload APK as artifact
-        uses: actions/upload-artifact@v4
-        with:
-          name: app.apk
-          path: 'build/app/outputs/apk/debug/*'
-          compression-level: 0
-          retention-days: 5
-          if-no-files-found: warn

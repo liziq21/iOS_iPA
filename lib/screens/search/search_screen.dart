@@ -47,7 +47,7 @@ class _SearchScreenState extends State<SearchScreen> {
           },
           leading: IconButton(
             icon: const Icon(Icons.arrow_back),
-            onPressed: () { Navigator.pop(context); },
+            onPressed: widget.onBackClick },
           ),
         ),
       ),
@@ -57,8 +57,8 @@ class _SearchScreenState extends State<SearchScreen> {
           children: [
             Text('Search query: ${widget.initialQuery ?? 'No query'}'),
             ElevatedButton(
-              onPressed: widget.onBackClick,
-              child: const Text('Back'),
+              onPressed: () => context.pop(),
+              child: const Text('pop'),
             ),
           ],
         ),

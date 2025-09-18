@@ -40,19 +40,19 @@ class _HomeScreenState extends State<HomeScreen> {
           children: [
             ElevatedButton(
               onPressed: () => widget.onLive('230023'),
-              child: const Text('onLive'),
+              child: const Text('Live'),
             ),
             ElevatedButton(
               onPressed: () => widget.onSearch('quray'),
-              child: const Text('onSearch'),
+              child: const Text('Search'),
             ),
             ElevatedButton(
               onPressed: () => widget.onUser('188339'),
-              child: const Text('onUser'),
+              child: const Text('User'),
             ),
             ElevatedButton(
               onPressed: () => widget.onVideo('33'),
-              child: const Text('onSearch'),
+              child: const Text('Video'),
             ),
           ],
         ),
