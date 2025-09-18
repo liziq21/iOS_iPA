@@ -4,12 +4,12 @@ part of '../router.dart';
 class SearchRouteData extends GoRouteData with $SearchRouteData {
   final String? query;
   
-  const SearchRouteData({this.query = ''});
+  const SearchRouteData({this.query});
 
   @override
   Widget build(BuildContext context, GoRouterState state) {
     return SearchScreen(
-      initialQuery: query ?? '',
+      initialQuery: query,
       onBackClick: () => context.pop(),
     );
   }
