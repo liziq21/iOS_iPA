@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
-import '../screens/live_screen.dart';
-import '../screens/search_screen.dart';
-import '../screens/user_screen.dart';
-import '../screens/video_screen.dart';
+import '../screens/live/live_screen.dart';
+import '../screens/search/search_screen.dart';
+import '../screens/user/user_screen.dart';
+import '../screens/video/video_screen.dart';
 //import 'route_paths.dart';
 
 part 'router.g.dart';
 
-final GoRouter _router = GoRouter(
+final GoRouter router = GoRouter(
   routes: $appRoutes,
   initialLocation: '/',
 );

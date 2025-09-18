@@ -27,6 +27,7 @@ jobs:
           cache: true
           channel: stable
       - run: flutter pub get
+      - run: dart run build_runner build
       
       - uses: invertase/github-action-dart-analyzer@v3
         with:
@@ -47,9 +48,9 @@ jobs:
           cache: true
           channel: stable
           flutter-version-file: pubspec.yaml
-      
       - run: flutter pub get
-      
+      - run: dart run build_runner build
+
       - run: flutter clean
       
       - run: |
@@ -77,8 +78,8 @@ jobs:
           cache: true
           channel: 'stable'
           flutter-version-file: pubspec.yaml
-      
       - run: flutter pub get
+      - run: dart run build_runner build
       
       - run: flutter clean
       
