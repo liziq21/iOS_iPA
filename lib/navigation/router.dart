@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 import '../screens/live/live_screen.dart';
 import '../screens/search/search_screen.dart';
 import '../screens/user/user_screen.dart';
@@ -92,7 +93,7 @@ class VideoRouteData extends GoRouteData with $VideoRouteData {
   @override
   Widget build(BuildContext context, GoRouterState state) {
     return VideoScreen(
-      onBackClick: () => context.pop(),
+      onBackClick: () => context.pop(); },
       id: id,
       /*cid: cid,
       commentRootId: comment_root_id,

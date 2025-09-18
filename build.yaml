@@ -1,10 +1,6 @@
 targets:
   $default:
     builders:
-      flutter_gen_runner:
-        generate_for:
-          include:
-            - pubspec.yaml
       go_router_builder:
         generate_for:
           include:
