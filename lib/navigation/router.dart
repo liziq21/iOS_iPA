@@ -25,7 +25,7 @@ class HomeRouteData extends GoRouteData with $HomeRouteData {
       onLive: (roomId) => LiveRouteData(roomId: roomId).go(context),
       onSearch: (query) => SearchRouteData(query: query).go(context),
       onUser: (mid) => UserRouteData(mid: mid).go(context),
-      onSearch: (id) => VideoRouteData(id: id).go(context),
+      onVideo: (id) => VideoRouteData(id: id).go(context),
     );
   }
 }
@@ -47,14 +47,14 @@ class LiveRouteData extends GoRouteData with $LiveRouteData {
 
 @TypedGoRoute<SearchRouteData>(path: '/search')
 class SearchRouteData extends GoRouteData with $SearchRouteData {
-  final String query;
+  final String? query;
   
   const SearchRouteData({this.query = ''});
 
   @override
   Widget build(BuildContext context, GoRouterState state) {
     return SearchScreen(
-      initialQuery: query,
+      initialQuery: query ?? '',
       onBackClick: () => context.pop(),
     );
   }
