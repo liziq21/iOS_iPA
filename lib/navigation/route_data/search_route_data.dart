@@ -1,6 +1,7 @@
 part of '../router.dart';
 
 @TypedGoRoute<SearchRouteData>(path: '/search')
+@immutable
 class SearchRouteData extends GoRouteData with $SearchRouteData {
   final String? query;
   

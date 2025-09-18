@@ -1,6 +1,7 @@
 part of '../router.dart';
 
 @TypedGoRoute<UserRouteData>(path: '/user/:mid')
+@immutable
 class UserRouteData extends GoRouteData with $UserRouteData {
   final String mid;
   

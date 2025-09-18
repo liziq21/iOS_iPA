@@ -1,6 +1,7 @@
 part of '../router.dart';
 
 @TypedGoRoute<VideoRouteData>(path: '/video/:id')
+@immutable
 class VideoRouteData extends GoRouteData with $VideoRouteData {
   final String id;
   /*final String? cid;
