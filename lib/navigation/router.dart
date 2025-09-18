@@ -82,6 +82,7 @@ class VideoRouteData extends GoRouteData with $VideoRouteData {
   final String? dm_progress;*/
   
   const VideoRouteData({
+    this.id,
     /*this.cid,
     this.comment_root_id,
     this.comment_secondary_id,
