@@ -34,26 +34,29 @@ class _HomeScreenState extends State<HomeScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(title: const Text('Home')),
-      body: Center(Column(
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: [
-          ElevatedButton(
-            onPressed: () => widget.onLive('230023'),
-            child: const Text('onLive'),
-          ),
-          ElevatedButton(
-            onPressed: () => widget.onSearch('quray'),
-            child: const Text('onSearch'),
-          ),
-          ElevatedButton(
-            onPressed: () => widget.onUser('188339'),
-            child: const Text('onUser'),
-          ),
-          ElevatedButton(
-            onPressed: () => widget.onVideo('33'),
-            child: const Text('onSearch'),
-          ),
-      )),
+      body: Center(
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            ElevatedButton(
+              onPressed: () => widget.onLive('230023'),
+              child: const Text('onLive'),
+            ),
+            ElevatedButton(
+              onPressed: () => widget.onSearch('quray'),
+              child: const Text('onSearch'),
+            ),
+            ElevatedButton(
+              onPressed: () => widget.onUser('188339'),
+              child: const Text('onUser'),
+            ),
+            ElevatedButton(
+              onPressed: () => widget.onVideo('33'),
+              child: const Text('onSearch'),
+            ),
+          ],
+        ),
+      ),
     );
   }
 }

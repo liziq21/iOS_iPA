@@ -30,16 +30,18 @@ class _VideoScreenState extends State<VideoScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(title: const Text('Video')),
-      body: Center(Column(
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: [
-          Text('id: ${widget.id}'),
-          ElevatedButton(
-            onPressed: widget.onBackClick,
-            child: const Text('Back'),
-          ),
-        ],
-      )),
+      body: Center(
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Text('id: ${widget.id}'),
+            ElevatedButton(
+              onPressed: widget.onBackClick,
+              child: const Text('Back'),
+            ),
+          ],
+        ),
+      ),
     );
   }
 }

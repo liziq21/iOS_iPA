@@ -30,16 +30,18 @@ class _UserScreenState extends State<UserScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(title: const Text('User')),
-      body: Center(Column(
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: [
-          Text(': ${widget.mid}'),
-          ElevatedButton(
-            onPressed: widget.onBackClick,
-            child: const Text('Back'),
-          ),
-        ],
-      )),
+      body: Center(
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Text(': ${widget.mid}'),
+            ElevatedButton(
+              onPressed: widget.onBackClick,
+              child: const Text('Back'),
+            ),
+          ],
+        ),
+      ),
     );
   }
 }

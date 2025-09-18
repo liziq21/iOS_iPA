@@ -30,16 +30,18 @@ class _LiveScreenState extends State<LiveScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(title: const Text('Live')),
-      body: Center(Column(
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: [
-          Text('roomId: ${widget.roomId}'),
-          ElevatedButton(
-            onPressed: widget.onBackClick,
-            child: const Text('Back'),
-          ),
-        ],
-      )),
+      body: Center(
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Text('roomId: ${widget.roomId}'),
+            ElevatedButton(
+              onPressed: widget.onBackClick,
+              child: const Text('Back'),
+            ),
+          ],
+        ),
+      ),
     );
   }
 }

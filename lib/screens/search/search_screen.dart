@@ -39,26 +39,30 @@ class _SearchScreenState extends State<SearchScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(SearchBar(
-        hintText: 'Search',
-        onChanged: (value) {
-          // 处理搜索输入的逻辑
-        },
-        leading: IconButton(
-          icon: Icon(Icons.arrow_back),
-          onPressed: () { Navigator.pop(context); },
-        ),
-      )),
-      body: Center(Column(
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: [
-          Text('Search query: ${widget.initialQuery ?? 'No query'}'),
-          ElevatedButton(
-            onPressed: widget.onBackClick,
-            child: const Text('Back'),
+      appBar: AppBar(
+        title: SearchBar(
+          hintText: 'Search',
+          onChanged: (value) {
+            // 处理搜索输入的逻辑
+          },
+          leading: IconButton(
+            icon: Icon(Icons.arrow_back),
+            onPressed: () { Navigator.pop(context); },
           ),
-        ],
-      )),
+        ),
+      ),
+      body: Center(
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Text('Search query: ${widget.initialQuery ?? 'No query'}'),
+            ElevatedButton(
+              onPressed: widget.onBackClick,
+              child: const Text('Back'),
+            ),
+          ],
+        ),
+      ),
     );
   }
 }
