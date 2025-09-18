@@ -4,7 +4,7 @@ class SearchScreen extends StatefulWidget {
   final String? initialQuery;
   final VoidCallback? onBackClick;
 
-  SearchScreen({
+  const SearchScreen({
     super.key,
     this.initialQuery,
     this.onBackClick,
@@ -30,10 +30,10 @@ class _SearchScreenState extends State<SearchScreen> {
   }
   
   void _onSearch() {
-    //final query = _controller.text.trim();
+    /*final query = _controller.text.trim();
     if (query.isNotEmpty) {
-      //Provider.of<SearchProvider>(context, listen: false).search(query);
-    }
+      Provider.of<SearchProvider>(context, listen: false).search(query);
+    }*/
   }
   
   @override
@@ -46,7 +46,7 @@ class _SearchScreenState extends State<SearchScreen> {
             // 处理搜索输入的逻辑
           },
           leading: IconButton(
-            icon: Icon(Icons.arrow_back),
+            icon: const Icon(Icons.arrow_back),
             onPressed: () { Navigator.pop(context); },
           ),
         ),

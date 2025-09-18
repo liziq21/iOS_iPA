@@ -22,9 +22,9 @@ class HomeRouteData extends GoRouteData with $HomeRouteData {
   Widget build(BuildContext context, GoRouterState state) {
     return HomeScreen(
       onLive: (roomId) => LiveRouteData(roomId: roomId).go(context),
-      onSearch: (query) => SearchRouteData(initialQuery: query).go(context),
-      onUser: (mid) => SearchRouteData(mid: mid).go(context),
-      onSearch: (id) => SearchRouteData(id: id).go(context),
+      onSearch: (query) => SearchRouteData(query: query).go(context),
+      onUser: (mid) => UserRouteData(mid: mid).go(context),
+      onSearch: (id) => VideoRouteData(id: id).go(context),
     );
   }
 }
@@ -33,7 +33,7 @@ class HomeRouteData extends GoRouteData with $HomeRouteData {
 class LiveRouteData extends GoRouteData with $LiveRouteData {
   final String roomId;
   
-  const LiveRouteData({ required this.roomId});
+  const LiveRouteData({ this.roomId });
 
   @override
   Widget build(BuildContext context, GoRouterState state) {
@@ -53,7 +53,7 @@ class SearchRouteData extends GoRouteData with $SearchRouteData {
   @override
   Widget build(BuildContext context, GoRouterState state) {
     return SearchScreen(
-      query: query,
+      initialQuery: query,
       onBackClick: () => context.pop(),
     );
   }
@@ -63,7 +63,7 @@ class SearchRouteData extends GoRouteData with $SearchRouteData {
 class UserRouteData extends GoRouteData with $UserRouteData {
   final String mid;
   
-  const UserRouteData({ required this.mid});
+  const UserRouteData({ this.mid });
 
   @override
   Widget build(BuildContext context, GoRouterState state) {

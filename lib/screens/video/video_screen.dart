@@ -7,7 +7,7 @@ class VideoScreen extends StatefulWidget {
   VideoScreen({
     super.key,
     this.onBackClick,
-    required this.id,
+    this.id,
   });
 
   @override
