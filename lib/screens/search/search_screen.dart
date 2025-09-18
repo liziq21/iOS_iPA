@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 
 class SearchScreen extends StatefulWidget {
   final String? initialQuery;
@@ -47,7 +48,7 @@ class _SearchScreenState extends State<SearchScreen> {
           },
           leading: IconButton(
             icon: const Icon(Icons.arrow_back),
-            onPressed: widget.onBackClick },
+            onPressed: widget.onBackClick,
           ),
         ),
       ),
