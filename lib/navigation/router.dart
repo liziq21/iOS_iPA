@@ -93,7 +93,7 @@ class VideoRouteData extends GoRouteData with $VideoRouteData {
   @override
   Widget build(BuildContext context, GoRouterState state) {
     return VideoScreen(
-      onBackClick: () => context.pop(); },
+      onBackClick: () => context.pop(),
       id: id,
       /*cid: cid,
       commentRootId: comment_root_id,
