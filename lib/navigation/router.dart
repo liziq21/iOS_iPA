@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
+import '../screens/home/home_screen.dart';
 import '../screens/live/live_screen.dart';
 import '../screens/search/search_screen.dart';
 import '../screens/user/user_screen.dart';
@@ -33,7 +34,7 @@ class HomeRouteData extends GoRouteData with $HomeRouteData {
 class LiveRouteData extends GoRouteData with $LiveRouteData {
   final String roomId;
   
-  const LiveRouteData({ this.roomId });
+  const LiveRouteData({ required this.roomId });
 
   @override
   Widget build(BuildContext context, GoRouterState state) {
@@ -63,7 +64,7 @@ class SearchRouteData extends GoRouteData with $SearchRouteData {
 class UserRouteData extends GoRouteData with $UserRouteData {
   final String mid;
   
-  const UserRouteData({ this.mid });
+  const UserRouteData({ required this.mid });
 
   @override
   Widget build(BuildContext context, GoRouterState state) {
@@ -83,7 +84,7 @@ class VideoRouteData extends GoRouteData with $VideoRouteData {
   final String? dm_progress;*/
   
   const VideoRouteData({
-    this.id,
+    required this.id,
     /*this.cid,
     this.comment_root_id,
     this.comment_secondary_id,
