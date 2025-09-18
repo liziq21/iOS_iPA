@@ -1,0 +1,15 @@
+include: package:flutter_lints/flutter.yaml
+
+analyzer:
+  exclude:
+    - '**.g.dart'
+  plugins:
+    - custom_lint
+
+linter:
+  rules:
+    prefer_single_quotes: true
+    always_use_package_imports: true
+    require_trailing_commas: true
+    avoid_void_async: true
+    unawaited_futures: true

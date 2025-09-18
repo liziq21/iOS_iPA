@@ -1,15 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
-import 'routes/routes.dart';
+import 'navigation/router.dart';
 
 void main () {
     runApp(MyApp());
 }
-
-final GoRouter _router = GoRouter(
-  routes: $appRoutes,
-  initialLocation: '/',
-);
 
 class MyApp extends StatefulWidget {
   MyApp({super.key});

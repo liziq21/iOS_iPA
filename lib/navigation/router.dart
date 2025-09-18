@@ -1,4 +1,3 @@
-import 'package:go_router/go_router_builder.dart';
 import 'package:flutter/material.dart';
 import '../screens/live_screen.dart';
 import '../screens/search_screen.dart';
@@ -6,7 +5,13 @@ import '../screens/user_screen.dart';
 import '../screens/video_screen.dart';
 //import 'route_paths.dart';
 
-part 'routes.g.dart';
+part 'router.g.dart';
+
+final GoRouter _router = GoRouter(
+  routes: $appRoutes,
+  initialLocation: '/',
+);
+
 
 @TypedGoRoute<HomeRouteData>(path: '/')
 class HomeRouteData extends GoRouteData with $HomeRouteData {
@@ -77,7 +82,6 @@ class VideoRouteData extends GoRouteData with $VideoRouteData {
   final String? dm_progress;*/
   
   const VideoRouteData({
-    required this.id,
     /*this.cid,
     this.comment_root_id,
     this.comment_secondary_id,
