@@ -1,4 +1,4 @@
-part '../router.dart';
+part of '../router.dart';
 
 @TypedGoRoute<LiveRouteData>(path: '/live/:roomId')
 class LiveRouteData extends GoRouteData with $LiveRouteData {

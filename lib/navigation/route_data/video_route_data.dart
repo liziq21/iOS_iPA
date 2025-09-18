@@ -1,4 +1,4 @@
-part '../router.dart';
+part of '../router.dart';
 
 @TypedGoRoute<VideoRouteData>(path: '/video/:id')
 class VideoRouteData extends GoRouteData with $VideoRouteData {

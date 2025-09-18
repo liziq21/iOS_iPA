@@ -1,4 +1,4 @@
-part '../router.dart';
+part of '../router.dart';
 
 @TypedGoRoute<SearchRouteData>(path: '/search')
 class SearchRouteData extends GoRouteData with $SearchRouteData {

@@ -1,4 +1,4 @@
-part '../router.dart';
+part of '../router.dart';
 
 @TypedGoRoute<UserRouteData>(path: '/user/:mid')
 class UserRouteData extends GoRouteData with $UserRouteData {

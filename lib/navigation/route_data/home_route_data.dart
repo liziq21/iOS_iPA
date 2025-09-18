@@ -1,4 +1,4 @@
-part '../router.dart';
+part of '../router.dart';
 
 @TypedGoRoute<HomeRouteData>(path: '/')
 class HomeRouteData extends GoRouteData with $HomeRouteData {
