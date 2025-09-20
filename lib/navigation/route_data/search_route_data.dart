@@ -4,7 +4,7 @@ extension on BuildContext {
   void navToSearch(String? query) => SearchRouteData(query).push(this);
 }
 
-@TypedGoRoute<SearchRouteData>(path: '${RoutePath.search}')
+@TypedGoRoute<SearchRouteData>(path: '/${RoutePath.search}')
 @immutable
 class SearchRouteData extends GoRouteData with $SearchRouteData {
   final String? query;

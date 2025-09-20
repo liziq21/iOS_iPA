@@ -16,10 +16,10 @@ class BiliUtils {
     if (secondLevelDomain case 'www' || '') {
       return null;
     } else {
-      final routePath = RoutePath.fromPath(secondLevelDomain);
-      return routePath 
-        ? '$routePath/${uri.lastSegdment}'
-        : RoutePath.home.toString();
+      return switch (secondLevelDomain):
+        RoutePath.live || RoutePath.search || RoutePath.space
+        => '/$secondLevelDomain/${uri.lastSegdment}',
+        _ => RoutePath.home;
     }
   }
 }
