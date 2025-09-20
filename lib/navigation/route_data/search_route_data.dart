@@ -7,14 +7,14 @@ extension on BuildContext {
 @TypedGoRoute<SearchRouteData>(path: '/${RoutePath.search}')
 @immutable
 class SearchRouteData extends GoRouteData with $SearchRouteData {
-  final String? query;
+  final String? keyword;
   
-  const SearchRouteData({this.query});
+  const SearchRouteData({this.keyword});
 
   @override
   Widget build(BuildContext context, GoRouterState state) {
     return SearchScreen(
-      initialQuery: query,
+      initialQuery: keyword,
       onBackClick: () => context.pop(),
     );
   }
