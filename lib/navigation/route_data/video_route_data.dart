@@ -4,7 +4,7 @@ extension on BuildContext {
   void navToVideo(String id) => VideoRouteData(id).push(this);
 }
 
-@TypedGoRoute<VideoRouteData>(path: RoutePaths.live.fullPath+'/:id')
+@TypedGoRoute<VideoRouteData>(path: '${RoutePaths.live}/:id')
 @immutable
 class VideoRouteData extends GoRouteData with $VideoRouteData {
   final String id;

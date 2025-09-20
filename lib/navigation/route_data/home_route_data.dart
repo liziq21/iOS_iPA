@@ -1,11 +1,11 @@
 part of '../router.dart';
 
 extension on BuildContext {
-  void navToHome() => HomeRouteData().go(this);
+  void navToHome() => HomeRouteData().push(this);
 }
 
-@TypedGoRoute<HomeRouteData>(path: RoutePaths.home.fullPath)
-@immutable
+@TypedGoRoute<HomeRouteData>(path: '/home') // ${RoutePaths.home}
+//@immutable
 class HomeRouteData extends GoRouteData with $HomeRouteData {
   const HomeRouteData();
 
