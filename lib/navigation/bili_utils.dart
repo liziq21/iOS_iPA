@@ -19,7 +19,7 @@ class BiliUtils {
       final routePath = RoutePaths.fromPath(secondLevelDomain);
       return routePath 
         ? '$routePath/${uri.lastSegdment}'
-        : RoutePaths.home;
+        : RoutePaths.home.fullPath;
     }
   }
 }

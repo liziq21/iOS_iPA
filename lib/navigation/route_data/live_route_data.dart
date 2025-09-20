@@ -4,7 +4,7 @@ extension on BuildContext {
   void navToLive(String roomId) => LiveRouteData(roomId).push(this);
 }
 
-@TypedGoRoute<LiveRouteData>(path: RoutePaths.live+'/:roomId')
+@TypedGoRoute<LiveRouteData>(path: RoutePaths.live.fullPath+'/:roomId')
 @immutable
 class LiveRouteData extends GoRouteData with $LiveRouteData {
   final String roomId;

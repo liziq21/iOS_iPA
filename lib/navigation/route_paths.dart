@@ -12,7 +12,9 @@ enum RoutePath {
   const RoutePath(this.path);
   
   @override
-  String toString() => '/$path';
+  String toString() => '$path';
+  
+  String get fullPath => '/$path';
 
   String withQueryParameters(Map<String, String> params) =>
     params.isEmpty

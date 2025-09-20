@@ -4,7 +4,7 @@ extension on BuildContext {
   void navToHome() => HomeRouteData().go(this);
 }
 
-@TypedGoRoute<HomeRouteData>(path: RoutePaths.home)
+@TypedGoRoute<HomeRouteData>(path: RoutePaths.home.fullPath)
 @immutable
 class HomeRouteData extends GoRouteData with $HomeRouteData {
   const HomeRouteData();
