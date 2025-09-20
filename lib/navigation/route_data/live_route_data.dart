@@ -5,7 +5,7 @@ extension on BuildContext {
 }
 
 @TypedGoRoute<LiveRouteData>(path: '${RoutePaths.live}/:roomId')
-@immutable
+//@immutable
 class LiveRouteData extends GoRouteData with $LiveRouteData {
   final String roomId;
   
