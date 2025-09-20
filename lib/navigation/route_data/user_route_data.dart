@@ -4,7 +4,7 @@ extension on BuildContext {
   void navToUser(String mid) => UserRouteData(mid).push(this);
 }
 
-@TypedGoRoute<UserRouteData>(path: '${RoutePaths.user}/:mid')
+@TypedGoRoute<UserRouteData>(path: '${RoutePath.user}/:mid')
 @immutable
 class UserRouteData extends GoRouteData with $UserRouteData {
   final String mid;

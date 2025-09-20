@@ -4,17 +4,7 @@ extension on BuildContext {
   void navToLive(String roomId) => LiveRouteData(roomId).push(this);
 }
 
-enum RoutePathh {
-  live('live');
-
-  final String path;
-  const RoutePath(this.path);
-
-  @override
-  String toString() => '/$path';  // Nutzerdefinierte Darstellung
-}
-
-@TypedGoRoute<LiveRouteData>(path: '${RoutePathh.live.toString()}/:roomId')
+@TypedGoRoute<LiveRouteData>(path: '${RoutePath.live.toString()}/:roomId')
 @immutable
 class LiveRouteData extends GoRouteData with $LiveRouteData {
   final String roomId;

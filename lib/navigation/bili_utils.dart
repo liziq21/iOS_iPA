@@ -1,5 +1,5 @@
 import '../network/utils/UriExtensions.dart';
-import 'route_paths.dart'
+import 'route_path.dart'
 
 class BiliUtils {
   static Future<String?> httpToRoutePath(Uri uri) async {
@@ -16,10 +16,10 @@ class BiliUtils {
     if (secondLevelDomain case 'www' || '') {
       return null;
     } else {
-      final routePath = RoutePaths.fromPath(secondLevelDomain);
+      final routePath = RoutePath.fromPath(secondLevelDomain);
       return routePath 
         ? '$routePath/${uri.lastSegdment}'
-        : RoutePaths.home.toString();
+        : RoutePath.home.toString();
     }
   }
 }

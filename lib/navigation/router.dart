@@ -6,7 +6,7 @@ import '../screens/search/search_screen.dart';
 import '../screens/user/user_screen.dart';
 import '../screens/video/video_screen.dart';
 import 'bili_utils.dart';
-import 'route_paths.dart';
+import 'route_path.dart';
 
 part 'route_data/home_route_data.dart';
 part 'route_data/live_route_data.dart';
