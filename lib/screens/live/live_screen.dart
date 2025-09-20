@@ -4,7 +4,7 @@ class LiveScreen extends StatefulWidget {
   final VoidCallback? onBackClick;
   final String roomId;
   
-  LiveScreen({
+  const LiveScreen({
     super.key,
     this.onBackClick,
     required this.roomId,

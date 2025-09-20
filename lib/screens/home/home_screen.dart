@@ -6,7 +6,7 @@ class HomeScreen extends StatefulWidget {
   final Function(String mid) onUser;
   final Function(String id) onVideo;
   
-  HomeScreen({
+  const HomeScreen({
     super.key,
     required this.onLive,
     required this.onSearch,

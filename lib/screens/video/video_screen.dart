@@ -4,7 +4,7 @@ class VideoScreen extends StatefulWidget {
   final VoidCallback? onBackClick;
   final String id;
   
-  VideoScreen({
+  const VideoScreen({
     super.key,
     this.onBackClick,
     required this.id,

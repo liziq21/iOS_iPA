@@ -1,6 +1,10 @@
 part of '../router.dart';
 
-@TypedGoRoute<HomeRouteData>(path: '/')
+extension on BuildContext {
+  void navToHome() => HomeRouteData().go(this);
+}
+
+@TypedGoRoute<HomeRouteData>(path: RoutePaths.home)
 @immutable
 class HomeRouteData extends GoRouteData with $HomeRouteData {
   const HomeRouteData();
@@ -8,10 +12,10 @@ class HomeRouteData extends GoRouteData with $HomeRouteData {
   @override
   Widget build(BuildContext context, GoRouterState state) {
     return HomeScreen(
-      onLive: (roomId) => LiveRouteData(roomId: roomId).go(context),
-      onSearch: (query) => SearchRouteData(query: query).push(context),
-      onUser: (mid) => UserRouteData(mid: mid).go(context),
-      onVideo: (id) => VideoRouteData(id: id).go(context),
+      onLive: (roomId) => context.navToLive(roomId: roomId),
+      onSearch: (query) => context.navToSearch(query: query),
+      onUser: (mid) => context.navToUser(mid: mid),
+      onVideo: (id) => context.navToVideo(id: id),
     );
   }
 }

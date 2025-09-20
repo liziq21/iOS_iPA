@@ -1,6 +1,10 @@
 part of '../router.dart';
 
-@TypedGoRoute<LiveRouteData>(path: '/live/:roomId')
+extension on BuildContext {
+  void navToLive(String roomId) => LiveRouteData(roomId).push(this);
+}
+
+@TypedGoRoute<LiveRouteData>(path: RoutePaths.live+'/:roomId')
 @immutable
 class LiveRouteData extends GoRouteData with $LiveRouteData {
   final String roomId;

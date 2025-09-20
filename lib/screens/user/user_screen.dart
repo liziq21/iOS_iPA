@@ -4,7 +4,7 @@ class UserScreen extends StatefulWidget {
   final VoidCallback? onBackClick;
   final String mid;
   
-  UserScreen({
+  const UserScreen({
     super.key,
     this.onBackClick,
     required this.mid,
