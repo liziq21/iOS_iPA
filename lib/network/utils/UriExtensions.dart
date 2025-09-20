@@ -2,19 +2,20 @@ import 'package:http/http.dart' as http;
 
 extension on Uri {
   Future<Uri> getFinalUrl() async {
+    var finalUri = this;
     for (var i = 0; i < 5; i++) {
-      final response = await http.get(this);
+      final response = await http.get(finalUri);
       if (response.statusCode case 301 || 302 || 303 || 307 || 308) {
         final location = response.headers['location'];
         if (location == null || location.isEmpty) {
-          throw Exception('getFinalUrl ' + Uri.toString + ': Not Location-Header');
+          throw Exception('getFinalUrl ${finalUri.toString()}: Not Location-Header');
         }
-        this = Uri.parse(location);
+        finalUri = Uri.parse(location);
       } else {
-        return this;
+        return finalUri;
       }
     }
-    throw Exception('getFinalUrl ' + Uri.toString + ': 重定向过多');
+    throw Exception('getFinalUrl ${toString()}: 重定向过多');
   }
   
   String get lastSegdment => pathSegments.isNotEmpty ? pathSegments.last : "";

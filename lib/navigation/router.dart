@@ -5,7 +5,7 @@ import '../screens/live/live_screen.dart';
 import '../screens/search/search_screen.dart';
 import '../screens/user/user_screen.dart';
 import '../screens/video/video_screen.dart';
-import '../utils/bili_utils.dart';
+import 'bili_utils.dart';
 //import 'route_paths.dart';
 
 part 'route_data/home_route_data.dart';
@@ -19,9 +19,7 @@ part 'router.g.dart';
 final GoRouter router = GoRouter(
   routes: $appRoutes,
   initialLocation: '/',
-  redirect: (context, state) =>
-    if (uri.isHTTPScheme) BiliUtils.httpToRoutePath(uri);
-    else null;,
+  redirect: (context, state) => BiliUtils.httpToRoutePath(uri);
 );
 
 
