@@ -19,7 +19,7 @@ class BiliUtils {
       return switch (secondLevelDomain) {
         RoutePath.live || RoutePath.search ||
         RoutePath.space => '/$secondLevelDomain/${uri.lastSegdment}',
-        _ => RoutePath.home
+        _ => RoutePath.home;
       };
     }
   }
