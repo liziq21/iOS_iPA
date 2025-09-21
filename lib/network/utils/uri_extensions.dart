@@ -1,11 +1,40 @@
-import 'dart:core';
 import 'package:http/http.dart' as http;
+
+import 'package:dio/dio.dart';
+
+Future<String> getFinalUrlWithDio(String url) async {
+  final dio = Dio();
+  try {
+    final response = await dio.head(
+      url,
+      options: Options(validateStatus: (status) => true),
+    );
+    if (response.isRedirect) {
+      return getFinalUrlWithDio(response.realUri.toString());
+    }
+    return url;
+  } catch (e) {
+    return url; // Bei Fehlern die ursprüngliche URL zurückgeben
+  }
+}
 
 extension UriExtensions on Uri {
   Future<Uri> getFinalUrl() async {
     var finalUri = this;
+    final dio = Dio();
+    try {
     for (var i = 0; i < 5; i++) {
-      final response = await http.get(finalUri);
+      final response = await dio.head(
+        url,
+        options: Options(validateStatus: (status) => true),
+      );
+      if (response.isRedirect) {
+        return getFinalUrlWithDio(response.realUri.toString());
+      }
+      return url;
+    } catch (e) {
+      return url; // Bei Fehlern die ursprüngliche URL zurückgeben
+    }
       if (response.statusCode case 301 || 302 || 303 || 307 || 308) {
         final location = response.headers['location'];
         if (location == null || location.isEmpty) {

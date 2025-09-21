@@ -1,6 +1,6 @@
 part of '../router.dart';
 
-extension on BuildContext {
+extension BuildContextSpace on BuildContext {
   void navToSpace(String mid) => SpaceRouteData(mid).push(this);
 }
 

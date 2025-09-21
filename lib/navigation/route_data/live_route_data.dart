@@ -1,6 +1,6 @@
 part of '../router.dart';
 
-extension on BuildContext {
+extension BuildContextLive on BuildContext {
   void navToLive(String roomId) => LiveRouteData(roomId).push(this);
 }
 

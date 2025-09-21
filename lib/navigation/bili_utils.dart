@@ -1,10 +1,10 @@
-import '../network/utils/UriExtensions.dart';
+import '../network/utils/uri_extensions.dart';
 import 'route_path.dart';
 
 class BiliUtils {
   static Future<String?> httpToRoutePath(Uri uri) async {
     if (!uri.isHTTPScheme) {
-      if (uri.scheme != 'bilibili') {
+      if (!uri.isScheme('bilibili')) {
         throw Exception('Scheme is ' + uri.scheme + ': error');
       }
       return null;

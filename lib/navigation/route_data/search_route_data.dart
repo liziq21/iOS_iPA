@@ -1,6 +1,6 @@
 part of '../router.dart';
 
-extension on BuildContext {
+extension BuildContextSearch on BuildContext {
   void navToSearch(String? query) => SearchRouteData(query).push(this);
 }
 

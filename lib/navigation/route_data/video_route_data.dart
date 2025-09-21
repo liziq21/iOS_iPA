@@ -1,6 +1,6 @@
 part of '../router.dart';
 
-extension on BuildContext {
+extension BuildContextVideo on BuildContext {
   void navToVideo(String id) => VideoRouteData(id).push(this);
 }
 
