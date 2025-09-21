@@ -15,12 +15,12 @@ class BiliUtils {
     var secondLevelDomain = uri.secondLevelDomain;
     if (secondLevelDomain case 'www' || '') {
       return null;
-    } else {
-      return switch (secondLevelDomain) {
-        RoutePath.live || RoutePath.search ||
-        RoutePath.space => '/$secondLevelDomain/${uri.lastSegdment}',
-        _ => null,
-      };
     }
+    
+    return switch (secondLevelDomain) {
+      RoutePath.live || RoutePath.search ||
+      RoutePath.space => '/$secondLevelDomain/${uri.lastSegdment}',
+      _ => null,
+    };
   }
 }
