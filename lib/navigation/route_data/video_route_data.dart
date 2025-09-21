@@ -1,7 +1,7 @@
 part of '../router.dart';
 
 extension BuildContextVideo on BuildContext {
-  void navToVideo(String id) => VideoRouteData(id).push(this);
+  void navToVideo(String id) => VideoRouteData(id: id).push(this);
 }
 
 @TypedGoRoute<VideoRouteData>(path: '/${RoutePath.video}/:id')

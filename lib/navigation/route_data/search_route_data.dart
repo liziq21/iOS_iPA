@@ -1,7 +1,7 @@
 part of '../router.dart';
 
 extension BuildContextSearch on BuildContext {
-  void navToSearch(String? query) => SearchRouteData(query).push(this);
+  void navToSearch(String? query) => SearchRouteData(keyword: query).push(this);
 }
 
 @TypedGoRoute<SearchRouteData>(path: '/${RoutePath.search}')

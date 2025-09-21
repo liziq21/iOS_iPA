@@ -1,7 +1,7 @@
 part of '../router.dart';
 
 extension BuildContextLive on BuildContext {
-  void navToLive(String roomId) => LiveRouteData(roomId).push(this);
+  void navToLive(String roomId) => LiveRouteData(roomId: roomId).push(this);
 }
 
 @TypedGoRoute<LiveRouteData>(path: '/${RoutePath.live}/:roomId')
