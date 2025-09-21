@@ -18,7 +18,7 @@ part 'router.g.dart';
 final GoRouter router = GoRouter(
   routes: $appRoutes,
   initialLocation: '/${RoutePath.home}',
-  redirect: (context, state) => BiliUtils.httpToRoutePath(state.uri),
+  //redirect: (context, state) => BiliUtils.httpToRoutePath(state.uri),
 );
 
 
