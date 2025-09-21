@@ -10,7 +10,7 @@ class BiliUtils {
       return null;
     }
     
-    uri = await uri.getFinalUrl();
+    //uri = await uri.getFinalUrl();
     
     var secondLevelDomain = uri.secondLevelDomain;
     if (secondLevelDomain case 'www' || '') {
@@ -19,7 +19,7 @@ class BiliUtils {
       return switch (secondLevelDomain) {
         RoutePath.live || RoutePath.search ||
         RoutePath.space => '/$secondLevelDomain/${uri.lastSegdment}',
-        _ => RoutePath.home;
+        _ => null,
       };
     }
   }

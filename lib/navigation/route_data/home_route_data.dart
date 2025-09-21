@@ -14,7 +14,7 @@ class HomeRouteData extends GoRouteData with $HomeRouteData {
     return HomeScreen(
       onLive: (roomId) => context.navToLive(roomId),
       onSearch: (query) => context.navToSearch(query),
-      onUser: (mid) => context.navToUser(mid),
+      onUser: (mid) => context.navToSpace(mid),
       onVideo: (id) => context.navToVideo(id),
     );
   }
