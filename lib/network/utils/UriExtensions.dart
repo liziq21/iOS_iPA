@@ -1,6 +1,7 @@
+import 'dart:core';
 import 'package:http/http.dart' as http;
 
-extension on Uri {
+extension UriExtensions on Uri {
   Future<Uri> getFinalUrl() async {
     var finalUri = this;
     for (var i = 0; i < 5; i++) {
