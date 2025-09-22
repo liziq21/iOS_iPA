@@ -16,9 +16,15 @@ part 'route_data/video_route_data.dart';
 part 'router.g.dart';
 
 final GoRouter router = GoRouter(
+  onException: (_, GoRouterState state, GoRouter router) {
+    final path = BiliUtils.httpToRoutePath(state.uri);
+    if (path == null)  {
+      router.go('/${RoutePath.NotFound}/', extra: path state.uri.toString());
+    } else {
+      router.go(path);
+    }
+  },
   routes: $appRoutes,
   initialLocation: '/${RoutePath.home}',
   //redirect: (context, state) => BiliUtils.httpToRoutePath(state.uri),
 );
-
-

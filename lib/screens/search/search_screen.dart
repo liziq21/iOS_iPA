@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:go_router/go_router.dart';
+//import 'package:go_router/go_router.dart';
 
 class SearchScreen extends StatefulWidget {
   final String? initialQuery;
@@ -58,7 +58,7 @@ class _SearchScreenState extends State<SearchScreen> {
           children: [
             Text('Search query: ${widget.initialQuery ?? 'No query'}'),
             ElevatedButton(
-              onPressed: () => context.pop(),
+              onPressed: widget.onBackClick,
               child: const Text('pop'),
             ),
           ],
