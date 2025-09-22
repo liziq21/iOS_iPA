@@ -19,7 +19,7 @@ final GoRouter router = GoRouter(
   onException: (_, GoRouterState state, GoRouter router) {
     final path = BiliUtils.httpToRoutePath(state.uri);
     if (path == null)  {
-      router.go('/${RoutePath.NotFound}/', extra: path state.uri.toString());
+      router.go('/${RoutePath.NotFound}/', extra: state.uri.toString());
     } else {
       router.go(path);
     }
