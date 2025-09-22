@@ -1,6 +1,6 @@
-import '../screens/home/home_screen.dart';
-
 part of '../router.dart';
+
+import '../screens/home/home_screen.dart';
 
 extension BuildContextHome on BuildContext {
   void navToHome() => HomeRouteData().push(this);
