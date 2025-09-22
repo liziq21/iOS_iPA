@@ -1,7 +1,7 @@
 
 class RoutePath {
 
-  static const String notFound   = '404';
+  static const String notFound = '404';
   
   static const String home   = '';
 
