@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
-import '../screens/home/home_screen.dart';
 import '../screens/live/live_screen.dart';
 import '../screens/not_found/not_found_screen.dart';
 import '../screens/search/search_screen.dart';

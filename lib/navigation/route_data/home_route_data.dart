@@ -1,3 +1,5 @@
+import '../screens/home/home_screen.dart';
+
 part of '../router.dart';
 
 extension BuildContextHome on BuildContext {
