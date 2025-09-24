@@ -1,10 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
+
+import '../screens/home/home_screen.dart';
 import '../screens/live/live_screen.dart';
 import '../screens/not_found/not_found_screen.dart';
 import '../screens/search/search_screen.dart';
 import '../screens/space/space_screen.dart';
 import '../screens/video/video_screen.dart';
+
 import 'bili_utils.dart';
 import 'route_path.dart';
 
@@ -18,9 +21,9 @@ part 'router.g.dart';
 
 final GoRouter router = GoRouter(
   onException: (_, GoRouterState state, GoRouter router) {
-    final path = BiliUtils.httpToRoutePath(state.uri);
+    final path = BiliUtils.getRoutePath(state.uri);
     if (path == null)  {
-      router.go('/${RoutePath.notFound}/', extra: state.uri.toString());
+      router.go('/${RoutePath.otFound}/', extra: state.uri.toString());
     } else {
       router.go(path);
     }
