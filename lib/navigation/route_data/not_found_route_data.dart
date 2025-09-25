@@ -1,6 +1,6 @@
 part of '../router.dart';
 
-@TypedGoRoute<NotFoundRouteData>(path: '/${RoutePath.notFound}/')
+@TypedGoRoute<NotFoundRouteData>(path: '/${RoutePath.notFound}')
 @immutable
 class NotFoundRouteData extends GoRouteData with $NotFoundRouteData {
   const NotFoundRouteData();
@@ -10,7 +10,7 @@ class NotFoundRouteData extends GoRouteData with $NotFoundRouteData {
     final uri = state.extra as Uri?;
     return NotFoundScreen(
       uri: uri.toString(),
-      path: (uri?.path ?? '') + ' -> ' + (uri?.toString()?.substring(10) ?? '')
+      path: "${uri?.path ?? ''} -> ${uri?.toString()?.substring(10) ?? ''}"
     );
   }
 }
