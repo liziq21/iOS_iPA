@@ -4,7 +4,7 @@ class NotFoundScreen extends StatelessWidget {
   const NotFoundScreen({
     super.key,
     required this.uri,
-    required this.path
+    required this.path,
   });
 
   final String uri;

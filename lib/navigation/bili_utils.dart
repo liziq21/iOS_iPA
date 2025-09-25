@@ -5,9 +5,9 @@ class BiliUtils {
   static String? getRoutePath(Uri uri) {
     if (!uri.isHTTPScheme) {
       if (!uri.isScheme('bilibili')) {
-        throw Exception('Scheme is ' + uri.scheme + ': error');
+        throw Exception('Scheme is ${uri.scheme}: error');
       }
-      return uri.toString().substring(uri.origin.length);
+      return '/${uri.toString().substring(11)}';
     }
     
     //uri = await uri.getFinalUrl();

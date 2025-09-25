@@ -19,11 +19,11 @@ extension UriExtensions on Uri {
     throw Exception('getFinalUrl ${toString()}: 重定向过多');
   }*/
   
-  String get lastSegdment => pathSegments.isNotEmpty ? pathSegments.last : "";
+  String get lastSegdment => pathSegments.isNotEmpty ? pathSegments.last : '';
   
   List<String> get hostParts => host.split('.');
   
-  String get secondLevelDomain => hostParts.length >= 2 ? hostParts[0] : "";
+  String get secondLevelDomain => hostParts.length >= 2 ? hostParts[0] : '';
   
   bool get isHTTPScheme => scheme == 'http' || scheme == 'https';
   
