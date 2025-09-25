@@ -7,8 +7,10 @@ class NotFoundRouteData extends GoRouteData with $NotFoundRouteData {
 
   @override
   Widget build(BuildContext context, GoRouterState state) {
+    let uri = state.extra as Uri?;
     return NotFoundScreen(
-      uri: state.extra as String? ?? '',
+      uri: uri.toString,
+      path: uri?.path ?? ''
     );
   }
 }

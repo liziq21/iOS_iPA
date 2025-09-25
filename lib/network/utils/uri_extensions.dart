@@ -27,11 +27,5 @@ extension UriExtensions on Uri {
   
   bool get isHTTPScheme => scheme == 'http' || scheme == 'https';
   
-  Uri get moveHostToPath => Uri(
-    scheme: this.scheme,
-    path: '/${this.scheme}${this.Path}',
-    query: this.query,
-    fragment: this.fragment,
-  );
 }
 

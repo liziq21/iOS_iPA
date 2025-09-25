@@ -2,12 +2,12 @@ import '../network/utils/uri_extensions.dart';
 import 'route_path.dart';
 
 class BiliUtils {
-  static String? getRoutePath(Uri uri) async {
+  static String? getRoutePath(Uri uri) {
     if (!uri.isHTTPScheme) {
       if (!uri.isScheme('bilibili')) {
         throw Exception('Scheme is ' + uri.scheme + ': error');
       }
-      return null;
+      return uri.toString().substring(uri.origin.length);
     }
     
     //uri = await uri.getFinalUrl();
