@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 import '../navigation/router.dart';
 
 class App extends StatefulWidget {
@@ -9,36 +10,40 @@ class App extends StatefulWidget {
 }
 
 class _AppState extends State<App> {
-
   @override
   Widget build(BuildContext context) {
     return MaterialApp.router(
       routerConfig: router,
-      routeInformationParser: _CustomRouteInformationParser(router.routeInformationParser),
+      routeInformationParser: _GoRouteInformationParser(
+        configuration: router.configuration,
+        onParserException: router.onParserException
+      ),
     );
   }
 }
 
-class _CustomRouteInformationParser extends RouteInformationParser<RouteMatchList> {
-  final RouteInformationParser<RouteMatchList> _originalParser;
-
-  _CustomRouteInformationParser(this._originalParser);
+class _GoRouteInformationParser extends GoRouteInformationParser {
+  CustomRouteParser({required super.configuration, required super.onParserException});
 
   @override
-  Future<RouteMatchList> parseRouteInformation(RouteInformation routeInformation) async {
-    if (routeInformation.location?.startsWith('bilibili://') ?? false) {
-      final modifiedLocation = routeInformation.location!.replaceFirst(
-        'bilibili://', 
-        'bilibili:///'
-      );
-      routeInformation = RouteInformation(location: modifiedLocation);
+  Future<RouteMatchList> parseRouteInformationWithDependencies(
+    RouteInformation routeInformation,BuildContext context
+  ) {
+    
+    final uri = routeInformation.uri;
+    if (uri.isScheme('bilibili') && uri.host != null) {
+      uri = uri.replace(
+        host: null,
+        path: '/${newUri.host}/${newUri.path}'
+      )
     }
-    return _originalParser.parseRouteInformation(routeInformation);
-  }
-
-  @override
-  RouteInformation? restoreRouteInformation(RouteMatchList configuration) {
-    return _originalParser.restoreRouteInformation(configuration);
-    //return result ?? RouteInformation(location: '/');
+    
+    return super.parseRouteInformationWithDependencies(
+      routeInformation: RouteInformation(
+        uri: uri,
+        state: routeInformation.state,
+      ),
+      context: context
+    );
   }
 }
