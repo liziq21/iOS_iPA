@@ -14,6 +14,30 @@ class _AppState extends State<App> {
   Widget build(BuildContext context) {
     return MaterialApp.router(
       routerConfig: router,
+      routeInformationParser: _CustomRouteInformationParser(router.routeInformationParser),
     );
+  }
+}
+
+class _CustomRouteInformationParser extends RouteInformationParser<Object> {
+  final RouteInformationParser<Object> _originalParser;
+
+  _CustomRouteInformationParser(this._originalParser);
+
+  @override
+  Future<Object> parseRouteInformation(RouteInformation routeInformation) async {
+    if (routeInformation.location?.startsWith('bili://') ?? false) {
+      final modifiedLocation = routeInformation.location!.replaceFirst(
+        'bili://', 
+        'bili:///'
+      );
+      routeInformation = RouteInformation(location: modifiedLocation);
+    }
+    return _originalParser.parseRouteInformation(routeInformation);
+  }
+
+  @override
+  RouteInformation restoreRouteInformation(Object configuration) {
+    return _originalParser.restoreRouteInformation(configuration);
   }
 }
