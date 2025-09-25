@@ -23,7 +23,7 @@ class _AppState extends State<App> {
 }
 
 class _GoRouteInformationParser extends GoRouteInformationParser {
-  CustomRouteParser({required super.configuration, required super.onParserException});
+  _GoRouteInformationParser({required super.configuration, required super.onParserException});
 
   @override
   Future<RouteMatchList> parseRouteInformationWithDependencies(
