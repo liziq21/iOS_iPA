@@ -26,7 +26,7 @@ class _CustomRouteInformationParser extends RouteInformationParser<Object> {
 
   @override
   Future<Object> parseRouteInformation(RouteInformation routeInformation) async {
-    if (routeInformation.location?.startsWith('bili://') ?? false) {
+    if (routeInformation.location?.startsWith('bilibili://') ?? false) {
       final modifiedLocation = routeInformation.location!.replaceFirst(
         'bilibili://', 
         'bilibili:///'
@@ -37,8 +37,8 @@ class _CustomRouteInformationParser extends RouteInformationParser<Object> {
   }
 
   @override
-  RouteInformation restoreRouteInformation(Object configuration) {
-    final result = _originalParser.restoreRouteInformation(configuration);
-    return result ?? RouteInformation(location: '/');
+  RouteInformation? restoreRouteInformation(Object configuration) {
+    return _originalParser.restoreRouteInformation(configuration);
+    //return result ?? RouteInformation(location: '/');
   }
 }
