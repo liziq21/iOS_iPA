@@ -7,7 +7,7 @@ class BiliUtils {
       if (!uri.isScheme('bilibili')) {
         throw Exception('Scheme is ${uri.scheme}: error');
       }
-      return '/${uri.toString().substring(11)}';
+      return uri.toString().substring(10);
     }
     
     //uri = await uri.getFinalUrl();
