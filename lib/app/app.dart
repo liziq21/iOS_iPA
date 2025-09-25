@@ -38,6 +38,7 @@ class _CustomRouteInformationParser extends RouteInformationParser<Object> {
 
   @override
   RouteInformation restoreRouteInformation(Object configuration) {
-    return _originalParser.restoreRouteInformation(configuration);
+    final result = _originalParser.restoreRouteInformation(configuration);
+    return result ?? RouteInformation(location: '/');
   }
 }
