@@ -19,13 +19,13 @@ class _AppState extends State<App> {
   }
 }
 
-class _CustomRouteInformationParser extends RouteInformationParser<Object> {
-  final RouteInformationParser<Object> _originalParser;
+class _CustomRouteInformationParser extends RouteInformationParser<RouteMatchList> {
+  final RouteInformationParser<RouteMatchList> _originalParser;
 
   _CustomRouteInformationParser(this._originalParser);
 
   @override
-  Future<Object> parseRouteInformation(RouteInformation routeInformation) async {
+  Future<RouteMatchList> parseRouteInformation(RouteInformation routeInformation) async {
     if (routeInformation.location?.startsWith('bilibili://') ?? false) {
       final modifiedLocation = routeInformation.location!.replaceFirst(
         'bilibili://', 
@@ -37,7 +37,7 @@ class _CustomRouteInformationParser extends RouteInformationParser<Object> {
   }
 
   @override
-  RouteInformation? restoreRouteInformation(Object configuration) {
+  RouteInformation? restoreRouteInformation(RouteMatchList configuration) {
     return _originalParser.restoreRouteInformation(configuration);
     //return result ?? RouteInformation(location: '/');
   }
