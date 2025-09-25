@@ -28,8 +28,8 @@ class _CustomRouteInformationParser extends RouteInformationParser<Object> {
   Future<Object> parseRouteInformation(RouteInformation routeInformation) async {
     if (routeInformation.location?.startsWith('bili://') ?? false) {
       final modifiedLocation = routeInformation.location!.replaceFirst(
-        'bili://', 
-        'bili:///'
+        'bilibili://', 
+        'bilibili:///'
       );
       routeInformation = RouteInformation(location: modifiedLocation);
     }
