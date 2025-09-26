@@ -25,16 +25,16 @@ final GoRouter router = GoRouter(
     if (path == null)  {
       router.go('/${RoutePath.notFound}', extra: state.uri);
     } else {
-      //router.go(path);
-      final uri = state.uri;
+      router.go(path);
+      /*final uri = state.uri;
       router.go(
         '/${RoutePath.notFound}',
         extra: Uri(
-          path: '/${uri.host}/${uri.path}',
+          path: '/${uri.host}${uri.path}',
           queryParameters: uri.queryParametersAll.isEmpty ? null : uri.queryParametersAll,
           fragment: uri.fragment.isEmpty ? null : uri.fragment,
         ),
-      );
+      );*/
     }
   },
   routes: $appRoutes,
