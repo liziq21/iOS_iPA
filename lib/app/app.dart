@@ -13,11 +13,7 @@ class _AppState extends State<App> {
   @override
   Widget build(BuildContext context) {
     return MaterialApp.router(
-      routerConfig: router,
-      routeInformationParser: _GoRouteInformationParser(
-        configuration: router.configuration,
-        onParserException: null
-      ),
+      routerConfig: router
     );
   }
 }
