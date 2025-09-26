@@ -16,7 +16,7 @@ class _AppState extends State<App> {
       routerConfig: router,
       routeInformationParser: _GoRouteInformationParser(
         configuration: router.configuration,
-        onParserException: router.onParserException
+        onParserException: null
       ),
     );
   }
@@ -30,20 +30,20 @@ class _GoRouteInformationParser extends GoRouteInformationParser {
     RouteInformation routeInformation,BuildContext context
   ) {
     
-    final uri = routeInformation.uri;
+    var uri = routeInformation.uri;
     if (uri.isScheme('bilibili') && uri.host != null) {
       uri = uri.replace(
         host: null,
-        path: '/${newUri.host}/${newUri.path}'
-      )
+        path: '/${uri.host}/${uri.path}'
+      );
     }
     
     return super.parseRouteInformationWithDependencies(
-      routeInformation: RouteInformation(
+      RouteInformation(
         uri: uri,
         state: routeInformation.state,
       ),
-      context: context
+      context
     );
   }
 }
