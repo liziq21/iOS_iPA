@@ -33,7 +33,7 @@ class _GoRouteInformationParser extends GoRouteInformationParser {
     var newRouteInformation = routeInformation;
     final uri = routeInformation.uri;
     if (uri.isScheme('bilibili') && uri.host.isNotEmpty && !uri.toString().startsWith('bilibili:///')) {
-      newRouteInformation = routeInformation(
+      newRouteInformation = RouteInformation(
         uri: Uri(
           path: '/${uri.host}/${uri.path}',
           queryParameters: uri.queryParametersAll.isEmpty ? null : uri.queryParametersAll,
