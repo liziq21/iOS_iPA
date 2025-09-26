@@ -21,13 +21,13 @@ part 'router.g.dart';
 
 final GoRouter router = GoRouter(
   onException: (_, GoRouterState state, GoRouter router) {
-    /*final path = BiliUtils.getRoutePath(state.uri);
+    final path = BiliUtils.getRoutePath(state.uri);
     if (path == null)  {
       router.go('/${RoutePath.notFound}', extra: state.uri);
     } else {
       router.go(path);
-    }*/
-    router.go('/${RoutePath.notFound}', extra: state.uri);
+    }
+    //router.go('/${RoutePath.notFound}', extra: state.uri);
   },
   routes: $appRoutes,
   initialLocation: '/${RoutePath.home}',
