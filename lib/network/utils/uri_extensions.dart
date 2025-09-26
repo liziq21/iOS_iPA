@@ -25,7 +25,7 @@ extension UriExtensions on Uri {
   
   String get secondLevelDomain => hostParts.length >= 2 ? hostParts[0] : '';
   
-  bool get isHTTPScheme => scheme == 'http' || scheme == 'https';
+  bool get isHTTPScheme => isScheme('http') || isScheme('https');
   
 }
 

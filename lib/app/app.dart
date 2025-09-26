@@ -30,18 +30,21 @@ class _GoRouteInformationParser extends GoRouteInformationParser {
     RouteInformation routeInformation,BuildContext context
   ) {
     
-    var uri = routeInformation.uri;
-    final uriStr = uri.toString();
-    if (uri.isScheme('bilibili') && !uriStr.startsWith('bilibili:///')) {
-      uri = Uri.parse(uriStr.replaceFirst('//', '///'));
+    var newRouteInformation = routeInformation;
+    final uri = routeInformation.uri;
+    if (uri.isScheme('bilibili') && uri.host.isNotEmpty && !uri.toString().startsWith('bilibili:///')) {
+      newRouteInformation = routeInformation(
+        uri: Uri(
+          path: '/${uri.host}/${uri.path}',
+          queryParameters: uri.queryParametersAll.isEmpty ? null : uri.queryParametersAll,
+          fragment: uri.fragment.isEmpty ? null : uri.fragment,
+        ),
+        state: routeInformation.state,
+      );
     }
     
     return super.parseRouteInformationWithDependencies(
-      RouteInformation(
-        uri: uri,
-        state: routeInformation.state,
-      ),
-      context
+      newRouteInformation, context
     );
   }
 }
