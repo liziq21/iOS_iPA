@@ -9,7 +9,7 @@ class BiliUtils {
       }
       return Uri.decodeComponent(
         Uri(
-          path: '/${uri.host}/${uri.path}',
+          path: '/${uri.host}${uri.path}',
           queryParameters: uri.queryParametersAll.isEmpty ? null : uri.queryParametersAll,
           fragment: uri.fragment.isEmpty ? null : uri.fragment,
         ).toString(),
