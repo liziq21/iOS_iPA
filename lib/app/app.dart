@@ -18,29 +18,3 @@ class _AppState extends State<App> {
   }
 }
 
-class _GoRouteInformationParser extends GoRouteInformationParser {
-  _GoRouteInformationParser({required super.configuration, required super.onParserException});
-
-  @override
-  Future<RouteMatchList> parseRouteInformationWithDependencies(
-    RouteInformation routeInformation,BuildContext context
-  ) {
-    
-    var newRouteInformation = routeInformation;
-    final uri = routeInformation.uri;
-    if (uri.isScheme('bilibili') && uri.host.isNotEmpty && !uri.toString().startsWith('bilibili:///')) {
-      newRouteInformation = RouteInformation(
-        uri: Uri(
-          path: '/${uri.host}/${uri.path}',
-          queryParameters: uri.queryParametersAll.isEmpty ? null : uri.queryParametersAll,
-          fragment: uri.fragment.isEmpty ? null : uri.fragment,
-        ),
-        state: routeInformation.state,
-      );
-    }
-    
-    return super.parseRouteInformationWithDependencies(
-      newRouteInformation, context
-    );
-  }
-}

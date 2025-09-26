@@ -8,17 +8,17 @@ extension BuildContextVideo on BuildContext {
 @immutable
 class VideoRouteData extends GoRouteData with $VideoRouteData {
   final String id;
-  /*final String? cid;
+  final String? cid;
   final String? comment_root_id;
   final String? comment_secondary_id;
-  final String? dm_progress;*/
+  final String? dm_progress;
   
   const VideoRouteData({
     required this.id,
-    /*this.cid,
+    this.cid,
     this.comment_root_id,
     this.comment_secondary_id,
-    this.dm_progress,*/
+    this.dm_progress,
   });
 
   @override

@@ -19,4 +19,3 @@ class HomeRouteData extends GoRouteData with $HomeRouteData {
     );
   }
 }
-
