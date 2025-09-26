@@ -32,7 +32,7 @@ class _GoRouteInformationParser extends GoRouteInformationParser {
     
     var uri = routeInformation.uri;
     final uriStr = uri.toString();
-    if (uri.isScheme('bilibili') && !uriStr.startsWith('bilibili:///') {
+    if (uri.isScheme('bilibili') && !uriStr.startsWith('bilibili:///')) {
       uri = Uri.parse(uriStr.replaceFirst('//', '///'));
     }
     
