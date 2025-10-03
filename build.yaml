@@ -3,8 +3,12 @@ targets:
     builders:
       freezed:
         generate_for:
-          include:
-            - lib/network/model/*.dart
+          - lib/network/model/**.dart
+        options:
+          copyWith: false
+          equal: false
+          toJson: false
+          to_string: false
       go_router_builder:
         generate_for:
           include:
@@ -13,9 +17,6 @@ targets:
         options:
           checked: true
           explicit_to_json: true
-        generate_for:
-          include:
-            - lib/network/model/*.dart
       retrofit_generator:
         generate_for:
           include:
