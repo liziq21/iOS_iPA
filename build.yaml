@@ -14,7 +14,10 @@ targets:
           include:
             - lib/navigation/router.dart
       json_serializable:
+        generate_for:
+          - lib/network/model/**.dart
         options:
+          createToJson: false
           checked: true
           explicit_to_json: true
       retrofit_generator:

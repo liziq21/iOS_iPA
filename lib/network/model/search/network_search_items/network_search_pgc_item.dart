@@ -3,7 +3,7 @@ library augment '../network_search_item.dart';
 augment class NetworkSearchItem {
   @FreezedUnionValue('media_bangumi')
   const factory NetworkSearchItem.mediaBangumi(
-    String type
+    String type,
     @JsonKey(name: 'media_id')
     int mediaId,
     HtmlTitle title,
@@ -35,7 +35,7 @@ augment class NetworkSearchItem {
     String styles,
     @JsonKey(name: 'goto_url')
     String gotoUrl,
-    String desc
+    String desc,
     int pubtime,
     @JsonKey(name: 'media_mode')
     int mediaMode,

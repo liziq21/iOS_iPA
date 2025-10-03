@@ -20,7 +20,7 @@ abstract class NetworkDataSource {
   );
   
   Future<List<NetworkSearchByType>> getSearchByType(
-    SearchType searchType,
+    String searchType,
     String keyword,
     int page,
     {

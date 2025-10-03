@@ -1,7 +1,7 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:html/parser.dart' show parse;
 import 'package:json_annotation/json_annotation.dart';
-import '../user/network_user_official_verify.dart'
+import '../user/network_user_official_verify.dart';
 import 'html_title.dart';
 
 part 'network_search_items.freezed.dart';

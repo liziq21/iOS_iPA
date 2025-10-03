@@ -2,14 +2,14 @@ library augment '../network_search_item.dart';
 
 augment class NetworkSearchItem {
   const factory NetworkSearchItem.article(
-    int pubtime
+    int pubtime,
     @JsonKey(name: 'pub_time')
     int pubTime,
-    int like = json['like'];
+    int like,
     HtmlTitle title,
     @JsonKey(name: 'rank_offset')
     int rankOffset,
-    int mid
+    int mid,
     List<String> imageUrls,
     int id,
     @JsonKey(name: 'category_id')

@@ -5,7 +5,7 @@ part 'network_user.g.dart';
 
 @freezed
 abstract class NetworkUserOfficialVerify {
-  const factory(
+  const factory NetworkUserOfficialVerify(
     int type,
     String desc,
   ) = _NetworkUserOfficialVerify;

@@ -18,7 +18,7 @@ abstract class RetrofitNetworkApi {
   @GET('/x/web-interface/search/all/v2')
   Future<List<Task>> getSearchAll(
     @Query() String keyword,
-    @Query() int page: 1, {
+    @Query() int page, {
     @Query() String? order,
     @Query() int? duration,
     @Query() int? tids,
@@ -34,7 +34,7 @@ abstract class RetrofitNetworkApi {
   Future<List<Task>> getSearchByType(
     @Query('search_type') String searchType,
     @Query() String keyword,
-    @Query() int page: 1, {
+    @Query() int page, {
     @Query() String? order,
     @Query() int? duration,
     @Query() int? tids,
@@ -48,9 +48,9 @@ abstract class RetrofitNetworkApi {
   @GET('https://s.search.bilibili.com/main/suggest')
   Future<List<Task>> getSearchSuggest(
     @Query() String term,
+    @Query() String highlight, {
     @Query('main_ver') String mainVer: 'v1',
-    @Query() String highlight,
-  );
+  });
 
   /*@GET('/tasks')
   Future<List<Task>> getTopicPubSearch(
@@ -71,8 +71,8 @@ class RetrofitNetwork implements NetworkDataSource {
   final RetrofitNetworkApi networkApi;
   
   Future<List<NetworkSearch>> getSearchAll({
-    required String keyword,
-    required String page, {
+    String keyword,
+    String page, {
     String? order,
     int? duration,
     int? tids,
@@ -95,9 +95,9 @@ class RetrofitNetwork implements NetworkDataSource {
   );
   
   Future<List<NetworkSearch>> getSearchByType({
-    required String searchType,
-    required String keyword,
-    required int page, {
+    String searchType,
+    String keyword, 
+    int page, {
     String? order,
     int? duration,
     int? tids,
@@ -120,8 +120,8 @@ class RetrofitNetwork implements NetworkDataSource {
     pubEnd: pubEnd,
   );
   
-  Future<NetworkSearchSuggest> getSearchSuggest({required String term}) async =>
-    networkApi.getSearchSuggest(term, 'v1', term);
+  Future<NetworkSearchSuggest> getSearchSuggest(String term) async =>
+    networkApi.getSearchSuggest(term, term);
   
   /*Future<NetworkTopicPubSearch> getTopicPubSearch({
     required String keywords,
