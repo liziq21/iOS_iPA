@@ -9,7 +9,7 @@ import '../screens/space/space_screen.dart';
 import '../screens/video/video_screen.dart';
 
 import 'bili_utils.dart';
-import 'route_path.dart';
+import 'routes.dart';
 
 part 'route_data/home_route_data.dart';
 part 'route_data/live_route_data.dart';
@@ -23,12 +23,12 @@ final GoRouter router = GoRouter(
   onException: (_, GoRouterState state, GoRouter router) {
     final path = BiliUtils.getRoutePath(state.uri);
     if (path == null)  {
-      router.go('/${RoutePath.notFound}', extra: state.uri);
+      router.go(Routes.notFound, extra: state.uri);
     } else {
       router.go(path);
       /*final uri = state.uri;
       router.go(
-        '/${RoutePath.notFound}',
+        Routes.notFound,
         extra: Uri(
           path: '/${uri.host}${uri.path}',
           queryParameters: uri.queryParametersAll.isEmpty ? null : uri.queryParametersAll,
@@ -38,6 +38,6 @@ final GoRouter router = GoRouter(
     }
   },
   routes: $appRoutes,
-  initialLocation: '/${RoutePath.home}',
+  initialLocation: Routes.home',
   //redirect: (context, state) => BiliUtils.httpToRoutePath(state.uri),
 );

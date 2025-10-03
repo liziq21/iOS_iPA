@@ -1,7 +1,22 @@
 targets:
   $default:
     builders:
+      freezed:
+        generate_for:
+          include:
+            - lib/network/model/*.dart
       go_router_builder:
         generate_for:
           include:
             - lib/navigation/router.dart
+      json_serializable:
+        options:
+          checked: true
+          explicit_to_json: true
+        generate_for:
+          include:
+            - lib/network/model/*.dart
+      retrofit_generator:
+        generate_for:
+          include:
+            - lib/network/retrofit/retrofit_network.dart

@@ -1,10 +1,10 @@
 part of '../router.dart';
 
 extension BuildContextSpace on BuildContext {
-  void navToSpace(String mid) => SpaceRouteData(mid: mid).push(this);
+  void pushToSpace(String mid) => SpaceRouteData(mid: mid).push(this);
 }
 
-@TypedGoRoute<SpaceRouteData>(path: '/${RoutePath.space}/:mid')
+@TypedGoRoute<SpaceRouteData>(path: '${Routes.space}/:mid')
 @immutable
 class SpaceRouteData extends GoRouteData with $SpaceRouteData {
   final String mid;

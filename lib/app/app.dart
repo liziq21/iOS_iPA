@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
-import '../navigation/router.dart';
+import '../routing/router.dart';
 
 class App extends StatefulWidget {
   const App({super.key});

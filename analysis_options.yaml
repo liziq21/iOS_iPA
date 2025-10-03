@@ -1,8 +1,13 @@
 include: package:flutter_lints/flutter.yaml
 
 analyzer:
+  enable-experiment:
+    - macros
+  errors:
+    invalid_annotation_target: ignore
   exclude:
     - '**.g.dart'
+    - '**.freezed.dart'
   plugins:
     - custom_lint
 

@@ -1,6 +1,6 @@
 part of '../router.dart';
 
-@TypedGoRoute<NotFoundRouteData>(path: '/${RoutePath.notFound}')
+@TypedGoRoute<NotFoundRouteData>(path: Routes.notFound)
 @immutable
 class NotFoundRouteData extends GoRouteData with $NotFoundRouteData {
   const NotFoundRouteData();

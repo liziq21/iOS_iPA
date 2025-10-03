@@ -1,10 +1,10 @@
 part of '../router.dart';
 
 extension BuildContextSearch on BuildContext {
-  void navToSearch(String? query) => SearchRouteData(keyword: query).push(this);
+  void pushToSearch(String? query) => SearchRouteData(keyword: query).push(this);
 }
 
-@TypedGoRoute<SearchRouteData>(path: '/${RoutePath.search}')
+@TypedGoRoute<SearchRouteData>(path: Routes.search)
 @immutable
 class SearchRouteData extends GoRouteData with $SearchRouteData {
   final String? keyword;

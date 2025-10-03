@@ -1,10 +1,10 @@
 part of '../router.dart';
 
 extension BuildContextVideo on BuildContext {
-  void navToVideo(String id) => VideoRouteData(id: id).push(this);
+  void pushToVideo(String id) => VideoRouteData(id: id).push(this);
 }
 
-@TypedGoRoute<VideoRouteData>(path: '/${RoutePath.video}/:id')
+@TypedGoRoute<VideoRouteData>(path: '${Routes.video}/:id')
 @immutable
 class VideoRouteData extends GoRouteData with $VideoRouteData {
   final String id;
@@ -25,11 +25,13 @@ class VideoRouteData extends GoRouteData with $VideoRouteData {
   Widget build(BuildContext context, GoRouterState state) {
     return VideoScreen(
       onBackClick: () => context.pop(),
-      id: id,
-      /*cid: cid,
-      commentRootId: comment_root_id,
-      commentSecondaryId: comment_secondary_id,
-      dmProgress: dm_progress,*/
+      parameters: VideoParameters(
+        id: id,
+        cid: cid,
+        commentRootId: comment_root_id,
+        commentSecondaryId: comment_secondary_id,
+        dmProgress: dm_progress,
+      ),
     );
   }
 }

@@ -56,8 +56,13 @@ jobs:
 
       - run: flutter clean
       
-      - run: |
-          flutter build ios --no-codesign
+      - name: Build IPA
+        env:
+          SENTRY_DSN: ${{secrets.SENTRY_DSN}}
+        run: |
+          flutter build ios \
+            --no-codesign \
+            --dart-define=SENTRY_DSN="$SENTRY_DSN"
           ln -sf ./build/ios/iphoneos Payload
           zip -r app.ipa Payload
 

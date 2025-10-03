@@ -1,14 +1,21 @@
 import 'package:flutter/material.dart';
 
+class VideoParameters {
+  final String id;
+  final String? cid;
+  final String? comment_root_id;
+  final String? comment_secondary_id;
+  final String? dm_progress;
+}
 
 class VideoScreen extends StatefulWidget {
   final VoidCallback? onBackClick;
-  final String id;
+  final VideoParameters parameters;
   
   const VideoScreen({
     super.key,
     this.onBackClick,
-    required this.id,
+    required this.parameters,
   });
 
   @override
@@ -35,7 +42,7 @@ class _VideoScreenState extends State<VideoScreen> {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            Text('id: ${widget.id}'),
+            Text('id: ${widget.parameters.id}'),
             ElevatedButton(
               onPressed: widget.onBackClick,
               child: const Text('Back'),
