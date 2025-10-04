@@ -10,6 +10,6 @@ abstract class NetworkUserOfficialVerify {
     String desc,
   ) = _NetworkUserOfficialVerify;
 
-  NetworkUserOfficialVerify.fromJson(Map<String, dynamic> json)
+  factory NetworkUserOfficialVerify.fromJson(Map<String, dynamic> json)
     => _$NetworkUserOfficialVerifyFromJson(json);
 }
