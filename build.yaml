@@ -17,7 +17,7 @@ targets:
         generate_for:
           - lib/network/model/**.dart
         options:
-          createToJson: false
+          create_to_json: false
           checked: true
           explicit_to_json: true
       retrofit_generator:
