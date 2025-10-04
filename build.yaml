@@ -16,7 +16,7 @@ targets:
       injectable_generator:
         generate_for:
           exclude:
-            - lib/routing/**.dart:
+            - lib/routing/**.dart
       json_serializable:
         generate_for:
           - lib/network/model/**.dart
