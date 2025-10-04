@@ -13,6 +13,10 @@ targets:
         generate_for:
           include:
             - lib/navigation/router.dart
+      injectable_generator:
+        generate_for:
+          exclude:
+            - lib/routing/**.dart:
       json_serializable:
         generate_for:
           - lib/network/model/**.dart

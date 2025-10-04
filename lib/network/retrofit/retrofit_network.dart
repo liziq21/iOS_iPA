@@ -84,7 +84,7 @@ class RetrofitNetwork implements NetworkDataSource {
   }) async => networkApi.getSearchAll(
     keyword,
     page,
-    if (order?.isNotEmpty ?? false) order: order,
+    order: order?.isNotEmpty ?? true ? order : null,
     duration: duration,
     tids: tids,
     orderSort: orderSort,
@@ -94,7 +94,7 @@ class RetrofitNetwork implements NetworkDataSource {
     pubEnd: pubEnd,
   );
   
-  Future<List<NetworkSearch>> getSearchByType({
+  Future<List<NetworkSearch>> getSearchByType(
     String searchType,
     String keyword, 
     int page, {

@@ -4,7 +4,7 @@ part 'network_user.freezed.dart';
 part 'network_user.g.dart';
 
 @freezed
-abstract class NetworkUserOfficialVerify {
+abstract class NetworkUserOfficialVerify with _$NetworkUserOfficialVerify {
   const factory NetworkUserOfficialVerify(
     int type,
     String desc,

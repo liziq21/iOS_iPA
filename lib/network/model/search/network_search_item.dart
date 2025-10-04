@@ -169,7 +169,7 @@ sealed class NetworkSearchItem with _$NetworkSearchItem {
   ) = NetworkSearchVideoItem;
 
   factory NetworkSearchItem.fromJson(Map<String, dynamic> json) =>
-    _$NetworkSearchItemFromJson(json)
+    _$NetworkSearchItemFromJson(json);
 }
 
 class HtmlTitle{
@@ -177,10 +177,12 @@ class HtmlTitle{
   
   factory HtmlTitle.fromJson(String title) => HtmlTitle(title);
   
-  final String _title()
+  final String _title();
 
-  String stripTags() => parse(_title).body?.text ?? _title;
-
+  String stripTags() {
+    return parse(_title).body?.text ?? _title;
+  }
+  
   @override
   String toString() => _title;
 }

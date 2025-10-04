@@ -38,6 +38,6 @@ final GoRouter router = GoRouter(
     }
   },
   routes: $appRoutes,
-  initialLocation: Routes.home',
+  initialLocation: Routes.home,
   //redirect: (context, state) => BiliUtils.httpToRoutePath(state.uri),
 );
