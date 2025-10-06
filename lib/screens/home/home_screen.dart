@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 
 class HomeScreen extends StatefulWidget {
   final Function(String roomId) onLive;
-  final Function(String? quray) onSearch;
+  final Function(String? query) onSearch;
   final Function(String mid) onSpace;
   final Function(String id) onVideo;
   
@@ -44,7 +44,7 @@ class _HomeScreenState extends State<HomeScreen> {
               child: const Text('Live'),
             ),
             ElevatedButton(
-              onPressed: () => widget.onSearch('quray'),
+              onPressed: () => widget.onSearch('query'),
               child: const Text('Search'),
             ),
             ElevatedButton(
