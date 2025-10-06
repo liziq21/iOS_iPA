@@ -8,7 +8,7 @@ import '../screens/search/search_screen.dart';
 import '../screens/space/space_screen.dart';
 import '../screens/video/video_screen.dart';
 
-import 'bili_utils.dart';
+import '../bili/bili_utils.dart';
 import 'routes.dart';
 
 part 'route_data/home_route_data.dart';

@@ -1,4 +1,4 @@
-import '../network/utils/uri_extensions.dart';
+import 'uri_extensions.dart';
 import 'routes.dart';
 
 class BiliUtils {
@@ -9,13 +9,13 @@ class BiliUtils {
     if (uri.isHTTPScheme) {
       var secondLevelDomain = uri.secondLevelDomain;
       switch (secondLevelDomain) {
-        Routes.liveRelative || Routes.searchRelative ||
-        Routes.spaceRelative => path = '/$secondLevelDomain$path',
+        Routes.liveRelative || Routes.searchRelative
+        || Routes.spaceRelative => path = '/$secondLevelDomain$path',
         _ => return null,
       }
       
     } else {
-      if (!uri.isScheme('bilibili') && uri.toString().startsWith('bilibili:///')) {
+      if (!uri.isBilibiiScheme && uri.toString().startsWith('bilibili:///')) {
         throw Exception('Scheme is ${uri.scheme}: getRoutes error');
       }
       path = '/${uri.host}${uri.path}';

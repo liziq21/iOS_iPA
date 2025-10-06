@@ -14,7 +14,7 @@
   
 }
 
-class UserViewModel extends ChangeNotifier {
+class VideoViewModel extends ChangeNotifier {
   final WidgetRef ref;
 
   UserViewModel(this.ref);

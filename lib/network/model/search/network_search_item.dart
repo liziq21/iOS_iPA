@@ -1,16 +1,19 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:html/parser.dart' show parse;
 import 'package:json_annotation/json_annotation.dart';
-import '../user/network_user_official_verify.dart';
+import '../../bili/search_type.dart';
+import '../user/network_user_official_verify.dart';d
 import 'html_title.dart';
 
 part 'network_search_items.freezed.dart';
 part 'network_search_items.g.dart';
 
+@Json
+sealed interface NetworkSearchItem {}
+
 @Freezed(unionKey: 'result_type')
-sealed class NetworkSearchItem with _$NetworkSearchItem {
-  
-  const factory NetworkSearchItem.article(
+class NetworkSearchArticle implements NetworkSearchItem with _$NetworkSearchArticle {
+  const factory NetworkSearchArticle(
     int pubtime,
     @JsonKey(name: 'pub_time')
     int pubTime,
@@ -28,14 +31,19 @@ sealed class NetworkSearchItem with _$NetworkSearchItem {
     String desc,
     @JsonKey(name: 'rank_score')
     int rankScore,
-    String type,
+    SearchType type,
     int templateId,
     @JsonKey(name: 'category_name')
     String categoryName,
-  ) = NetworkSearchArticleItem;
+  ) = _NetworkSearchArticle;
+  
+  factory NetworkSearchArticle.fromJson(Map<String, dynamic> json)
+    => _$NetworkSearchArticleFromJson(json);
+}
 
-  @FreezedUnionValue('bili_live')
-  const factory NetworkSearchItem.biliLive(
+@freezed
+class NetworkSearchLive implements NetworkSearchItem with _$NetworkSearchLive {
+  const factory NetworkSearchLive(
     @JsonKey('rank_offset')
     int rankOffset,
     int uid,
@@ -47,7 +55,7 @@ sealed class NetworkSearchItem with _$NetworkSearchItem {
     String face,
     @JsonKey('user_cover')
     String userCover,
-    String type,
+    SearchType type,
     HtmlTitle title,
     String cover,
     int online,
@@ -61,11 +69,16 @@ sealed class NetworkSearchItem with _$NetworkSearchItem {
     String cateName,
     @JsonKey('watched_show')
     Map watchedShow,
-  ) = NetworkSearchLiveItem;
+  ) = _NetworkSearchLive;
+  
+  factory NetworkSearchLive.fromJson(Map<String, dynamic> json)
+    => _$NetworkSearchLiveFromJson(json);
+}
 
-  @FreezedUnionValue('bili_user')
-  const factory NetworkSearchItem.biliUser(
-    String type,
+@freezed
+class NetworkSearchBiliUser implements NetworkSearchItem with _$NetworkSearchBiliUser{
+  const factory NetworkSearchItem(
+    SearchType type,
     int mid,
     String uname,
     String usign,
@@ -90,11 +103,16 @@ sealed class NetworkSearchItem with _$NetworkSearchItem {
     NetworkUserOfficialVerify officialVerify,
     @JsonKey(name: 'is_senior_member')
     int isSeniorMember,
-  ) = NetworkSearchUserItem;
+  ) = _NetworkSearchBiliUser;
+  
+  factory NetworkSearchBiliUser.fromJson(Map<String, dynamic> json)
+    => _$NetworkSearchBiliUserFromJson(json);
+}
 
-  @FreezedUnionValue('media_bangumi')
-  const factory NetworkSearchItem.mediaBangumi(
-    String type,
+@freezed
+class NetworkSearchMedia implements NetworkSearchItem with _$NetworkSearchMedia {
+  const factory NetworkSearchMedia(
+    SearchType type,
     @JsonKey(name: 'media_id')
     int mediaId,
     HtmlTitle title,
@@ -134,10 +152,16 @@ sealed class NetworkSearchItem with _$NetworkSearchItem {
     Map mediaScore,
     @JsonKey(name: 'index_show')
     String indexShow,
-  ) = NetworkSearchPgcItem;
+  ) = _NetworkSearchMedia;
+  
+  factory NetworkSearchMedia.fromJson(Map<String, dynamic> json)
+    => _$NetworkSearchMediaFromJson(json);
+}
 
-  const factory NetworkSearchItem.video(
-    String type,
+@freezed
+class NetworkSearchVideo implements NetworkSearchItem with _$NetworkSearchVideo {
+  const factory NetworkSearchVideo(
+    SearchType type,
     int id,
     String author,
     int mid,
@@ -166,18 +190,19 @@ sealed class NetworkSearchItem with _$NetworkSearchItem {
     String desc,
     String url,
     int danmaku,
-  ) = NetworkSearchVideoItem;
-
-  factory NetworkSearchItem.fromJson(Map<String, dynamic> json) =>
-    _$NetworkSearchItemFromJson(json);
+  ) = _NetworkSearchVideo;
+  
+  factory NetworkSearchVideo.fromJson(Map<String, dynamic> json)
+    => _$NetworkSearchVideoFromJson(json);
 }
+
 
 class HtmlTitle{
   HtmlTitle(this._title);
   
   factory HtmlTitle.fromJson(String title) => HtmlTitle(title);
   
-  final String _title();
+  final String _title;
 
   String stripTags() {
     return parse(_title).body?.text ?? _title;

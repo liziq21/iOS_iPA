@@ -1,10 +1,10 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
 
-part 'network_user.freezed.dart';
-part 'network_user.g.dart';
+part 'network_user_official_verify.freezed.dart';
+part 'network_user_official_verify.g.dart';
 
 @freezed
-abstract class NetworkUserOfficialVerify with _$NetworkUserOfficialVerify {
+abstract class NetworkUserOfficialVerify with _$NetworkSearchSuggest {
   const factory NetworkUserOfficialVerify(
     int type,
     String desc,
