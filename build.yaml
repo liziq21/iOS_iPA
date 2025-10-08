@@ -20,7 +20,9 @@ targets:
             - lib/routing/*.dart
       json_serializable:
         generate_for:
-          - lib/network/model/**.dart
+          include:
+            - lib/network/retrofit/api_result.dart
+            - lib/network/model/**.dart
         options:
           create_to_json: false
           checked: true

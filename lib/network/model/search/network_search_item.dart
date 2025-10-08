@@ -2,8 +2,7 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:html/parser.dart' show parse;
 import 'package:json_annotation/json_annotation.dart';
 import '../../bili/search_type.dart';
-import '../user/network_user_official_verify.dart';d
-import 'html_title.dart';
+import '../user/network_user_official_verify.dart';
 
 part 'network_search_items.freezed.dart';
 part 'network_search_items.g.dart';

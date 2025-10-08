@@ -1,7 +1,7 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
 
-part 'network_search_by_type.freezed.dart';
-part 'network_search_by_type.g.dart';
+part 'network_type_search_.freezed.dart';
+part 'network_type_search.g.dart';
 
 @Freezed(genericArgumentFactories: true)
 abstract class NetworkTypeSearch<T> with _$NetworkTypeSearch<T> {
