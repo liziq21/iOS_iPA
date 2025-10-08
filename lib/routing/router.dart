@@ -9,7 +9,7 @@ import '../screens/space/space_screen.dart';
 import '../screens/video/video_screen.dart';
 
 import '../bili/bili_utils.dart';
-import 'routes.dart';
+import '../bili/routes.dart';
 
 part 'route_data/home_route_data.dart';
 part 'route_data/live_route_data.dart';

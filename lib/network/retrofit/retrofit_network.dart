@@ -9,6 +9,11 @@ import '../bili/search_order.dart';
 import '../bili/user_type.dart';
 import '../bili/video_duration_filter.dart';
 import '../network_data_source.dart';
+import 'model/search/neteork_search.dart'
+import 'model/search/neteork_type_search.dart'
+import 'model/search/neteork_search_item.dart'
+import 'model/search/network_search_suggest.dart';
+import 'utils/result.dart';
 
 part 'retrofit_network.g.dart';
 
@@ -33,7 +38,7 @@ abstract class RetrofitNetworkApi {
     @Query('search_type') String searchType,
     @Query() String keyword, {
     @Query() int? page,
-    @Query() String? order,
+    @Query() Enum implements SearchOrder? order,
     @Query() VideoDurationFilter? duration,
     @Query() int? tids,
     @Query('order_sort') int? orderSort,
@@ -43,12 +48,12 @@ abstract class RetrofitNetworkApi {
     @Query('pubtime_end_s') int? pubrimeEndS,
   });
 
+  @MetaData(main_ver: 'v1')
   @GET('https://s.search.bilibili.com/main/suggest')
   Future<List<Task>> getSearchSuggest(
     @Query() String term,
-    @Query() String highlight, [
-    @Query('main_ver') String mainVer: 'v1',
-  ]);
+    @Query() String highlight,
+  );
 }
 
 class BilibiliNetworkSearch implements NetworkSearchDataSource {

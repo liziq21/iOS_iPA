@@ -1,6 +1,6 @@
+abstract class SearchOrder {}
 
-
-enum ArticleSearchOrder {
+enum ArticleSearchOrder implements SearchOrder {
   totalrank,
   attention,
   click,
@@ -10,7 +10,7 @@ enum ArticleSearchOrder {
   stow;
 }
 
-enum PhotoOrVideoSearchOrder {
+enum PhotoOrVideoSearchOrder implements SearchOrder{
   totalrank,
   click,
   dm,
@@ -19,14 +19,14 @@ enum PhotoOrVideoSearchOrder {
   stow;
 }
 
-enum LiveRoomSearchOrder {
+enum LiveRoomSearchOrder implements SearchOrder{
   online, liveTime;
   
   @override
   String toString() => this == liveTime ? 'live_time' : super.toString();
 }
 
-enum UserSearchOrder {
+enum UserSearchOrder implements SearchOrder{
   default, fons, level;
   
   @override

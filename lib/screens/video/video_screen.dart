@@ -3,9 +3,17 @@ import 'package:flutter/material.dart';
 class VideoParameters {
   final String id;
   final String? cid;
-  final String? comment_root_id;
-  final String? comment_secondary_id;
-  final String? dm_progress;
+  final String? commentRootId;
+  final String? commentSecondaryId;
+  final String? dmProgress;
+  
+  const VideoParameters({
+    required this.id,
+    this.cid,
+    this.commentRootId,
+    this.commentSecondaryId,
+    this.dmProgress,
+  });
 }
 
 class VideoScreen extends StatefulWidget {

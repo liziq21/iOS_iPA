@@ -9,6 +9,7 @@ targets:
           equal: false
           toJson: false
           to_string: false
+          unionValueCase: snake
       go_router_builder:
         generate_for:
           include:

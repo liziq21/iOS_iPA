@@ -197,16 +197,14 @@ class NetworkSearchVideo implements NetworkSearchItem with _$NetworkSearchVideo 
 }
 
 
-class HtmlTitle{
+class HtmlTitle {
   HtmlTitle(this._title);
   
   factory HtmlTitle.fromJson(String title) => HtmlTitle(title);
   
   final String _title;
 
-  String stripTags() {
-    return parse(_title).body?.text ?? _title;
-  }
+  String stripTags() => parse(_title).body?.text ?? _title;
   
   @override
   String toString() => _title;
