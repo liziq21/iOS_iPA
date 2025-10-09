@@ -5,7 +5,7 @@ version: 1.0.0+1
 
 environment:
   sdk: 3.10.0-162.1.beta
-  flutter: 3.35.5
+  # flutter: 3.37.0-0.1.pre
 
 dependencies:
   flutter:
