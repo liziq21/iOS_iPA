@@ -5,10 +5,10 @@ part 'network_type_search.g.dart';
 
 @JsonSerializable(createToJson: false)
 abstract class NetworkTypeSearch<T> {
-  int numResults,
+  int numResults;
   
   @JsonKey(fromJson: _dataFromJson)
-  List<T> result,
+  List<T> result;
   
   const NetworkTypeSearch({this.numResults, this.result});
 

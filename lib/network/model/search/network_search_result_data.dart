@@ -11,16 +11,15 @@ interface class NetworkSearchResultData {
   static NetworkSearchResultData fromJson(Map<String, dynamic> json) {
     return switch (SearchType.parseType(json['type'] as String)) {
       .article => NetworkSearchAruticle.fromJson(json),
-      .biliUser => NetworkSearchBiliUserFromJson.fromJson(json),
+      .biliUser => NetworkSearchBiliUser.fromJson(json),
       .mediaBangumi => NetworkSearchMedia.fromJson(json),
       .mediaFt => NetworkSearchMedia.fromJson(json),
-      .live => NetworkSearchLive.fromJson(json),
       .liveRoom => NetworkSearchLiveRoom.fromJson(json),
       .liveUser => NetworkSearchLiveUser.fromJson(json),
       .photo => NetworkSearchPhoto.fromJson(json),
       .topic => NetworkSearchTopic.fromJson(json),
       .video => NetworkSearchVideo.fromJson(json),
-      null => NetworkSearchUn.fromJson(json),
+      _ => NetworkSearchUn.fromJson(json),
     }
   }
 }

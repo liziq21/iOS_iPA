@@ -5,7 +5,7 @@ part 'network_live_search_result.freezed.dart';
 part 'network_live_search_result.g.dart';
 
 @freezed
-abstract class NetworkLiveSearchResult implements NetworkSearchResult with _$NetworkLiveSearchResult {
+abstract class NetworkLiveSearchResult with _$NetworkLiveSearchResult {
 
   const factory NetworkLiveSearchResult(
     List<NetworkSearchLiveRoom>? liveRoom,

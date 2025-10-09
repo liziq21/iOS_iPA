@@ -28,7 +28,10 @@ jobs:
       - run: flutter pub get
       
       - name: Run build_runner
-        run: dart run build_runner build --delete-conflicting-outputs --verbose
+        run: dart run build_runner build \
+          --enable-experiment=dot-shorthands \
+          --delete-conflicting-outputs \
+          --verbose
 
       - uses: invertase/github-action-dart-analyzer@v3
         with:
@@ -52,7 +55,10 @@ jobs:
       - run: flutter pub get
       
       - name: Run build_runner
-        run: dart run build_runner build --delete-conflicting-outputs --verbose
+        run: dart run build_runner build \
+          --enable-experiment=dot-shorthands \
+          --delete-conflicting-outputs \
+          --verbose
 
       - run: flutter clean
       
@@ -61,6 +67,7 @@ jobs:
           SENTRY_DSN: ${{secrets.SENTRY_DSN}}
         run: |
           flutter build ios \
+            --enable-experiment=dot-shorthands \
             --no-codesign \
             --dart-define=SENTRY_DSN="$SENTRY_DSN"
           ln -sf ./build/ios/iphoneos Payload

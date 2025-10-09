@@ -9,7 +9,7 @@ enum ArticleCategory {
   lightNovels(16),
   technology(17);
 
-  const ColumnCategory(this.id);
+  const ArticleCategory(this.id);
   final int id;
   
   @override
@@ -22,7 +22,7 @@ enum PhotoCategory {
   artists(1),
   photography(2);
 
-  const AlbumCategory(this.id);
+  const PhotoCategory(this.id);
   final int id;
   
   @override

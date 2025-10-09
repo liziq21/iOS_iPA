@@ -25,7 +25,7 @@ sealed class ApiResult<T> {
 }
 
 class _ApiResultConverter implements JsonConverter<ApiResult, Map<String, dynamic>> {
-  const ApiResultConverter();
+  const _ApiResultConverter();
 
   @override
   ApiResult fromJson(Map<String, dynamic> json) {
@@ -36,5 +36,5 @@ class _ApiResultConverter implements JsonConverter<ApiResult, Map<String, dynami
  }
 
   @override
-  Map<String, dynamic> toJson(ApiResult object) => Map<String, dynamic>{};
+  Map<String, dynamic> toJson(ApiResult object) => <String, dynamic>{};
 }
