@@ -4,11 +4,11 @@ import 'network_search_result_data.dart';
 part 'network_type_search.g.dart';
 
 @JsonSerializable(createToJson: false)
-abstract class NetworkTypeSearch<T> {
+abstract class NetworkTypeSearch<T extends NetworkSearchResultData> {
   int numResults;
   
   @JsonKey(fromJson: _dataFromJson)
-  List<NetworkSearchResultData> result;
+  List<T> result;
   
   const NetworkTypeSearch({this.numResults, this.result});
 
@@ -17,9 +17,11 @@ abstract class NetworkTypeSearch<T> {
     T Function(Object? json) fromJsonT
   ) => _$NetworkTypeSearchFromJson(json,fromJsonT);
   
-  static List<NetworkSearchResultData> _dataFromJson(Object json) {
+  static List<T> _dataFromJson<T>(Object json) {
     if (json is List<Map<String, dynamic>>) {
-      return json.map(NetworkSearchResultData.fromJson)
+      return json.map((e) => {
+          NetworkSearchResultData.fromJson(e) as T
+      })
         .toList();
         //as List<T>;
     }

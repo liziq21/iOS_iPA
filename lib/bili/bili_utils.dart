@@ -10,9 +10,9 @@ class BiliUtils {
       var secondLevelDomain = uri.secondLevelDomain;
       switch (secondLevelDomain) {
         case Routes.liveRelative || Routes.searchRelative || Routes.spaceRelative:
-          path = '/$secondLevelDomain$path',
+          path = '/$secondLevelDomain$path';
         default:
-          return null,
+          return null;
       }
       
     } else {

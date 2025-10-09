@@ -29,7 +29,7 @@ dev_dependencies:
   # Because go_router_builder >=3.2.0 depends on build ^3.0.0 and build_runner >=2.9.0 depends on build ^4.0.0,
   # go_router_builder >=3.2.0 is incompatible with build_runner >=2.9.0.
   # https://github.com/flutter/flutter/issues/175071
-  build_runner: ^2.8.0
+  build_runner: ^2.6.0
   
   freezed: ^3.0.6
   go_router_builder: ^4.1.0
