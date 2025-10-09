@@ -5,7 +5,7 @@ import '../utils/http_error.dart';
 import '../utils/result.dart';
 import 'api_result.dart';
 
-class HttpAuthCallAdapter<T>
+class ApiCallAdapter<T>
   extends CallAdapter<Future<HttpResponse<ApiResult<T>>>, Future<Result<T>>>
 {
   @override

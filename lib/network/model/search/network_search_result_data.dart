@@ -4,14 +4,39 @@ import 'package:json_annotation/json_annotation.dart';
 import '../../bili/search_type.dart';
 import '../user/network_user_official_verify.dart';
 
-part 'network_search_items.freezed.dart';
-part 'network_search_items.g.dart';
+part 'network_search_result_dart.freezed.dart';
+part 'network_search_result_dart.g.dart';
 
-@Json
-sealed interface NetworkSearchItem {}
+interface class NetworkSearchResultData {
+  static NetworkSearchResultData fromJson(Map<String, dynamic> json) {
+    return switch (SearchType.parseType(json['type'] as String)) {
+      .article => NetworkSearchAruticle.fromJson(json),
+      .biliUser => NetworkSearchBiliUserFromJson.fromJson(json),
+      .mediaBangumi => NetworkSearchMedia.fromJson(json),
+      .mediaFt => NetworkSearchMedia.fromJson(json),
+      .live => NetworkSearchLive.fromJson(json),
+      .liveRoom => NetworkSearchLiveRoom.fromJson(json),
+      .liveUser => NetworkSearchLiveUser.fromJson(json),
+      .photo => NetworkSearchPhoto.fromJson(json),
+      .topic => NetworkSearchTopic.fromJson(json),
+      .video => NetworkSearchVideo.fromJson(json),
+      null => NetworkSearchUn.fromJson(json),
+    }
+  }
+}
 
-@Freezed(unionKey: 'result_type')
-class NetworkSearchArticle implements NetworkSearchItem with _$NetworkSearchArticle {
+@freezed
+class NetworkSearchUn implements NetworkSearchResultData with _$NetworkSearchUn{
+  const factory NetworkSearchUn(
+    String type,
+  );
+  
+  factory NetworkSearchUn.fromJson(Map<String, dynamic> json)
+    => _$NetworkSearchUnFromJson(json);
+}
+
+@freezed
+class NetworkSearchAruticle implements NetworkSearchResultData with _$NetworkSearchArticle {
   const factory NetworkSearchArticle(
     int pubtime,
     @JsonKey(name: 'pub_time')
@@ -41,7 +66,7 @@ class NetworkSearchArticle implements NetworkSearchItem with _$NetworkSearchArti
 }
 
 @freezed
-class NetworkSearchLive implements NetworkSearchItem with _$NetworkSearchLive {
+class NetworkSearchLive implements NetworkSearchResultData with _$NetworkSearchLive {
   const factory NetworkSearchLive(
     @JsonKey('rank_offset')
     int rankOffset,
@@ -75,8 +100,8 @@ class NetworkSearchLive implements NetworkSearchItem with _$NetworkSearchLive {
 }
 
 @freezed
-class NetworkSearchBiliUser implements NetworkSearchItem with _$NetworkSearchBiliUser{
-  const factory NetworkSearchItem(
+class NetworkSearchBiliUser implements NetworkSearchResultData with _$NetworkSearchBiliUser{
+  const factory NetworkSearchResult(
     SearchType type,
     int mid,
     String uname,
@@ -109,7 +134,7 @@ class NetworkSearchBiliUser implements NetworkSearchItem with _$NetworkSearchBil
 }
 
 @freezed
-class NetworkSearchMedia implements NetworkSearchItem with _$NetworkSearchMedia {
+class NetworkSearchMedia implements NetworkSearchResultData with _$NetworkSearchMedia {
   const factory NetworkSearchMedia(
     SearchType type,
     @JsonKey(name: 'media_id')
@@ -158,7 +183,7 @@ class NetworkSearchMedia implements NetworkSearchItem with _$NetworkSearchMedia 
 }
 
 @freezed
-class NetworkSearchVideo implements NetworkSearchItem with _$NetworkSearchVideo {
+class NetworkSearchVideo implements NetworkSearchResultData with _$NetworkSearchVideo {
   const factory NetworkSearchVideo(
     SearchType type,
     int id,

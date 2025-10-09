@@ -15,6 +15,19 @@ enum SearchType {
   topic('topic'),
   video('video');
 
-  const StatusCodeEnhanced(this.type);
+  const SearchType(this.type);
   final String type;
+  
+  static bool hasType(String value) {
+    return SearchType.values.any((e) => e.type == value);
+  }
+  
+  static SearchType? parseType(String value) {
+    for (final searchType in SearchType.values) {
+      if (searchType.type == value) {
+        return searchType;
+      }
+    }
+    return null;
+  }
 }

@@ -9,15 +9,17 @@ import '../bili/search_order.dart';
 import '../bili/user_type.dart';
 import '../bili/video_duration_filter.dart';
 import '../network_data_source.dart';
+import 'api_call_adapter.dart';
+import 'model/search/neteork_live_search.dart';
 import 'model/search/neteork_search.dart';
-import 'model/search/neteork_type_search.dart';
-import 'model/search/neteork_search_item.dart';
+import 'model/search/neteork_search_result_data.dart';
 import 'model/search/network_search_suggest.dart';
+import 'model/search/neteork_type_search.dart';
 import 'utils/result.dart';
 
 part 'retrofit_network.g.dart';
 
-@RestApi(baseUrl: 'https://api.bilibili.com')
+@RestApi(baseUrl: 'https://api.bilibili.com', callAdapter: ApiCallAdapter)
 abstract class RetrofitNetworkApi {
   factory RetrofitNetworkApi(
     Dio dio, {
@@ -38,7 +40,7 @@ abstract class RetrofitNetworkApi {
     @Query('search_type') String searchType,
     @Query() String keyword, {
     @Query() int? page,
-    @Query() Enum implements SearchOrder? order,
+    @Query() SearchOrder? order,
     @Query() VideoDurationFilter? duration,
     @Query() int? tids,
     @Query('order_sort') int? orderSort,
@@ -57,7 +59,7 @@ abstract class RetrofitNetworkApi {
 }
 
 class BilibiliNetworkSearch implements NetworkSearchDataSource {
-  const RetrofitNetwork({
+  const BilibiliNetworkSearch({
     Dio? dio,
   }) : networkApi = RetrofitNetworkApi(dio ?? Dio());
   

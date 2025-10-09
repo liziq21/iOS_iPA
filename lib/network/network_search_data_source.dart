@@ -4,10 +4,11 @@ import '../bili/search_type.dart';
 import '../bili/search_order.dart';
 import '../bili/user_type.dart';
 import '../bili/video_duration_filter.dart';
+import 'model/search/neteork_live_search.dart';
 import 'model/search/neteork_search.dart';
-import 'model/search/neteork_type_search.dart';
-import 'model/search/neteork_search_item.dart';
+import 'model/search/neteork_search_result_data.dart';
 import 'model/search/network_search_suggest.dart';
+import 'model/search/neteork_type_search.dart';
 import 'utils/result.dart';
 
 abstract interface class NetworkSearchDataSource {
@@ -41,7 +42,7 @@ abstract interface class NetworkSearchDataSource {
     int? page,
   });
   
-  Future<Result<NetworkTypeSearch<NetworkSearchLive>>> getSearchLive(
+  Future<Result<NetworkLiveSearch>> getSearchLive(
     String keyword, {
     int? page,
   });
