@@ -20,8 +20,8 @@ abstract class NetworkTypeSearch<T> {
   static List<T> _dataFromJson<T>(Object json) {
     if (json is List<Map<String, dynamic>>) {
       return json.map(NetworkSearchResultData.fromJson)
-        .toList()
-        as List<T>;
+        .toList();
+        //as List<T>;
     }
 
     throw ArgumentError.value(

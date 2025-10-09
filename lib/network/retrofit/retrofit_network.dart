@@ -26,9 +26,11 @@ abstract class RetrofitNetworkApi {
     String? baseUrl,
     ParseErrorLogger? errorLogger,
   }) = RetrofitNetworkApiYmlp;
-
+  
+  @Headers({
+    'Cookie': '{"SESSDATA"="xxx"}',
+  })
   @GET('/x/web-interface/search/all/v2')
-  @Headers({'Cookie': '{"SESSDATA"="xxx"}'})
   Future<List<Task>> getSearchAll(
     @Query() String keyword, {
     @Query() int page,

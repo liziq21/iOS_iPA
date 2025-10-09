@@ -8,7 +8,9 @@ part 'network_live_search_result.g.dart';
 abstract class NetworkLiveSearchResult with _$NetworkLiveSearchResult {
 
   const factory NetworkLiveSearchResult(
+    @JsonKey(name: 'live_room')
     List<NetworkSearchLiveRoom>? liveRoom,
+    @JsonKey(name: 'live_user')
     List<NetworkSearchLiveUser>? liveUser,
   ) = _NetworkLiveSearchResult;
 

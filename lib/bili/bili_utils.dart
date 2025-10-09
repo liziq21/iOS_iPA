@@ -9,11 +9,10 @@ class BiliUtils {
     if (uri.isHTTPScheme) {
       var secondLevelDomain = uri.secondLevelDomain;
       switch (secondLevelDomain) {
-        Routes.liveRelative
-        || Routes.searchRelative
-        || Routes.spaceRelative
-          => path = '/$secondLevelDomain$path',
-        _ => return null,
+        case Routes.liveRelative || Routes.searchRelative || Routes.spaceRelative:
+          path = '/$secondLevelDomain$path',
+        default:
+          return null,
       }
       
     } else {
