@@ -24,7 +24,7 @@ jobs:
         uses: subosito/flutter-action@v2
         with:
           cache: true
-          #channel: stable
+          channel: beta
       - run: flutter pub get
       
       - name: Run build_runner
@@ -50,7 +50,7 @@ jobs:
       - uses: subosito/flutter-action@v2
         with:
           cache: true
-          #channel: stable
+          channel: beta
           #flutter-version-file: pubspec.yaml
       - run: flutter pub get
       
