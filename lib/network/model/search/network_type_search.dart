@@ -8,7 +8,7 @@ abstract class NetworkTypeSearch<T> {
   int numResults;
   
   @JsonKey(fromJson: _dataFromJson)
-  List<T> result;
+  List<NetworkSearchResultData> result;
   
   const NetworkTypeSearch({this.numResults, this.result});
 
@@ -17,7 +17,7 @@ abstract class NetworkTypeSearch<T> {
     T Function(Object? json) fromJsonT
   ) => _$NetworkTypeSearchFromJson(json,fromJsonT);
   
-  static List<T> _dataFromJson<T>(Object json) {
+  static List<NetworkSearchResultData> _dataFromJson(Object json) {
     if (json is List<Map<String, dynamic>>) {
       return json.map(NetworkSearchResultData.fromJson)
         .toList();

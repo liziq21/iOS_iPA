@@ -25,15 +25,17 @@ jobs:
         with:
           cache: true
           channel: beta
+      
       - run: flutter pub get
       
-      - name: Run build_runner
+      - name: Build_runner
         run: dart run build_runner build \
           --enable-experiment=dot-shorthands \
           --delete-conflicting-outputs \
           --verbose
 
-      - uses: invertase/github-action-dart-analyzer@v3
+      - name: Analyzer
+        uses: invertase/github-action-dart-analyzer@v3
         with:
           fatal-infos: false
           fatal-warnings: false
