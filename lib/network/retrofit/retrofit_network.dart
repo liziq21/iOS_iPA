@@ -4,7 +4,8 @@ import 'package:retrofit/retrofit.dart';
 
 import 'api_call_adapter.dart';
 import 'network_data_source.dart';
-import '../../bili/category.dart.dart';
+import '../../bili/constonts/base.dart';
+import '../../bili/category.dart';
 import '../../bili/date_range.dart';
 import '../../bili/search_type.dart';
 import '../../bili/search_order.dart';
@@ -19,7 +20,7 @@ import '../../utils/result.dart';
 
 part 'retrofit_network.g.dart';
 
-@RestApi(baseUrl: 'https://api.bilibili.com', callAdapter: ApiCallAdapter)
+@RestApi(baseUrl: Base.api, callAdapter: ApiCallAdapter)
 abstract class RetrofitNetworkApi {
   factory RetrofitNetworkApi(
     Dio dio, {
@@ -28,14 +29,14 @@ abstract class RetrofitNetworkApi {
   }) = RetrofitNetworkApiYmlp;
   
   @Headers({'Cookie': '{"SESSDATA"="xxx"}'})
-  @GET('/x/web-interface/search/all/v2')
+  @GET(Path.searchAll)
   Future<Result<NetworkSearch>> getSearchAll(
     @Query() String keyword, {
     @Query() int page,
   });
   
   @Headers({'Cookie': '{"SESSDATA"="xxx"}'})
-  @GET('/x/web-interface/search/type')
+  @GET(Path.searchType)
   Future<Result<NetworkTypeSearch>> getSearchByType(
     @Query('search_type') String searchType,
     @Query() String keyword, {
@@ -51,7 +52,7 @@ abstract class RetrofitNetworkApi {
   });
 
   @MetaData(main_ver: 'v1')
-  @GET('https://s.search.bilibili.com/main/suggest')
+  @GET(Url.searchSuggest)
   Future<Result<NetworkSearchSuggest>> getSearchSuggest(
     @Query() String term,
     @Query() String highlight,
@@ -74,18 +75,22 @@ class BilibiliNetworkSearch implements NetworkSearchDataSource {
   );
   
   @override
-  Future<Result<NetworkTypeSearch>> getSearchArticle(
+  Future<Result<NetworkTypeSearch<NetworkSearchArticle>>> getSearchArticle(
     String keyword, {
     int? page,
     ArticleCategory? category,
     ArticleSearchOrder? order,
-  }) async => networkApi.getSearchByType(
-    searchType: SearchType.article,
-    keyword: keyword,
-    page: page,
-    order: order?.toString(),
-    categoryId: category?.toString(),
-  );
+  }) async {
+    var v = networkApi.getSearchByType(
+      searchType: SearchType.article,
+      keyword: keyword,
+      page: page,
+      order: order?.toString(),
+      categoryId: category?.toString(),
+    );
+    
+    return v.copyWith.data(result: v.data.result as NetworkSearchArticle)
+  }
   /*
   @override
   Future<Result<List<NetworkSearch>>> getSearchBiliUser(

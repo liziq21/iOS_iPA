@@ -1,4 +1,4 @@
-import '../bili/category.dart.dart';
+import '../bili/category.dart';
 import '../bili/date_range.dart';
 import '../bili/search_type.dart';
 import '../bili/search_order.dart';
@@ -20,7 +20,7 @@ abstract interface class NetworkSearchDataSource {
     int? page,
   });
   
-  Future<Result<NetworkTypeSearch>> getSearchArticle(
+  Future<Result<NetworkTypeSearch<NetworkSearchArticle>>> getSearchArticle(
     String keyword, {
     int? page,
     ArticleCategory? category,

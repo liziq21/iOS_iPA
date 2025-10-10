@@ -211,7 +211,6 @@ sealed class NetworkSearchResultData with _$NetworkSearchResultData {
     int danmaku,
   ) = NetworkSearchVideo;
 
-
   factory NetworkSearchResultData.fromJson(Map<String, dynamic> json)
     => _$NetworkSearchResultDataFromJson(json);
 }
