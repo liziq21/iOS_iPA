@@ -7,36 +7,13 @@ import '../user/network_user_official_verify.dart';
 part 'network_search_result_dart.freezed.dart';
 part 'network_search_result_dart.g.dart';
 
-interface class NetworkSearchResultData {
-  static NetworkSearchResultData fromJson(Map<String, dynamic> json) {
-    return switch (SearchType.parseType(json['type'] as String)) {
-      .article => NetworkSearchAruticle.fromJson(json),
-      .biliUser => NetworkSearchBiliUser.fromJson(json),
-      .mediaBangumi => NetworkSearchMedia.fromJson(json),
-      .mediaFt => NetworkSearchMedia.fromJson(json),
-      .liveRoom => NetworkSearchLiveRoom.fromJson(json),
-      .liveUser => NetworkSearchLiveUser.fromJson(json),
-      .photo => NetworkSearchPhoto.fromJson(json),
-      .topic => NetworkSearchTopic.fromJson(json),
-      .video => NetworkSearchVideo.fromJson(json),
-      _ => NetworkSearchUn.fromJson(json),
-    }
-  }
-}
-
-@freezed
-class NetworkSearchUn implements NetworkSearchResultData with _$NetworkSearchUn{
-  const factory NetworkSearchUn(
+@Freezed(unionKey: 'type')
+sealed class NetworkSearchResultData with _$NetworkSearchResultData {
+  const factory NetworkSearchResultData(
     String type,
-  );
+  ) = NetworkSearchUn;
   
-  factory NetworkSearchUn.fromJson(Map<String, dynamic> json)
-    => _$NetworkSearchUnFromJson(json);
-}
-
-@freezed
-class NetworkSearchAruticle implements NetworkSearchResultData with _$NetworkSearchArticle {
-  const factory NetworkSearchArticle(
+  const factory NetworkSearchResultData.article(
     int pubtime,
     @JsonKey(name: 'pub_time')
     int pubTime,
@@ -58,15 +35,9 @@ class NetworkSearchAruticle implements NetworkSearchResultData with _$NetworkSea
     int templateId,
     @JsonKey(name: 'category_name')
     String categoryName,
-  ) = _NetworkSearchArticle;
+  ) = NetworkSearchArticle;
   
-  factory NetworkSearchArticle.fromJson(Map<String, dynamic> json)
-    => _$NetworkSearchArticleFromJson(json);
-}
-
-@freezed
-class NetworkSearchLive implements NetworkSearchResultData with _$NetworkSearchLive {
-  const factory NetworkSearchLive(
+  const factory NetworkSearchResultData.live(
     @JsonKey('rank_offset')
     int rankOffset,
     int uid,
@@ -92,15 +63,9 @@ class NetworkSearchLive implements NetworkSearchResultData with _$NetworkSearchL
     String cateName,
     @JsonKey('watched_show')
     Map watchedShow,
-  ) = _NetworkSearchLive;
+  ) = NetworkSearchLive;
   
-  factory NetworkSearchLive.fromJson(Map<String, dynamic> json)
-    => _$NetworkSearchLiveFromJson(json);
-}
-
-@freezed
-class NetworkSearchBiliUser implements NetworkSearchResultData with _$NetworkSearchBiliUser{
-  const factory NetworkSearchResult(
+  const factory NetworkSearchResultData.biliUser(
     SearchType type,
     int mid,
     String uname,
@@ -126,15 +91,9 @@ class NetworkSearchBiliUser implements NetworkSearchResultData with _$NetworkSea
     NetworkUserOfficialVerify officialVerify,
     @JsonKey(name: 'is_senior_member')
     int isSeniorMember,
-  ) = _NetworkSearchBiliUser;
-  
-  factory NetworkSearchBiliUser.fromJson(Map<String, dynamic> json)
-    => _$NetworkSearchBiliUserFromJson(json);
-}
+  ) = NetworkSearchBiliUser;
 
-@freezed
-class NetworkSearchMedia implements NetworkSearchResultData with _$NetworkSearchMedia {
-  const factory NetworkSearchMedia(
+  const factory NetworkSearchResultData.mediaBangumi(
     SearchType type,
     @JsonKey(name: 'media_id')
     int mediaId,
@@ -175,15 +134,52 @@ class NetworkSearchMedia implements NetworkSearchResultData with _$NetworkSearch
     Map mediaScore,
     @JsonKey(name: 'index_show')
     String indexShow,
-  ) = _NetworkSearchMedia;
+  ) = NetworkSearchMediaBangumi;
   
-  factory NetworkSearchMedia.fromJson(Map<String, dynamic> json)
-    => _$NetworkSearchMediaFromJson(json);
-}
+  const factory NetworkSearchResultData.mediaFt(
+    SearchType type,
+    @JsonKey(name: 'media_id')
+    int mediaId,
+    HtmlTitle title,
+    @JsonKey(name: 'org_title')
+    String orgTitle,
+    @JsonKey(name: 'media_type')
+    int mediaType,
+    String cv,
+    String staff,
+    @JsonKey(name: 'season_id')
+    int seasonId,
+    @JsonKey(name: 'is_avid')
+    bool isAvid,
+    @JsonKey(name: 'hit_epids')
+    String hitEpids,
+    @JsonKey(name: 'season_type')
+    int seasonType,
+    @JsonKey(name: 'season_type_name')
+    String seasonTypeName,
+    String url,
+    @JsonKey(name: 'button_text')
+    String buttonText,
+    @JsonKey(name: 'is_follow')
+    int isFollow,
+    @JsonKey(name: 'is_selection')
+    int isSelection,
+    String cover,
+    String areas,
+    String styles,
+    @JsonKey(name: 'goto_url')
+    String gotoUrl,
+    String desc,
+    int pubtime,
+    @JsonKey(name: 'media_mode')
+    int mediaMode,
+    @JsonKey(name: 'media_score')
+    Map mediaScore,
+    @JsonKey(name: 'index_show')
+    String indexShow,
+  ) = NetworkSearchMediaFt;
 
-@freezed
-class NetworkSearchVideo implements NetworkSearchResultData with _$NetworkSearchVideo {
-  const factory NetworkSearchVideo(
+  const factory NetworkSearchResultData.video(
     SearchType type,
     int id,
     String author,
@@ -213,12 +209,12 @@ class NetworkSearchVideo implements NetworkSearchResultData with _$NetworkSearch
     String desc,
     String url,
     int danmaku,
-  ) = _NetworkSearchVideo;
-  
-  factory NetworkSearchVideo.fromJson(Map<String, dynamic> json)
-    => _$NetworkSearchVideoFromJson(json);
-}
+  ) = NetworkSearchVideo;
 
+
+  factory NetworkSearchResultData.fromJson(Map<String, dynamic> json)
+    => _$NetworkSearchResultDataFromJson(json);
+}
 
 class HtmlTitle {
   HtmlTitle(this._title);

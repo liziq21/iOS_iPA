@@ -1,5 +1,4 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
-
 import 'network_search_result.dart';
 
 part 'network_search.freezed.dart';

@@ -2,20 +2,20 @@ import 'package:dio/dio.dart';
 import 'package:json_annotation/json_annotation.dart';
 import 'package:retrofit/retrofit.dart';
 
-import '../bili/category.dart.dart';
-import '../bili/date_range.dart';
-import '../bili/search_type.dart';
-import '../bili/search_order.dart';
-import '../bili/user_type.dart';
-import '../bili/video_duration_filter.dart';
-import '../network_data_source.dart';
 import 'api_call_adapter.dart';
-import 'model/search/neteork_live_search.dart';
-import 'model/search/neteork_search.dart';
-import 'model/search/neteork_search_result_data.dart';
-import 'model/search/network_search_suggest.dart';
-import 'model/search/neteork_type_search.dart';
-import 'utils/result.dart';
+import 'network_data_source.dart';
+import '../../bili/category.dart.dart';
+import '../../bili/date_range.dart';
+import '../../bili/search_type.dart';
+import '../../bili/search_order.dart';
+import '../../bili/user_type.dart';
+import '../../bili/video_duration_filter.dart';
+import '../../model/search/neteork_live_search.dart';
+import '../../model/search/neteork_search.dart';
+import '../../model/search/neteork_search_result_data.dart';
+import '../../model/search/network_search_suggest.dart';
+import '../../model/search/neteork_type_search.dart';
+import '../../utils/result.dart';
 
 part 'retrofit_network.g.dart';
 
@@ -29,14 +29,14 @@ abstract class RetrofitNetworkApi {
   
   @Headers({'Cookie': '{"SESSDATA"="xxx"}'})
   @GET('/x/web-interface/search/all/v2')
-  Future<Result<Task>> getSearchAll(
+  Future<Result<NetworkSearch>> getSearchAll(
     @Query() String keyword, {
     @Query() int page,
   });
   
   @Headers({'Cookie': '{"SESSDATA"="xxx"}'})
   @GET('/x/web-interface/search/type')
-  Future<Result<NetworkTypeSearch> getSearchByType(
+  Future<Result<NetworkTypeSearch>> getSearchByType(
     @Query('search_type') String searchType,
     @Query() String keyword, {
     @Query() int? page,
@@ -52,7 +52,7 @@ abstract class RetrofitNetworkApi {
 
   @MetaData(main_ver: 'v1')
   @GET('https://s.search.bilibili.com/main/suggest')
-  Future<List<Task>> getSearchSuggest(
+  Future<Result<NetworkSearchSuggest>> getSearchSuggest(
     @Query() String term,
     @Query() String highlight,
   );
@@ -65,14 +65,16 @@ class BilibiliNetworkSearch implements NetworkSearchDataSource {
   
   final RetrofitNetworkApi networkApi;
   
-  Future<List<NetworkSearch>> getSearchAll(
+  @override
+  Future<Result<NetworkSearch>> getSearchAll(
     String keyword, { String? page, }
   ) async => networkApi.getSearchAll(
     keyword,
     page: page,
   );
   
-  Future<NetworkSearch<NetworkSearchArticle>> getSearchArticle(
+  @override
+  Future<Result<NetworkTypeSearch>> getSearchArticle(
     String keyword, {
     int? page,
     ArticleCategory? category,
@@ -84,8 +86,9 @@ class BilibiliNetworkSearch implements NetworkSearchDataSource {
     order: order?.toString(),
     categoryId: category?.toString(),
   );
-  
-  Future<NetworkSearch<NetworkSearch>> getSearchBiliUser(
+  /*
+  @override
+  Future<Result<List<NetworkSearch>>> getSearchBiliUser(
     String keyword, {
     int? page,
     UserSearchOrder? order,
@@ -99,7 +102,8 @@ class BilibiliNetworkSearch implements NetworkSearchDataSource {
     userType: userType?.toString(),
   );
   
-  Future<NetworkSearch<NetworkSearchMediaBangumi>> getSearchMediaBangumi(
+  @override
+  Future<Result<List<NetworkSearchMediaBangumi>>> getSearchMediaBangumi(
     String keyword, {
     int? page,
   }) async => networkApi.getSearchByType(
@@ -108,7 +112,8 @@ class BilibiliNetworkSearch implements NetworkSearchDataSource {
     page: page,
   );
   
-  Future<NetworkSearch<NetworkSearchMediaFt>> getSearchMediaFt(
+  @override
+  Future<Result<List<NetworkSearchMediaFt>>> getSearchMediaFt(
     String keyword, {
     int? page,
   }) async => networkApi.getSearchByType(
@@ -117,6 +122,7 @@ class BilibiliNetworkSearch implements NetworkSearchDataSource {
     page: page,
   );
   
+  @override
   Future<NetworkSearch<NetworkSearchLive>> getSearchLive(
     String keyword, {
     int? page,
@@ -126,7 +132,8 @@ class BilibiliNetworkSearch implements NetworkSearchDataSource {
     page: page,
   );
   
-  Future<NetworkSearch<NetworkSearchLiveRoom>> getSearchLiveRoom(
+  @override
+  Future<Result<List<NetworkSearchLiveRoom>>> getSearchLiveRoom(
     String keyword, {
     int? page,
     LiveRoomSearchOrder? order,
@@ -137,7 +144,8 @@ class BilibiliNetworkSearch implements NetworkSearchDataSource {
     order: order?.toString(),
   );
   
-  Future<NetworkSearch<NetworkSearchLiveUser>> getSearchLiveUser(
+  @override
+  Future<Result<List<NetworkSearchLiveUser>>> getSearchLiveUser(
     String keyword, {
     int? page,
   }) async => networkApi.getSearchByType(
@@ -146,7 +154,8 @@ class BilibiliNetworkSearch implements NetworkSearchDataSource {
     page: page,
   );
   
-  Future<NetworkSearch<NetworkSearchPhoto>> getSearchPhoto(
+  @override
+  Future<Result<List<NetworkSearchPhoto>>> getSearchPhoto(
     String keyword, {
     int? page,
     PhotoCategory? category,
@@ -159,7 +168,8 @@ class BilibiliNetworkSearch implements NetworkSearchDataSource {
     categoryId: category?.toString(),
   );
   
-  Future<NetworkSearch<NetworkSearchTopic>> getSearchTopic(
+  @override
+  Future<Result<List<NetworkSearchTopic>>> getSearchTopic(
     String keyword, {
     int? page,
   }) async => networkApi.getSearchByType(
@@ -168,7 +178,8 @@ class BilibiliNetworkSearch implements NetworkSearchDataSource {
     page: page,
   );
   
-  Future<NetworkSearch<NetworkSearchVideo>> getSearchVideo(
+  @override
+  Future<Result<List<NetworkSearchVideo>>> getSearchVideo(
     String keyword, {
     int? page,
     PhotoOrVideoSearchOrder? order,
@@ -185,7 +196,8 @@ class BilibiliNetworkSearch implements NetworkSearchDataSource {
     pubtimeBeginS: DateRange?.start.millisecondsSinceEpoch ~/ 1000,
     pubtimeEndS: DateRange?.end.millisecondsSinceEpoch ~/ 1000,
   );
-  
-  Future<NetworkSearchSuggest> getSearchSuggest(String term) async =>
+  */
+  @override
+  Future<Result<NetworkSearchSuggest>> getSearchSuggest(String term) async =>
     networkApi.getSearchSuggest(term, term);
 }

@@ -7,6 +7,7 @@ targets:
         options:
           copyWith: false
           equal: false
+          generic_argument_factories: true
           toJson: false
           to_string: false
           unionValueCase: snake
@@ -21,6 +22,7 @@ targets:
       json_serializable:
         generate_for:
           include:
+            - lib/bili/search_type.dart
             - lib/network/retrofit/api_result.dart
             - lib/network/model/**.dart
         options:

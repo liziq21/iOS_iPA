@@ -1,35 +1,16 @@
-import 'package:json_annotation/json_annotation.dart';
+import 'package:freezed_annotation/freezed_annotation.dart';
 import 'network_search_result_data.dart';
 
+part 'network_type_search.freezed.dart';
 part 'network_type_search.g.dart';
 
-@JsonSerializable(createToJson: false)
-abstract class NetworkTypeSearch<T extends NetworkSearchResultData> {
-  int numResults;
-  
-  @JsonKey(fromJson: _dataFromJson)
-  List<T> result;
-  
-  const NetworkTypeSearch({this.numResults, this.result});
+@freezed
+abstract class NetworkTypeSearch with _$NetworkTypeSearch {
+  const NetworkTypeSearch(
+    int numResults,
+    List<NetworkSearchResultData> result,
+  ) = _NetworkTypeSearch;
 
-  factory NetworkTypeSearch.fromJson(
-    Map<String, dynamic> json,
-    T Function(Object? json) fromJsonT
-  ) => _$NetworkTypeSearchFromJson(json,fromJsonT);
-  
-  static List<T> _dataFromJson<T>(Object json) {
-    if (json is List<Map<String, dynamic>>) {
-      return json.map((e) => {
-          NetworkSearchResultData.fromJson(e) as T
-      })
-        .toList();
-        //as List<T>;
-    }
-
-    throw ArgumentError.value(
-      json,
-      'json',
-      'Cannot convert the provided data.',
-    );
-  }
+  const factory NetworkTypeSearch.fromJson(Map<String, dynamic> json)
+    => _$NetworkTypeSearchFromJson(json);
 }
