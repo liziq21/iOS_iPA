@@ -5,6 +5,8 @@ import 'dart:typed_data';
 import 'package:dio/dio.dart';
 import 'package:dio/io.dart';
 
+import 'package:f_biuli/bili/constonts/uris.dart';
+
 class MockAdapter extends IOHttpClientAdapter {
   static const String mockHost = 'mockserver';
   static const String mockBase = 'http://$mockHost';
@@ -17,8 +19,14 @@ class MockAdapter extends IOHttpClientAdapter {
     Future<dynamic>? cancelFuture,
   ) async {
     final uri = options.uri;
+    switch(uri.host) {
+      case Api.host:
+      case SearchApi.host:
+      default: ResponseBody.fromString('', 404);
+    }
     
-    if (uri.host == mockHost) {
+    
+    /*if (uri.host == Api.host) {
       switch (uri.path) {
         case '/tags':
           return ResponseBody.fromString(
@@ -31,7 +39,7 @@ class MockAdapter extends IOHttpClientAdapter {
         default:
           return ResponseBody.fromString('', 404);
       }
-    }
+    }*/
     return _adapter.fetch(options, requestStream, cancelFuture);
   }
 

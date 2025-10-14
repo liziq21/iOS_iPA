@@ -2,7 +2,7 @@ import 'package:dio/dio.dart';
 import 'package:injectable/injectable.dart';
 import 'package:retrofit/retrofit.dart';
 
-import '../../bili/constonts/base.dart';
+import '../../bili/constonts/uris.dart';
 import '../retrofit/retrofit_network.dart';
 import '../model/network_search.dart';
 import '../model/network_type_search_result.dart';
@@ -23,5 +23,5 @@ abstract class NetworkModule {
   
   @lazySingleton
   retrofitNetworkApi client(Dio dio) =>
-    RetrofitNetworkApi(dio, baseUrl: Base.api);
+    RetrofitNetworkApi(dio, base: Api.base);
 }

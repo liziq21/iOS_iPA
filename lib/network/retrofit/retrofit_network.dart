@@ -1,21 +1,21 @@
 import 'package:dio/dio.dart';
 import 'package:retrofit/retrofit.dart';
 
-import 'api_call_adapter.dart';
-import 'network_data_source.dart';
-import '../../bili/constonts/base.dart';
-import '../../bili/category.dart';
-import '../../bili/date_range.dart';
-import '../../bili/search_type.dart';
-import '../../bili/search_order.dart';
-import '../../bili/user_type.dart';
-import '../../bili/video_duration_filter.dart';
-import '../../model/search/neteork_live_search.dart';
-import '../../model/search/neteork_search.dart';
-import '../../model/search/neteork_search_result_data.dart';
-import '../../model/search/network_search_suggest.dart';
-import '../../model/search/neteork_type_search.dart';
-import '../../utils/result.dart';
+import 'package:f_biuli/network/retrofit/api_call_adapter.dart';
+import 'package:f_biuli/network/network_data_source.dart';
+import 'package:f_biuli/bili/constonts/.dart';
+import 'package:f_biuli/bili/category.dart';
+import 'package:f_biuli/bili/date_range.dart';
+import 'package:f_biuli/bili/search_type.dart';
+import 'package:f_biuli/bili/search_order.dart';
+import 'package:f_biuli/bili/user_type.dart';
+import 'package:f_biuli/bili/video_duration_filter.dart';
+import 'package:f_biuli/model/search/neteork_live_search.dart';
+import 'package:f_biuli/model/search/neteork_search.dart';
+import 'package:f_biuli/model/search/neteork_search_result_data.dart';
+import 'package:f_biuli/model/search/network_search_suggest.dart';
+import 'package:f_biuli/model/search/neteork_type_search.dart';
+import 'package:f_biuli/utils/result.dart';
 
 part 'retrofit_network.g.dart';
 
@@ -24,15 +24,18 @@ part 'retrofit_network.g.dart';
 abstract class BiliNetworkApi {
   
   @factoryMethod
-  factory BiliNetworkApi(Dio dio, {String? baseUrl,}) = _BiliNetworkApi;
+  factory BiliNetworkApi(
+    Dio dio, {
+    String? baseUrl,
+  }) = _BiliNetworkApi;
   
-  @GET(Path.searchAll)
+  @GET(ApiPath.search)
   Future<Result<NetworkSearch>> search(
     @Query('keyword') String keyword, {
     @Query('page') int page,
   });
   
-  @GET(Path.searchType)
+  @GET(ApiPath.searchType)
   Future<Result<NetworkTypeSearch>> searchByType(
     @Query('search_type') String searchType,
     @Query('keyword') String keyword, {
@@ -48,7 +51,7 @@ abstract class BiliNetworkApi {
   });
   
   @MetaData(main_ver: 'v1')
-  @GET(Url.searchSuggest)
+  @GET(SearchApi.searchSuggest)
   Future<Result<NetworkSearchSuggest>> searchSuggest(
     @Query('term') String term,
     @Query('highlight') String highlight,
@@ -63,8 +66,9 @@ class BilibiliNetworkSearch implements NetworkSearchDataSource {
   
   @override
   Future<Result<NetworkSearch>> search(
-    String keyword, { String? page, }
-  ) async => networkApi.search(
+    String keyword, {
+    String? page,
+    }) async => networkApi.search(
     keyword,
     page: page,
   );
@@ -80,8 +84,8 @@ class BilibiliNetworkSearch implements NetworkSearchDataSource {
       searchType: SearchType.article,
       keyword: keyword,
       page: page,
-      order: order?.toString(),
-      categoryId: category?.toString(),
+      order: order,
+      categoryId: category,
     );
     
   /*

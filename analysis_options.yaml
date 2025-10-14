@@ -2,7 +2,7 @@ include: package:flutter_lints/flutter.yaml
 
 analyzer:
   enable-experiment:
-    - dot-shorthands
+    #- dot-shorthands
   errors:
     invalid_annotation_target: ignore
   exclude:
