@@ -30,7 +30,7 @@ targets:
           checked: true
           explicit_to_json: true
           field_rename: snake
-      chopper_generator:
+      retrofit_generator:
         generate_for:
           include:
             - lib/network/retrofit/retrofit_network.dart

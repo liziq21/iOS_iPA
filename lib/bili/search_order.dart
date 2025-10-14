@@ -27,10 +27,10 @@ enum LiveRoomSearchOrder implements SearchOrder{
 }
 
 enum UserSearchOrder implements SearchOrder{
-  default, fons, level;
+  defaultOrder, fons, level;
   
   @override
-  String toString() => this == default ? '0' : super.toString();
+  String toString() => this == defaultOrder ? '0' : super.toString();
 }
 
 enum OrderSort {
@@ -41,7 +41,7 @@ enum OrderSort {
 }
 
 enum UserSearchSort {
-  sort.default(),
+  sort.defaultSort(),
   fonsDescending(.fons, .descending),
   fonsAscending(.fons, .ascending),
   levelDescending(.level, .descending),
@@ -52,7 +52,7 @@ enum UserSearchSort {
     [this.orderSort],
   ) : order = order;
   
-  const UserSearchSort.default();
+  const UserSearchSort.defaultSort();
   
   final UserSearchOrder? order;
   final OrderSort? orderSort;

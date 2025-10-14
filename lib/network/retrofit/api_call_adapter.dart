@@ -13,7 +13,7 @@ class ApiCallAdapter<T>
     try {
       final httpResponse = await call();
       final ApiResult<T> result = httpResponse.data;
-      switch (result) {
+      return switch (result) {
         Result.ok => Restult.ok(result.data);
         Result.error => Result.error(Exception(
           'ERROR ${httpResponse.response.uri}\n$result'

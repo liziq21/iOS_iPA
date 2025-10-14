@@ -70,13 +70,13 @@ class BilibiliNetworkSearch implements NetworkSearchDataSource {
   );
   
   @override
-  Future<Result<NetworkTypeSearch<NetworkSearchArticle>>> searchArticle(
+  Future<Result<NetworkTypeSearch>> searchArticle(
     String keyword, {
     int? page,
     ArticleCategory? category,
     ArticleSearchOrder? order,
-  }) async {
-    var v = networkApi.searchByType(
+  }) async =>
+    networkApi.searchByType(
       searchType: SearchType.article,
       keyword: keyword,
       page: page,
@@ -84,8 +84,6 @@ class BilibiliNetworkSearch implements NetworkSearchDataSource {
       categoryId: category?.toString(),
     );
     
-    return v.copyWith.data(result: v.data.result as NetworkSearchArticle)
-  }
   /*
   @override
   Future<Result<List<NetworkSearch>>> searchBiliUser(

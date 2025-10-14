@@ -1,4 +1,4 @@
-import '../../bili/constonts.dart'
+import '../../bili/constonts.dart';
 
 class SearchViewModel extends ChangeNotifier {
 

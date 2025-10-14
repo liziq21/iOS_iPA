@@ -4,8 +4,8 @@ import 'package:json_annotation/json_annotation.dart';
 import '../../bili/search_type.dart';
 import '../user/network_user_official_verify.dart';
 
-part 'network_type_search_result_.freezed.dart';
-part 'network_type_search_result_.g.dart';
+part 'network_type_search_result.freezed.dart';
+part 'network_type_search_result.g.dart';
 
 @Freezed(unionKey: 'type')
 sealed class NetworkTypeSearchResult with _$NetworkTypeSearchResult {

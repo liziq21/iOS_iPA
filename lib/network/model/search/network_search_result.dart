@@ -1,15 +1,15 @@
 import 'dart:convert';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
-import '../../../bili/search_type.dart'
-import '../../utils/json_factory.dart'
+import '../../../bili/search_type.dart';
+import '../../utils/json_factory.dart';
 import 'network_type_search_result.dart';
 
 part 'network_live_search_result.freezed.dart';
 part 'network_live_search_result.g.dart';
 
 @freezed
-abstract class NetworkSearchResult _$NetworkSearchResult {
+abstract class NetworkSearchResult with _$NetworkSearchResult {
   const NetworkSearchResult(
     List<NetworkUnSearchResult>? un,
     List<NetworkArticleSearchResult>? article,
