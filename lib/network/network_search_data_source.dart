@@ -26,7 +26,7 @@ abstract interface class NetworkSearchDataSource {
     ArticleCategory? category,
     ArticleSearchOrder? order,
   });
-  /*
+  
   Future<Result<NetworkTypeSearch>> searchBiliUser(
     String keyword, {
     int? page,
@@ -80,7 +80,7 @@ abstract interface class NetworkSearchDataSource {
     int? tids,
     DateRange? dateRange
   });
-  */
+  
   Future<Result<NetworkSearchSuggest>> searchSuggest(String term);
   
 }

@@ -59,8 +59,8 @@ abstract class BiliNetworkApi {
 }
 
 @lazySingleton
-class BilibiliNetworkSearch implements NetworkSearchDataSource {
-  const BilibiliNetworkSearch(this.networkApi);
+class BiliNetworkSearch implements NetworkSearchDataSource {
+  const BiliNetworkSearch(this.networkApi);
   
   final BiliNetworkApi networkApi;
   
@@ -68,7 +68,7 @@ class BilibiliNetworkSearch implements NetworkSearchDataSource {
   Future<Result<NetworkSearch>> search(
     String keyword, {
     String? page,
-    }) async => networkApi.search(
+  }) async => networkApi.search(
     keyword,
     page: page,
   );
@@ -88,9 +88,9 @@ class BilibiliNetworkSearch implements NetworkSearchDataSource {
       categoryId: category,
     );
     
-  /*
+  
   @override
-  Future<Result<List<NetworkSearch>>> searchBiliUser(
+  Future<Result<NetworkTypeSearch>> searchBiliUser(
     String keyword, {
     int? page,
     UserSearchOrder? order,
@@ -99,13 +99,13 @@ class BilibiliNetworkSearch implements NetworkSearchDataSource {
     searchType: SearchType.biliUser,
     keyword: keyword,
     page: page,
-    order: order?.order.toString(),
-    orderSort: order?.orderSort?.index,
-    userType: userType?.toString(),
+    order: order,
+    orderSort: order,
+    userType: userType,
   );
   
   @override
-  Future<Result<List<NetworkSearchMediaBangumi>>> searchMediaBangumi(
+  Future<Result<NetworkTypeSearch>> searchMediaBangumi(
     String keyword, {
     int? page,
   }) async => networkApi.searchByType(
@@ -115,7 +115,7 @@ class BilibiliNetworkSearch implements NetworkSearchDataSource {
   );
   
   @override
-  Future<Result<List<NetworkSearchMediaFt>>> searchMediaFt(
+  Future<Result<NetworkTypeSearch>> searchMediaFt(
     String keyword, {
     int? page,
   }) async => networkApi.searchByType(
@@ -125,7 +125,7 @@ class BilibiliNetworkSearch implements NetworkSearchDataSource {
   );
   
   @override
-  Future<NetworkSearch<NetworkSearchLive>> searchLive(
+  Future<Result<tworkTypeSearch>> searchLive(
     String keyword, {
     int? page,
   }) async => networkApi.searchByType(
@@ -135,7 +135,7 @@ class BilibiliNetworkSearch implements NetworkSearchDataSource {
   );
   
   @override
-  Future<Result<List<NetworkSearchLiveRoom>>> searchLiveRoom(
+  Future<Result<NetworkTypeSearch>> searchLiveRoom(
     String keyword, {
     int? page,
     LiveRoomSearchOrder? order,
@@ -143,11 +143,11 @@ class BilibiliNetworkSearch implements NetworkSearchDataSource {
     searchType: SearchType.liveRoom,
     keyword: keyword,
     page: page,
-    order: order?.toString(),
+    order: order,
   );
   
   @override
-  Future<Result<List<NetworkSearchLiveUser>>> searchLiveUser(
+  Future<Result<NetworkTypeSearch>> searchLiveUser(
     String keyword, {
     int? page,
   }) async => networkApi.searchByType(
@@ -157,7 +157,7 @@ class BilibiliNetworkSearch implements NetworkSearchDataSource {
   );
   
   @override
-  Future<Result<List<NetworkSearchPhoto>>> searchPhoto(
+  Future<Result<NetworkTypeSearch>> searchPhoto(
     String keyword, {
     int? page,
     PhotoCategory? category,
@@ -166,12 +166,12 @@ class BilibiliNetworkSearch implements NetworkSearchDataSource {
     searchType: SearchType.photo,
     keyword: keyword,
     page: page,
-    order: order?.toString(),
-    categoryId: category?.toString(),
+    order: order,
+    categoryId: category,
   );
   
   @override
-  Future<Result<List<NetworkSearchTopic>>> searchTopic(
+  Future<Result<NetworkTypeSearch>> searchTopic(
     String keyword, {
     int? page,
   }) async => networkApi.searchByType(
@@ -181,7 +181,7 @@ class BilibiliNetworkSearch implements NetworkSearchDataSource {
   );
   
   @override
-  Future<Result<List<NetworkSearchVideo>>> searchVideo(
+  Future<Result<NetworkTypeSearch>> searchVideo(
     String keyword, {
     int? page,
     PhotoOrVideoSearchOrder? order,
@@ -192,13 +192,13 @@ class BilibiliNetworkSearch implements NetworkSearchDataSource {
     searchType: SearchType.video,
     keyword: keyword,
     page: page,
-    order: order?.toString(),
+    order: order,
     duration: duration,
     tids: tids,
     pubtimeBeginS: DateRange?.start.millisecondsSinceEpoch ~/ 1000,
     pubtimeEndS: DateRange?.end.millisecondsSinceEpoch ~/ 1000,
   );
-  */
+  
   @override
   Future<Result<NetworkSearchSuggest>> searchSuggest(String term) async =>
     networkApi.searchSuggest(term, term);
