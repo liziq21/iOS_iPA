@@ -1,5 +1,4 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
-import 'http_error.dart';
 
 part 'result.freezed.dart';
 

@@ -12,5 +12,5 @@ class Path {
 }
 
 class Url {
-  static const searchSuggest = '${Base.sSearch}/main/suggest'
+  static const searchSuggest = '${Base.sSearch}/main/suggest';
 }

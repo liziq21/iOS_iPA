@@ -15,64 +15,64 @@ import 'utils/result.dart';
 
 abstract interface class NetworkSearchDataSource {
   
-  Future<Result<NetworkSearch>> getSearch(
+  Future<Result<NetworkSearch>> search(
     String keyword, {
     int? page,
   });
   
-  Future<Result<NetworkTypeSearch<NetworkSearchArticle>>> getSearchArticle(
+  Future<Result<NetworkTypeSearch>> searchArticle(
     String keyword, {
     int? page,
     ArticleCategory? category,
     ArticleSearchOrder? order,
   });
   /*
-  Future<Result<NetworkTypeSearch<>>> getSearchBiliUser(
+  Future<Result<NetworkTypeSearch>> searchBiliUser(
     String keyword, {
     int? page,
     UserSearchOrder? order,
     UserType? userType,
   });
   
-  Future<Result<NetworkTypeSearch<NetworkSearchMediaBangumi>>> getSearchMediaBangumi(
+  Future<Result<NetworkTypeSearch>> searchMediaBangumi(
     String keyword, {
     int? page,
   });
   
-  Future<Result<NetworkTypeSearch<NetworkSearchMediaFt>>> getSearchMediaFt(
+  Future<Result<NetworkTypeSearch>> searchMediaFt(
     String keyword, {
     int? page,
   });
   
-  Future<Result<NetworkLiveSearch>> getSearchLive(
+  Future<Result<NetworkTypeSearch>> searchLive(
     String keyword, {
     int? page,
   });
   
-  Future<Result<NetworkTypeSearch<NetworkSearchLiveRoom>>> getSearchLiveRoom(
+  Future<Result<NetworkTypeSearch>> searchLiveRoom(
     String keyword, {
     int? page,
     LiveRoomSearchOrder? order,
   });
   
-  Future<Result<NetworkTypeSearch<NetworkSearchLiveUser>>> getSearchLiveUser(
+  Future<Result<NetworkTypeSearch>> searchLiveUser(
     String keyword, {
     int? page,
   });
   
-  Future<Result<NetworkTypeSearch<NetworkSearchPhoto>>> getSearchPhoto(
+  Future<Result<NetworkTypeSearch>> searchPhoto(
     String keyword, {
     int? page,
     PhotoCategory? category,
     PhotoOrVideoSearchOrder? order,
   });
   
-  Future<Result<NetworkTypeSearch<NetworkSearchTopic>>> getSearchTopic(
+  Future<Result<NetworkTypeSearch>> searchTopic(
     String keyword, {
     int? page,
   });
   
-  Future<Result<NetworkTypeSearch<NetworkSearchVideo>>> getSearchVideo(
+  Future<Result<NetworkTypeSearch>> searchVideo(
     String keyword, {
     int? page,
     PhotoOrVideoSearchOrder? order,
@@ -81,6 +81,6 @@ abstract interface class NetworkSearchDataSource {
     DateRange? dateRange
   });
   */
-  Future<Result<NetworkSearchSuggest>> getSearchSuggest(String term);
+  Future<Result<NetworkSearchSuggest>> searchSuggest(String term);
   
 }

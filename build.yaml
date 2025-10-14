@@ -10,7 +10,7 @@ targets:
           generic_argument_factories: true
           toJson: false
           to_string: false
-          unionValueCase: snake
+          union_value_case: snake
       go_router_builder:
         generate_for:
           include:
@@ -29,7 +29,8 @@ targets:
           create_to_json: false
           checked: true
           explicit_to_json: true
-      retrofit_generator:
+          field_rename: snake
+      chopper_generator:
         generate_for:
           include:
             - lib/network/retrofit/retrofit_network.dart

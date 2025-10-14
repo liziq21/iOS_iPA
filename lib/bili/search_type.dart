@@ -22,7 +22,7 @@ enum SearchType {
     return SearchType.values.any((e) => e.type == value);
   }
   
-  static SearchType? parseType(String value) {
+  static SearchType? parse(String value) {
     for (final searchType in SearchType.values) {
       if (searchType.type == value) {
         return searchType;

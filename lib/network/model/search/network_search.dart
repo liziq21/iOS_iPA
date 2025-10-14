@@ -7,10 +7,26 @@ part 'network_search.g.dart';
 @freezed
 class NetworkSearch with _$NetworkSearch {
   const factory NetworkSearch(
-    int? numResults,
-    List<NetworkSearchResult> result,
+    int? nums,
+    @JsonKey(fromJson: NetworkSearchResult.fromJson)
+    NetworkSearchResult result,
   ) = _NetworkSearch;
 
   factory NetworkSearch.fromJson(Map<String, dynamic> json)
     => _$NetworkSearchFromJson(json);
 }
+
+@freezed
+abstract class NetworkTypeSearch with _$NetworkTypeSearchResult {
+
+  const factory NetworkTypeSearch(
+    int numResults,
+    @JsonKey(fromJson: NetworkSearchResult.fromJson)
+    NetworkSearchResult result,
+  ) = _NetworkTypeSearch;
+
+  factory NetworkTypeSearch.fromJson(Map<String, dynamic> json)
+    => _$NetworkTypeSearchFromJson(json);
+}
+
+
