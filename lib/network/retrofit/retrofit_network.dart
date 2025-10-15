@@ -49,12 +49,12 @@ abstract class BiliNetworkApi {
     @Query('pubtime_end_s') int? pubrimeEndS,
   });
   
-  @MetaData(main_ver: 'v1')
   @GET(SearchApi.searchSuggest)
   Future<Result<NetworkSearchSuggest>> searchSuggest(
     @Query('term') String term,
-    @Query('highlight') String highlight,
-  );
+    @Query('highlight') String highlight, [
+    @Query('main_ver') String mainVer: 'v1',
+  ]);
 }
 
 @lazySingleton

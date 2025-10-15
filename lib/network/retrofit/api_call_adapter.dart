@@ -14,11 +14,11 @@ class ApiCallAdapter<T>
       final httpResponse = await call();
       final ApiResult<T> result = httpResponse.data;
       return switch (result) {
-        Result.ok => Restult.ok(result.data);
-        Result.error => Result.error(Exception(
+        ApiResult.ok => Restult.ok(result.data),
+        ApiResult.error => Result.error(Exception(
           'ERROR ${httpResponse.response.uri}\n$result'
-        ));
-      }
+        )),
+      };
     } on DioException catch (e) {
       final response = e.response;
       final data = response?.data?.toString();
