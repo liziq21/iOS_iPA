@@ -27,7 +27,8 @@ jobs:
           channel: stable
           flutter-version-file: pubspec.yaml
       - run: flutter pub get
-      - run: flutter clean
+      
+      - run: dart pub cache clean
       
       - name: Build_runner
         run: dart run build_runner build \
