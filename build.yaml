@@ -49,7 +49,6 @@ targets:
             #- lib/bili/search_type.dart
             #- lib/network/retrofit/api_result.dart
             #- lib/network/model/**.dart
-            freezed.dart
         options:
           create_to_json: false
           checked: true
