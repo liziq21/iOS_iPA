@@ -1,4 +1,4 @@
-import 'package:dio/dio.dart';
+/*import 'package:dio/dio.dart';
 import 'package:injectable/injectable.dart';
 import 'package:retrofit/retrofit.dart';
 
@@ -14,12 +14,10 @@ import 'package:f_biuli/model/search/neteork_search.dart';
 import 'package:f_biuli/model/search/neteork_search_result_data.dart';
 import 'package:f_biuli/model/search/network_search_suggest.dart';
 import 'package:f_biuli/model/search/neteork_type_search.dart';
-import 'package:f_biuli/network/retrofit/api_call_adapter.dart';
-import 'package:f_biuli/network/network_data_source.dart';
 import 'package:f_biuli/utils/result.dart';
 
 part 'retrofit_network.g.dart';
-/*
+
 @lazySingleton
 @RestApi(callAdapter: ApiCallAdapter)
 abstract class BiliNetworkApi {

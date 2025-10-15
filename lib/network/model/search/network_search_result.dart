@@ -15,7 +15,7 @@ abstract class NetworkSearchResult with _$NetworkSearchResult {
     List<NetworkArticleSearchResult>? article,
     List<NetworkLiveRoomSearchResult>? liveRoom,
     List<NetworkLiveLiveSearchResult>? liveUser,
-  ) _NetworkSearchResult;
+  ) = _NetworkSearchResult;
   
   static NetworkSearchResult fromJson(Object json) {
     List<NetworkUnSearchResult>? un;

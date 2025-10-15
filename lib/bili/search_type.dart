@@ -1,23 +1,20 @@
-import 'package:freezed_annotation/freezed_annotation.dart';
+import 'package:json_annotation/json_annotation.dart';
 
 part 'search_type.g.dart';
 
-@JsonEnum(valueField: 'type')
+//@JsonEnum()
 enum SearchType {
-  article('article'),
-  biliUser('bili_user'),
-  mediaBangumi('media_bangumi'),
-  mediaFt('media_ft'),
-  live('live'),
-  liveRoom('live_room'),
-  liveUser('live_user'),
-  photo('photo'),
-  topic('topic'),
-  video('video');
-
-  const SearchType(this.type);
-  final String type;
-  
+  article,
+  biliUser,
+  mediaBangumi,
+  mediaFt,
+  live,
+  liveRoom,
+  liveUser,
+  photo,
+  topic,
+  video
+  /*
   static bool hasType(String value) {
     return SearchType.values.any((e) => e.type == value);
   }
@@ -29,5 +26,5 @@ enum SearchType {
       }
     }
     return null;
-  }
+  }*/
 }

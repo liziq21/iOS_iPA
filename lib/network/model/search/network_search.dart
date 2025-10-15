@@ -17,7 +17,6 @@ class NetworkSearch with _$NetworkSearch {
 }
 
 @freezed
-abstract class NetworkTypeSearch with _$NetworkTypeSearchResult {
 
   const factory NetworkTypeSearch(
     int numResults,
