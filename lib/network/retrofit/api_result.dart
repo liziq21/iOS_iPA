@@ -7,7 +7,7 @@ part 'api_result.g.dart';
 
 @Freezed(genericArgumentFactories: true)
 //@JsonSerializable()
-@_ApiResultConverter()
+//@_ApiResultConverter()
 sealed class ApiResult<T> with _$ApiResult<T> {
   //const factory ApiResult() = 
 

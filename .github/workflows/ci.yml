@@ -23,12 +23,10 @@ jobs:
       - name: Setup Flutter
         uses: subosito/flutter-action@v2
         with:
-          #cache: true
+          cache: true
           channel: stable
           flutter-version-file: pubspec.yaml
       - run: flutter pub get
-      
-      - run: dart pub cache clean
       
       - name: Build_runner
         run: dart run build_runner build \
@@ -52,7 +50,7 @@ jobs:
 
       - uses: subosito/flutter-action@v2
         with:
-          #cache: true
+          cache: true
           channel: stable
           flutter-version-file: pubspec.yaml
       - run: flutter pub get

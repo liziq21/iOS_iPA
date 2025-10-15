@@ -1,4 +1,4 @@
-/*import 'package:dio/dio.dart';
+import 'package:dio/dio.dart';
 import 'package:injectable/injectable.dart';
 import 'package:retrofit/retrofit.dart';
 
@@ -202,4 +202,3 @@ class BiliNetworkSearch implements NetworkSearchDataSource {
   Future<Result<NetworkSearchSuggest>> searchSuggest(String term) async =>
     networkApi.searchSuggest(term, term);
 }
-*/

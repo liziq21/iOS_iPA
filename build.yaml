@@ -14,12 +14,12 @@ targets:
           - lib/network/model/**.dart
         options:
           copyWith: false
-          equal: false
+          #equal: false
           generic_argument_factories: true
           # Disable legacy (Dart 2 and older) utilites
           map: false
           toJson: false
-          to_string: false
+          #to_string: false
           union_value_case: snake
           when:
             when: false
@@ -41,9 +41,10 @@ targets:
       json_serializable:
         generate_for:
           include:
-            - lib/bili/search_type.dart
-            - lib/network/retrofit/api_result.dart
-            - lib/network/model/**.dart
+            - lib/**.dart
+            #- lib/bili/search_type.dart
+            #- lib/network/retrofit/api_result.dart
+            #- lib/network/model/**.dart
         options:
           create_to_json: false
           checked: true
@@ -54,4 +55,4 @@ targets:
       retrofit_generator:
         generate_for:
           include:
-            - lib/network/retrofit/retrofit_network.dart
+            #- lib/network/retrofit/retrofit_network.dart
