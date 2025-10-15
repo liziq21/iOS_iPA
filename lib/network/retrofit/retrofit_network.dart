@@ -57,7 +57,7 @@ abstract class BiliNetworkApi {
     @Query('highlight') String highlight,
   );
 }
-
+/*
 @lazySingleton
 class BiliNetworkSearch implements NetworkSearchDataSource {
   const BiliNetworkSearch(this.networkApi);
@@ -203,3 +203,4 @@ class BiliNetworkSearch implements NetworkSearchDataSource {
   Future<Result<NetworkSearchSuggest>> searchSuggest(String term) async =>
     networkApi.searchSuggest(term, term);
 }
+*/
