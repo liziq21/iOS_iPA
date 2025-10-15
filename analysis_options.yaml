@@ -13,8 +13,15 @@ analyzer:
 
 linter:
   rules:
-    prefer_single_quotes: true
-    always_use_package_imports: true
-    require_trailing_commas: true
-    avoid_void_async: true
-    unawaited_futures: true
+    - combinators_ordering
+    - directives_ordering
+    - omit_local_variable_types
+    - prefer_final_fields
+    - prefer_final_in_for_each
+    - prefer_final_locals
+    - prefer_relative_imports
+    - prefer_single_quotes
+    #- always_use_package_imports
+    - require_trailing_commas
+    - avoid_void_async
+    - unawaited_futures

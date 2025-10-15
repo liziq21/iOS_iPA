@@ -8,10 +8,11 @@ global_options:
 
 targets:
   $default:
-    exclude:
-      - lib/**.g.dart
-      - lib/**.freezed.dart
-      - lib/**.config.dart
+    sources:
+      exclude:
+        - lib/**.g.dart
+        - lib/**.freezed.dart
+        - lib/**.config.dart
     builders:
       freezed:
         generate_for:
