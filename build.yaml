@@ -8,17 +8,28 @@ targets:
           copyWith: false
           equal: false
           generic_argument_factories: true
+          # Disable legacy (Dart 2 and older) utilites
+          map: false
           toJson: false
           to_string: false
           union_value_case: snake
+          when:
+            when: false
+            maybe_when: false
+            when_or_null: false
+      
       go_router_builder:
         generate_for:
           include:
             - lib/navigation/router.dart
-      injectable_generator:
+      
+      injectable_generator:injectable_config_builder:
         generate_for:
-          exclude:
-            - '**.g.dart'
+          - lib/*.dart
+      injectable_generator:injectable_builder:
+        generate_for:
+          - lib/**.dart
+      
       json_serializable:
         generate_for:
           include:
@@ -28,8 +39,10 @@ targets:
         options:
           create_to_json: false
           checked: true
-          explicit_to_json: true
+          # 序列化嵌套的 Freezed 对象
+          # explicit_to_json: true
           field_rename: snake
+      
       retrofit_generator:
         generate_for:
           include:
