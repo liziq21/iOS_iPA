@@ -2,7 +2,7 @@ import 'package:json_annotation/json_annotation.dart';
 
 part 'search_type.g.dart';
 
-//@JsonEnum()
+@JsonEnum()
 enum SearchType {
   article,
   biliUser,

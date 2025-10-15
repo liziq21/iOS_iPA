@@ -10,7 +10,7 @@ part 'network_live_search_result.g.dart';
 
 @freezed
 abstract class NetworkSearchResult with _$NetworkSearchResult {
-  const NetworkSearchResult(
+  const factory NetworkSearchResult(
     List<NetworkUnSearchResult>? un,
     List<NetworkArticleSearchResult>? article,
     List<NetworkLiveRoomSearchResult>? liveRoom,

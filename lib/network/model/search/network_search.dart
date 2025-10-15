@@ -5,7 +5,7 @@ part 'network_search.freezed.dart';
 part 'network_search.g.dart';
 
 @freezed
-class NetworkSearch with _$NetworkSearch {
+abstract class NetworkSearch with _$NetworkSearch {
   const factory NetworkSearch(
     int? nums,
     @JsonKey(fromJson: NetworkSearchResult.fromJson)
@@ -17,7 +17,7 @@ class NetworkSearch with _$NetworkSearch {
 }
 
 @freezed
-
+abstract class NetworkTypeSearch with _$NetworkTypeSearch {
   const factory NetworkTypeSearch(
     int numResults,
     @JsonKey(fromJson: NetworkSearchResult.fromJson)
