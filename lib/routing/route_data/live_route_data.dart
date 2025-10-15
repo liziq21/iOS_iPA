@@ -1,4 +1,4 @@
-part of '../router.dart';
+part of 'package:f_biuli/routing/router.dart';
 
 extension BuildContextLive on BuildContext {
   void pushToLive(String roomId) => LiveRouteData(roomId: roomId).push(this);

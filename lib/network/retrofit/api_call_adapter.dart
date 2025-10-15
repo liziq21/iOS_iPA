@@ -1,8 +1,8 @@
 import 'package:dio/dio.dart';
 import 'package:retrofit/retrofit.dart';
 
-import '../utils/http_error.dart';
-import '../utils/result.dart';
+//import 'package:f_biuli/utils/http_error.dart';
+import 'package:f_biuli/utils/result.dart';
 import 'api_result.dart';
 
 class ApiCallAdapter<T>

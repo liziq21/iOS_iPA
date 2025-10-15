@@ -1,4 +1,4 @@
-part of '../router.dart';
+part of 'package:f_biuli/routing/router.dart';
 
 @TypedGoRoute<NotFoundRouteData>(path: Routes.notFound)
 @immutable

@@ -1,4 +1,4 @@
-part of '../router.dart';
+part of 'package:f_biuli/routing/router.dart';
 
 extension BuildContextSpace on BuildContext {
   void pushToSpace(String mid) => SpaceRouteData(mid: mid).push(this);

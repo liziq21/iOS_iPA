@@ -1,8 +1,8 @@
 import 'dart:convert';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
-import '../../../bili/search_type.dart';
-import '../../utils/json_factory.dart';
+import 'package:f_biuli/bili/search_type.dart';
+//import 'package:f_biuli/utils/json_factory.dart';
 import 'network_type_search_result.dart';
 
 part 'network_search_result.freezed.dart';
