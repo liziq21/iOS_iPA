@@ -42,10 +42,10 @@ enum OrderSort {
 
 enum UserSearchSort {
   sort.defaultSort(),
-  fonsDescending(.fons, .descending),
-  fonsAscending(.fons, .ascending),
-  levelDescending(.level, .descending),
-  levelAscending(.level, .ascending);
+  fonsDescending(UserSearchOrder.fons, OrderSort.descending),
+  fonsAscending(UserSearchOrder.fons, OrderSort.ascending),
+  levelDescending(UserSearchOrder.level, OrderSort.descending),
+  levelAscending(UserSearchOrder.level, OrderSort.ascending);
   
   const UserSearchSort(
     UserSearchOrder order,
