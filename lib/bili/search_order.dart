@@ -48,7 +48,7 @@ enum UserSearchSort {
   levelAscending(UserSearchOrder.level, OrderSort.ascending);
   
   const UserSearchSort(
-    UserSearchOrder order, [
+    this.order, [
     this.orderSort,
   ]) : order = order;
   

@@ -53,7 +53,7 @@ abstract class BiliNetworkApi {
   Future<Result<NetworkSearchSuggest>> searchSuggest(
     @Query('term') String term,
     @Query('highlight') String highlight, [
-    @Query('main_ver') String mainVer: 'v1',
+    @Query('main_ver') String mainVer = 'v1',
   ]);
 }
 
