@@ -8,11 +8,6 @@ global_options:
 
 targets:
   $default:
-    sources:
-      exclude:
-        - lib/**.g.dart
-        - lib/**.freezed.dart
-        - lib/**.config.dart
     builders:
       freezed:
         generate_for:
@@ -50,6 +45,10 @@ targets:
             #- lib/bili/search_type.dart
             #- lib/network/retrofit/api_result.dart
             #- lib/network/model/**.dart
+          exclude:
+            - lib/**.g.dart
+            - lib/**.freezed.dart
+            - lib/**.config.dart
         options:
           create_to_json: false
           checked: true
