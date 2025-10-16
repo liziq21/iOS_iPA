@@ -2,16 +2,32 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:html/parser.dart' show parse;
 import 'package:json_annotation/json_annotation.dart';
 
-import 'package:bili/search_type.dart';
+//import 'package:bili/search_type.dart';
 import 'package:network/model/user/network_user_official_verify.dart';
 
 part 'network_type_search_result.freezed.dart';
 part 'network_type_search_result.g.dart';
 
+@JsonEnum()
+enum SearchType {
+  article,
+  biliUser,
+  mediaBangumi,
+  mediaFt,
+  live,
+  liveRoom,
+  liveUser,
+  photo,
+  topic,
+  video,
+  un
+}
+
 @Freezed(unionKey: 'type')
 sealed class NetworkTypeSearchResult with _$NetworkTypeSearchResult {
   const factory NetworkTypeSearchResult(
-    String type,
+    @JsonKey(unknownEnumValue: SearchType.un)
+    SearchType type,
   ) = NetworkUnSearchResult;
   
   const factory NetworkTypeSearchResult.article(
