@@ -1,4 +1,4 @@
-import 'package:f-biuli/utils/result.dart';
+import 'package:f_biuli/utils/result.dart';
 
 extension ResultCast<T> on Result<T> {
   /// Convenience method to cast to Ok

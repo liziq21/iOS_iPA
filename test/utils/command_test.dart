@@ -1,5 +1,5 @@
-import 'package:f-biuli/utils/command.dart';
-import 'package:f-biuli/utils/result.dart';
+import 'package:f_biuli/utils/command.dart';
+import 'package:f_biuli/utils/result.dart';
 import 'package:flutter_test/flutter_test.dart';
 
 import '../../testing/utils/result.dart';
