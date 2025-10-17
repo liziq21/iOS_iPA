@@ -5,7 +5,7 @@ class SearchUris {
   static const host = 's.search.bilibili.com';
   static const base = 'https://$host';
   
-  static const suggest = '$base${SearchApiPath.suggest}';
+  static const suggest = '$base${SearchUriPaths.suggest}';
 }
 
 class SearchUriPaths {
@@ -16,8 +16,8 @@ class ApiUris {
   static const host = 'api.bilibili.com';
   static const base = 'https://$host';
   
-  static const search     = '$base${ApiPath.search}';
-  static const searchType = '$base${ApiPath.searchType}';
+  static const search     = '$base${ApiUriPaths.search}';
+  static const searchType = '$base${ApiUriPaths.searchType}';
 }
 
 class ApiUriPaths {

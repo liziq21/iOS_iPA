@@ -3,7 +3,7 @@ import 'package:f_biuli/bili/constonts/constonts.dart';
 
 class SearchViewModel extends ChangeNotifier {
 
-  DateTime _startTime = constonts.minDate;
+  DateTime _startTime = Constonts.minDate;
   DateTime get startTime => _startTime;
 
   DateTime _endTime = DateTime.now();

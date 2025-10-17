@@ -14,7 +14,7 @@ class ApiCallAdapter<T>
       final httpResponse = await call();
       final response = httpResponse.response;
       final data = httpResponse.data;
-      return switch (result) {
+      return switch (data) {
         ApiResultOk<T>() => Result.ok(result.data),
         ApiResultError<T>() => Result.error(Exception(
           'ERROR $response\n$result'

@@ -9,7 +9,7 @@ import 'package:f_biuli/network/retrofit/retrofit_network.dart';
 @module
 abstract class NetworkModule {
   @Named("apiBase")
-  String get apiBase => Api.base;
+  String get apiBase => ApiUris.base;
   
   @lazySingleton
   Dio get dio => Dio(

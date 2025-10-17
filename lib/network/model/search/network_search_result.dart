@@ -24,7 +24,9 @@ abstract class NetworkSearchResult with _$NetworkSearchResult {
     List<NetworkLiveUserSearchResult>? liveUser;
   
     void _assignResult(List? dataList) {
-      final type = (dataList[0] as Map<String, dynamic>)['type'];
+      if (dataList == null || dataList.isEmpty) return;
+
+      final type = (dataList[0]! as Map<String, dynamic>)['type'];
       switch (SearchType.parse(type)) {
         case SearchType.article:
           article = _parseList<NetworkArticleSearchResult>(dataList, NetworkArticleSearchResult.fromJson);
@@ -42,7 +44,7 @@ abstract class NetworkSearchResult with _$NetworkSearchResult {
       liveRoom = _parseList<NetworkLiveRoomSearchResult>(json['live_room'] as List?, NetworkLiveRoomSearchResult.fromJson);
       liveUser = _parseList<NetworkLiveUserSearchResult>(json['live_user'] as List?, NetworkLiveUserSearchResult.fromJson);
     } else if (json is List) {
-      if (json.isEmpty) return;
+      
       // 综合搜索
       if ((json[0] as Map<String, dynamic>).containsKey('result_type')) {
         for (var e in json) {
@@ -60,18 +62,10 @@ abstract class NetworkSearchResult with _$NetworkSearchResult {
     return NetworkSearchResult(un, article, liveRoom, liveUser);
   }
   
-  static List<T> _parseList<T>(List? list, T Function(Map<String, dynamic>) fromJson) {
-    if (dataList == null) return [];
-
-    return list.map((e) {
-      if (e is Map<String, dynamic>) {
-        return fromJson(e);
-      } else {
-        // Handle unexpected data type.  Consider logging an error.
-        print('Unexpected data type in list: ${e.runtimeType}'); // Example of logging
-        return null; // Or throw an exception, depending on your needs
-      }
-    }).whereType<T>().toList(); // Remove null values caused by parsing errors
+  static List<T> _parseList<T>(List list, T Function(Map<String, dynamic>) fromJson) {
+    return list.map((e) =>
+        fromJson(e as Map<String, dynamic>);
+    ).whereType<T>().toList();
   }
 }
 

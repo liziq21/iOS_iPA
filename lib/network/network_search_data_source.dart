@@ -8,7 +8,7 @@ import 'model/search/network_search.dart';
 import 'model/search/network_search_suggest.dart';
 import 'package:f_biuli/utils/result.dart';
 
-abstract class NetworkSearchDataSource {
+abstract interface class NetworkSearchDataSource {
   
   Future<Result<NetworkSearch>> search(
     String keyword, {

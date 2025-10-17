@@ -9,10 +9,12 @@ import 'package:f_biuli/bili/search_type.dart';
 import 'package:f_biuli/bili/search_order.dart';
 import 'package:f_biuli/bili/user_type.dart';
 import 'package:f_biuli/bili/video_duration_filter.dart';
+import 'package:f_biuli/utils/result.dart';
+
+import '../network_search_data_source.dart';
 import '../model/search/network_search.dart';
 import '../model/search/network_search_suggest.dart';
 import 'api_call_adapter.dart';
-import 'package:f_biuli/utils/result.dart';
 
 part 'retrofit_network.g.dart';
 
@@ -96,8 +98,8 @@ class BiliNetworkSearch implements NetworkSearchDataSource {
     SearchType.biliUser,
     keyword,
     page: page,
-    order: sort.order,
-    orderSort: sort.orderSort,
+    order: sort?.order,
+    orderSort: sort?.orderSort,
     userType: userType,
   );
   
@@ -192,8 +194,8 @@ class BiliNetworkSearch implements NetworkSearchDataSource {
     order: order,
     duration: duration,
     tids: tids,
-    pubTimeBeginS: DateRange?.start.millisecondsSinceEpoch ~/ 1000,
-    pubTimeEndS: DateRange?.end.millisecondsSinceEpoch ~/ 1000,
+    pubTimeBeginS: dateRange?.start.millisecondsSinceEpoch ~/ 1000,
+    pubTimeEndS: dateRange?.end.millisecondsSinceEpoch ~/ 1000,
   );
   
   @override

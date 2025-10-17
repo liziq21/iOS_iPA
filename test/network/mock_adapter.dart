@@ -20,8 +20,8 @@ class MockAdapter extends IOHttpClientAdapter {
   ) async {
     final uri = options.uri;
     switch(uri.host) {
-      case Api.host:
-      case SearchApi.host:
+      case ApiUris.host:
+      case SearchUris.host:
       default: ResponseBody.fromString('', 404);
     }
     
