@@ -10,5 +10,6 @@ abstract final class Routes {
   static const spaceRelative  = 'space';
   static const video = '/${videoRelative}';
   static const videoRelative = 'video';
+  
   static String videoWithId(String id) => '$video/$id';
 }

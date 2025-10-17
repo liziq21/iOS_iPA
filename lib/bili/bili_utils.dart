@@ -54,7 +54,7 @@ class BiliUtils {
       uri.isHTTPScheme => _extractHttpPath(uri),
       uri.isBilibiiScheme => _extractBilibiliSchemePath(uri),
       _ => null
-    }
+    };
 
   static String? _extractHttpPath(Uri uri) {
     final secondLevelDomain = uri.secondLevelDomain;
