@@ -1,4 +1,4 @@
-part of 'package:f_biuli/routing/router.dart';
+part of '../router.dart';
 
 extension BuildContextHome on BuildContext {
   void pushToHome() => HomeRouteData().push(this);

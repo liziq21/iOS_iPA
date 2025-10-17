@@ -1,4 +1,4 @@
-part of 'package:f_biuli/routing/router.dart';
+part of '../router.dart';
 
 extension BuildContextVideo on BuildContext {
   void pushToVideo(String id) => VideoRouteData(id: id).push(this);

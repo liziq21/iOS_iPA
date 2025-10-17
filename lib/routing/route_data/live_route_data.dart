@@ -1,4 +1,4 @@
-part of 'package:f_biuli/routing/router.dart';
+part of '../router.dart';
 
 extension BuildContextLive on BuildContext {
   void pushToLive(String roomId) => LiveRouteData(roomId: roomId).push(this);
@@ -6,7 +6,7 @@ extension BuildContextLive on BuildContext {
 
 @TypedGoRoute<LiveRouteData>(path: '${Routes.live}/:roomId')
 @immutable
-class LiveRouteData extends GoRouteData with _LiveRouteData {
+class LiveRouteData extends GoRouteData with $LiveRouteData {
   final String roomId;
   
   const LiveRouteData({ required this.roomId });

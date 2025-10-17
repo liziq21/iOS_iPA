@@ -1,4 +1,4 @@
-part of 'package:f_biuli/routing/router.dart';
+part of '../router.dart';
 
 extension BuildContextSearch on BuildContext {
   void pushToSearch(String? query) => SearchRouteData(keyword: query).push(this);
