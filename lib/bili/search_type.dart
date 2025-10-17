@@ -13,7 +13,7 @@ enum SearchType {
   liveUser,
   photo,
   topic,
-  video
+  video;
   /*
   static bool hasType(String value) {
     return SearchType.values.any((e) => e.type == value);

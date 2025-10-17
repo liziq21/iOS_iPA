@@ -29,7 +29,7 @@ abstract class BiliNetworkApi {
   @GET(ApiUriPaths.search)
   Future<Result<NetworkSearch>> search(
     @Query('keyword') String keyword, {
-    @Query('page') int int?,
+    @Query('page') int? page,
   });
   
   @GET(ApiUriPaths.searchType)
