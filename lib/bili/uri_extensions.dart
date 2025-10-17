@@ -23,7 +23,7 @@ extension UriExtensions on Uri {
   
   List<String> get hostParts => host.split('.');
   
-  String get secondLevelDomain => hostParts.length >= 2 ? hostParts[0] : '';
+  String? get secondLevelDomain => hostParts.length >= 2 ? hostParts[0] : null;
   
   bool get isBilibiiScheme => isScheme('bilibili');
   
