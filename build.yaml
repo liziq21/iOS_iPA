@@ -29,7 +29,7 @@ targets:
       go_router_builder:
         generate_for:
           include:
-            - lib/navigation/router.dart
+            - lib/routing/router.dart
       
       injectable_generator:injectable_config_builder:
         generate_for:

@@ -23,48 +23,35 @@ abstract class NetworkSearchResult with _$NetworkSearchResult {
     List<NetworkLiveRoomSearchResult>? liveRoom;
     List<NetworkLiveUserSearchResult>? liveUser;
   
-    List<dynamic>? dataList;
-    SearchType? type;
-    
-    void _assignResult() {
-      switch (type) {
+    void _assignResult(List? dataList) {
+      final type = (dataList[0] as Map<String, dynamic>)['type'];
+      switch (SearchType.parse(type)) {
         case SearchType.article:
           article = _parseList<NetworkArticleSearchResult>(dataList, NetworkArticleSearchResult.fromJson);
-          break;
         case SearchType.liveRoom:
           liveRoom = _parseList<NetworkLiveRoomSearchResult>(dataList, NetworkLiveRoomSearchResult.fromJson);
-          break;
         case SearchType.liveUser:
           liveUser = _parseList<NetworkLiveUserSearchResult>(dataList, NetworkLiveUserSearchResult.fromJson);
-          break;
         default:
           un = _parseList<NetworkUnSearchResult>(dataList, NetworkUnSearchResult.fromJson);
-          break;
       }
     }
     
     // 搜索类型为 live
-    // { live_room: {}, live_user: {} }
     if (json is Map<String, dynamic>) {
-      liveRoom = _parseList<NetworkLiveRoomSearchResult>(json['live_room'], NetworkLiveRoomSearchResult.fromJson);
-      liveUser = _parseList<NetworkLiveUserSearchResult>(json['live_user'], NetworkLiveUserSearchResult.fromJson);
+      liveRoom = _parseList<NetworkLiveRoomSearchResult>(json['live_room'] as List?, NetworkLiveRoomSearchResult.fromJson);
+      liveUser = _parseList<NetworkLiveUserSearchResult>(json['live_user'] as List?, NetworkLiveUserSearchResult.fromJson);
     } else if (json is List) {
-      
+      if (json.isEmpty) return;
       // 综合搜索
-      // [{ result_type: type, data: {} }]
       if ((json[0] as Map<String, dynamic>).containsKey('result_type')) {
         for (var e in json) {
-          dataList = (e as Map<String, dynamic>)['data']! as List;
-          type = SearchType.parse((e as Map<String, dynamic>)['type']);
-          _assignResult();
+          _assignResult((e as Map<String, dynamic>)['data'] as List?);
         }
         
       // 搜索类型为其它
-      // [{}]
       } else {
-        dataList = json;
-        type = SearchType.parse((json[0] as Map<String, dynamic>)['type']);
-        _assignResult();
+        _assignResult(json);
       }
     } else {
       throw ArgumentError.value(json, 'json', 'Cannot convert the provided data.');
@@ -74,9 +61,8 @@ abstract class NetworkSearchResult with _$NetworkSearchResult {
   }
   
   static List<T> _parseList<T>(List? list, T Function(Map<String, dynamic>) fromJson) {
-    if (list == null) {
-      return [];
-    }
+    if (dataList == null) return [];
+
     return list.map((e) {
       if (e is Map<String, dynamic>) {
         return fromJson(e);

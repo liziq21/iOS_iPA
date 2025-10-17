@@ -1,5 +1,6 @@
+abstract class Category {}
 
-enum ArticleCategory {
+enum ArticleCategory implements Category {
   all(0),
   animation(2),
   games(1),
@@ -17,7 +18,7 @@ enum ArticleCategory {
 }
 
 
-enum PhotoCategory {
+enum PhotoCategory implements Category {
   all(0),
   artists(1),
   photography(2);

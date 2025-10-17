@@ -9,11 +9,9 @@ import 'package:f_biuli/bili/search_type.dart';
 import 'package:f_biuli/bili/search_order.dart';
 import 'package:f_biuli/bili/user_type.dart';
 import 'package:f_biuli/bili/video_duration_filter.dart';
-import 'package:f_biuli/network/model/search/network_live_search.dart';
-import 'package:f_biuli/network/model/search/network_search.dart';
-import 'package:f_biuli/network/model/search/network_search_result_data.dart';
-import 'package:f_biuli/network/model/search/network_search_suggest.dart';
-import 'package:f_biuli/network/model/search/network_type_search.dart';
+import '../model/search/network_search.dart';
+import '../model/search/network_search_suggest.dart';
+import 'api_call_adapter.dart';
 import 'package:f_biuli/utils/result.dart';
 
 part 'retrofit_network.g.dart';
@@ -28,28 +26,28 @@ abstract class BiliNetworkApi {
     @Named("apiBase") String? baseUrl,
   }) = _BiliNetworkApi;
   
-  @GET(ApiPath.search)
+  @GET(ApiUriPaths.search)
   Future<Result<NetworkSearch>> search(
     @Query('keyword') String keyword, {
-    @Query('page') int page,
+    @Query('page') int int?,
   });
   
-  @GET(ApiPath.searchType)
+  @GET(ApiUriPaths.searchType)
   Future<Result<NetworkTypeSearch>> searchByType(
-    @Query('search_type') String searchType,
+    @Query('search_type') SearchType searchType,
     @Query('keyword') String keyword, {
     @Query('page') int? page,
     @Query('order') SearchOrder? order,
     @Query('duration') VideoDurationFilter? duration,
     @Query('tids') int? tids,
-    @Query('order_sort') int? orderSort,
+    @Query('order_sort') OrderSort? orderSort,
     @Query('user_type') UserType? userType,
-    @Query('category_id') String? categoryId,
-    @Query('pubtime_begin_s') int? pubtimeBeginS,
-    @Query('pubtime_end_s') int? pubrimeEndS,
+    @Query('category_id') Category? categoryId,
+    @Query('pubtime_begin_s') int? pubTimeBeginS,
+    @Query('pubtime_end_s') int? pubTimeEndS,
   });
   
-  @GET(SearchApi.searchSuggest)
+  @GET(SearchUris.suggest)
   Future<Result<NetworkSearchSuggest>> searchSuggest(
     @Query('term') String term,
     @Query('highlight') String highlight, [
@@ -66,7 +64,7 @@ class BiliNetworkSearch implements NetworkSearchDataSource {
   @override
   Future<Result<NetworkSearch>> search(
     String keyword, {
-    String? page,
+    int? page,
   }) async => networkApi.search(
     keyword,
     page: page,
@@ -92,14 +90,14 @@ class BiliNetworkSearch implements NetworkSearchDataSource {
   Future<Result<NetworkTypeSearch>> searchBiliUser(
     String keyword, {
     int? page,
-    UserSearchOrder? order,
+    UserSearchSort? sort,
     UserType? userType,
   }) async => networkApi.searchByType(
     SearchType.biliUser,
     keyword,
     page: page,
-    order: order,
-    orderSort: order,
+    order: sort.order,
+    orderSort: sort.orderSort,
     userType: userType,
   );
   
@@ -124,7 +122,7 @@ class BiliNetworkSearch implements NetworkSearchDataSource {
   );
   
   @override
-  Future<Result<tworkTypeSearch>> searchLive(
+  Future<Result<NetworkTypeSearch>> searchLive(
     String keyword, {
     int? page,
   }) async => networkApi.searchByType(
@@ -194,8 +192,8 @@ class BiliNetworkSearch implements NetworkSearchDataSource {
     order: order,
     duration: duration,
     tids: tids,
-    pubtimeBeginS: DateRange?.start.millisecondsSinceEpoch ~/ 1000,
-    pubtimeEndS: DateRange?.end.millisecondsSinceEpoch ~/ 1000,
+    pubTimeBeginS: DateRange?.start.millisecondsSinceEpoch ~/ 1000,
+    pubTimeEndS: DateRange?.end.millisecondsSinceEpoch ~/ 1000,
   );
   
   @override

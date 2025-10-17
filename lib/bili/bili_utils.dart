@@ -49,12 +49,15 @@ class BiliUtils {
     return _buildDecodedUri(path, uri);
   }
   
-  static String? _extractPath(Uri uri) =>
-    switch (true) {
-      uri.isHTTPScheme => _extractHttpPath(uri),
-      uri.isBilibiiScheme => _extractBilibiliSchemePath(uri),
-      _ => null
-    };
+  static String? _extractPath(Uri uri) {
+    if (uri.isHTTPScheme) {
+      return _extractHttpPath(uri);
+    } else if (uri.isBilibiiScheme) {
+      return _extractBilibiliSchemePath(uri);
+    }
+    
+    return null;
+  }
 
   static String? _extractHttpPath(Uri uri) {
     final secondLevelDomain = uri.secondLevelDomain;

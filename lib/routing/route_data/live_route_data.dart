@@ -6,7 +6,7 @@ extension BuildContextLive on BuildContext {
 
 @TypedGoRoute<LiveRouteData>(path: '${Routes.live}/:roomId')
 @immutable
-class LiveRouteData extends GoRouteData with $LiveRouteData {
+class LiveRouteData extends GoRouteData with _LiveRouteData {
   final String roomId;
   
   const LiveRouteData({ required this.roomId });

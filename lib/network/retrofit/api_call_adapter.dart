@@ -12,18 +12,19 @@ class ApiCallAdapter<T>
   Future<Result<T>> adapt(Future<HttpResponse<ApiResult<T>>> Function() call) async {
     try {
       final httpResponse = await call();
-      final ApiResult result = httpResponse.data;
+      final response = httpResponse.response;
+      final data = httpResponse.data;
       return switch (result) {
-        ApiResult.ok => Result.ok(result.data),
-        ApiResult.error => Result.error(Exception(
-          'ERROR ${httpResponse.response.uri}\n$result'
+        ApiResultOk<T>() => Result.ok(result.data),
+        ApiResultError<T>() => Result.error(Exception(
+          'ERROR $response\n$result'
         )),
       };
     } on DioException catch (e) {
       final response = e.response;
       final data = response?.data?.toString();
       return Result.error(Exception(
-          'ERROR ${response?.uri}\n${data ?? e.message}'
+          'ERROR $response\n${data ?? e.message}'
       ));
     } on Exception catch (e) {
       return Result.error(e);

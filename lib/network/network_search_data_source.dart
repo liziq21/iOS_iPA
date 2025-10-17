@@ -5,10 +5,10 @@ import 'package:f_biuli/bili/search_order.dart';
 import 'package:f_biuli/bili/user_type.dart';
 import 'package:f_biuli/bili/video_duration_filter.dart';
 import 'model/search/network_search.dart';
-import 'model/search/network_type_search.dart';
+import 'model/search/network_search_suggest.dart';
 import 'package:f_biuli/utils/result.dart';
 
-abstract interface class NetworkSearchDataSource {
+abstract class NetworkSearchDataSource {
   
   Future<Result<NetworkSearch>> search(
     String keyword, {
@@ -25,7 +25,7 @@ abstract interface class NetworkSearchDataSource {
   Future<Result<NetworkTypeSearch>> searchBiliUser(
     String keyword, {
     int? page,
-    UserSearchOrder? order,
+    UserSearchSort? sort,
     UserType? userType,
   });
   

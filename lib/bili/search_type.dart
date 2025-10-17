@@ -17,14 +17,12 @@ enum SearchType {
   /*
   static bool hasType(String value) {
     return SearchType.values.any((e) => e.type == value);
-  }
-  
-  static SearchType? parse(String value) {
-    for (final searchType in SearchType.values) {
-      if (searchType.type == value) {
-        return searchType;
-      }
-    }
-    return null;
   }*/
+  
+  static SearchType? parse(String type) =>
+    $enumDecodeNullable(
+      _$SearchTypeEnumMap,
+      type,
+      unknownValue: JsonKey.nullForUndefinedEnumValue,
+    );
 }

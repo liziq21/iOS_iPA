@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:logger/logger.dart';
 import 'package:sentry_flutter/sentry_flutter.dart';
 import 'app/app.dart';
-import 'injectable.dart';
+import 'injection.dart';
 
 Future<void> main() async {
   configureDependencies();

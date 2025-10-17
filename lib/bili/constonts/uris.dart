@@ -1,4 +1,4 @@
-class SearchApi {
+class SearchUris {
   //static const minDate = DateTime(2009, 6, 26);
   //minDate.add(const Duration(days: 1));
   
@@ -8,11 +8,11 @@ class SearchApi {
   static const suggest = '$base${SearchApiPath.suggest}';
 }
 
-class SearchApiPath {
+class SearchUriPaths {
   static const suggest = '/main/suggest';
 }
 
-class Api {
+class ApiUris {
   static const host = 'api.bilibili.com';
   static const base = 'https://$host';
   
@@ -20,7 +20,7 @@ class Api {
   static const searchType = '$base${ApiPath.searchType}';
 }
 
-class ApiPath {
+class ApiUriPaths {
   static const search     = '/x/web-interface/search/all/v2';
   static const searchType = '/x/web-interface/search/type';
 }
