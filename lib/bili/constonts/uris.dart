@@ -5,7 +5,7 @@ class SearchApi {
   static const host = 's.search.bilibili.com';
   static const base = 'https://$host';
   
-  static const suggest = '$base${SearchPath.suggest}';
+  static const suggest = '$base${SearchApiPath.suggest}';
 }
 
 class SearchApiPath {

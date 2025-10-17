@@ -6,7 +6,7 @@ import 'package:f_biuli/bili/search_type.dart';
 import 'network_type_search_result.dart';
 
 part 'network_search_result.freezed.dart';
-part 'network_search_result.g.dart';
+//part 'network_search_result.g.dart';
 
 @freezed
 abstract class NetworkSearchResult with _$NetworkSearchResult {
@@ -14,7 +14,7 @@ abstract class NetworkSearchResult with _$NetworkSearchResult {
     List<NetworkUnSearchResult>? un,
     List<NetworkArticleSearchResult>? article,
     List<NetworkLiveRoomSearchResult>? liveRoom,
-    List<NetworkLiveLiveSearchResult>? liveUser,
+    List<NetworkLiveUserSearchResult>? liveUser,
   ) = _NetworkSearchResult;
   
   static NetworkSearchResult fromJson(Object json) {
@@ -23,7 +23,7 @@ abstract class NetworkSearchResult with _$NetworkSearchResult {
     List<NetworkLiveRoomSearchResult>? liveRoom;
     List<NetworkLiveUserSearchResult>? liveUser;
   
-    List<dynamic> dataList;
+    List<dynamic>? dataList;
     SearchType? type;
     
     void _assignResult() {
@@ -71,6 +71,21 @@ abstract class NetworkSearchResult with _$NetworkSearchResult {
     }
   
     return NetworkSearchResult(un, article, liveRoom, liveUser);
+  }
+  
+  static List<T> _parseList<T>(List? list, T Function(Map<String, dynamic>) fromJson) {
+    if (list == null) {
+      return [];
+    }
+    return list.map((e) {
+      if (e is Map<String, dynamic>) {
+        return fromJson(e);
+      } else {
+        // Handle unexpected data type.  Consider logging an error.
+        print('Unexpected data type in list: ${e.runtimeType}'); // Example of logging
+        return null; // Or throw an exception, depending on your needs
+      }
+    }).whereType<T>().toList(); // Remove null values caused by parsing errors
   }
 }
 

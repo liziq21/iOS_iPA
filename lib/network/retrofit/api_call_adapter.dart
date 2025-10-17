@@ -12,9 +12,9 @@ class ApiCallAdapter<T>
   Future<Result<T>> adapt(Future<HttpResponse<ApiResult<T>>> Function() call) async {
     try {
       final httpResponse = await call();
-      final ApiResult<T> result = httpResponse.data;
+      final ApiResult result = httpResponse.data;
       return switch (result) {
-        ApiResult.ok => Restult.ok(result.data),
+        ApiResult.ok => Result.ok(result.data),
         ApiResult.error => Result.error(Exception(
           'ERROR ${httpResponse.response.uri}\n$result'
         )),
@@ -23,7 +23,7 @@ class ApiCallAdapter<T>
       final response = e.response;
       final data = response?.data?.toString();
       return Result.error(Exception(
-          'ERROR ${response.uri}\n${data ? data : e.message}'
+          'ERROR ${response?.uri}\n${data ?? e.message}'
       ));
     } on Exception catch (e) {
       return Result.error(e);

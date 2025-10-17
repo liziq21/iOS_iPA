@@ -24,6 +24,6 @@ abstract class NetworkSearchSuggestItem with _$NetworkSearchSuggestItem {
   ) = _NetworkSearchSuggestItem;
   
   factory NetworkSearchSuggestItem.fromJson(Map<String, dynamic> json)
-    => NetworkSearchSuggestItemFromJson(json);
+    => _$NetworkSearchSuggestItemFromJson(json);
 
 }

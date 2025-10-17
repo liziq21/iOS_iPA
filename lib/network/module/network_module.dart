@@ -1,11 +1,10 @@
+import 'dart:io';
 import 'package:dio/dio.dart';
 import 'package:injectable/injectable.dart';
 //import 'package:retrofit/retrofit.dart';
 
 import 'package:f_biuli/bili/constonts/uris.dart';
 import 'package:f_biuli/network/retrofit/retrofit_network.dart';
-import 'package:f_biuli/network/model/network_search.dart';
-import 'package:f_biuli/network/model/network_type_search_result.dart';
 
 @module
 abstract class NetworkModule {

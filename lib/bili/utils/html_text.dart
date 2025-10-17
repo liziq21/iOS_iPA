@@ -1,3 +1,4 @@
+/*
 extension type HtmlText(String html) {
   
   String stripTags() => parse(html).body?.text ?? html;
@@ -6,4 +7,4 @@ extension type HtmlText(String html) {
   
   String toString() => html;
   
-}
+}*/

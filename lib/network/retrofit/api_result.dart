@@ -25,14 +25,3 @@ sealed class ApiResult<T> with _$ApiResult<T> {
     _$ApiResultFromJson(json, fromJsonT);
 }
 
-class _ApiResultConverter implements JsonConverter<ApiResult, Map<String, dynamic>> {
-  const _ApiResultConverter();
-
-  @override
-  ApiResult fromJson(Map<String, dynamic> json) {
-    
- }
-
-  @override
-  Map<String, dynamic> toJson(ApiResult object) => <String, dynamic>{};
-}

@@ -50,9 +50,9 @@ enum UserSearchSort {
   const UserSearchSort(
     this.order, [
     this.orderSort,
-  ]) : order = order;
+  ]);
   
-  const UserSearchSort.defaultSort();
+  const UserSearchSort.defaultSort() : order = null, orderSort = null;
   
   final UserSearchOrder? order;
   final OrderSort? orderSort;

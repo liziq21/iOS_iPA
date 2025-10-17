@@ -2,18 +2,18 @@ import 'package:dio/dio.dart';
 import 'package:injectable/injectable.dart';
 import 'package:retrofit/retrofit.dart';
 
-import 'package:f_biuli/bili/constonts/.dart';
+import 'package:f_biuli/bili/constonts/uris.dart';
 import 'package:f_biuli/bili/category.dart';
 import 'package:f_biuli/bili/date_range.dart';
 import 'package:f_biuli/bili/search_type.dart';
 import 'package:f_biuli/bili/search_order.dart';
 import 'package:f_biuli/bili/user_type.dart';
 import 'package:f_biuli/bili/video_duration_filter.dart';
-import 'package:f_biuli/model/search/neteork_live_search.dart';
-import 'package:f_biuli/model/search/neteork_search.dart';
-import 'package:f_biuli/model/search/neteork_search_result_data.dart';
-import 'package:f_biuli/model/search/network_search_suggest.dart';
-import 'package:f_biuli/model/search/neteork_type_search.dart';
+import 'package:f_biuli/network/model/search/network_live_search.dart';
+import 'package:f_biuli/network/model/search/network_search.dart';
+import 'package:f_biuli/network/model/search/network_search_result_data.dart';
+import 'package:f_biuli/network/model/search/network_search_suggest.dart';
+import 'package:f_biuli/network/model/search/network_type_search.dart';
 import 'package:f_biuli/utils/result.dart';
 
 part 'retrofit_network.g.dart';
@@ -80,8 +80,8 @@ class BiliNetworkSearch implements NetworkSearchDataSource {
     ArticleSearchOrder? order,
   }) async =>
     networkApi.searchByType(
-      searchType: SearchType.article,
-      keyword: keyword,
+      SearchType.article,
+      keyword,
       page: page,
       order: order,
       categoryId: category,
@@ -95,8 +95,8 @@ class BiliNetworkSearch implements NetworkSearchDataSource {
     UserSearchOrder? order,
     UserType? userType,
   }) async => networkApi.searchByType(
-    searchType: SearchType.biliUser,
-    keyword: keyword,
+    SearchType.biliUser,
+    keyword,
     page: page,
     order: order,
     orderSort: order,
@@ -108,8 +108,8 @@ class BiliNetworkSearch implements NetworkSearchDataSource {
     String keyword, {
     int? page,
   }) async => networkApi.searchByType(
-    searchType: SearchType.mediaBangumi,
-    keyword: keyword,
+    SearchType.mediaBangumi,
+    keyword,
     page: page,
   );
   
@@ -118,8 +118,8 @@ class BiliNetworkSearch implements NetworkSearchDataSource {
     String keyword, {
     int? page,
   }) async => networkApi.searchByType(
-    searchType: SearchType.mediaFt,
-    keyword: keyword,
+    SearchType.mediaFt,
+    keyword,
     page: page,
   );
   
@@ -128,8 +128,8 @@ class BiliNetworkSearch implements NetworkSearchDataSource {
     String keyword, {
     int? page,
   }) async => networkApi.searchByType(
-    searchType: SearchType.live,
-    keyword: keyword,
+    SearchType.live,
+    keyword,
     page: page,
   );
   
@@ -139,8 +139,8 @@ class BiliNetworkSearch implements NetworkSearchDataSource {
     int? page,
     LiveRoomSearchOrder? order,
   }) async => networkApi.searchByType(
-    searchType: SearchType.liveRoom,
-    keyword: keyword,
+    SearchType.liveRoom,
+    keyword,
     page: page,
     order: order,
   );
@@ -150,8 +150,8 @@ class BiliNetworkSearch implements NetworkSearchDataSource {
     String keyword, {
     int? page,
   }) async => networkApi.searchByType(
-    searchType: SearchType.liveUser,
-    keyword: keyword,
+    SearchType.liveUser,
+    keyword,
     page: page,
   );
   
@@ -162,8 +162,8 @@ class BiliNetworkSearch implements NetworkSearchDataSource {
     PhotoCategory? category,
     PhotoOrVideoSearchOrder? order,
   }) async => networkApi.searchByType(
-    searchType: SearchType.photo,
-    keyword: keyword,
+    SearchType.photo,
+    keyword,
     page: page,
     order: order,
     categoryId: category,
@@ -174,8 +174,8 @@ class BiliNetworkSearch implements NetworkSearchDataSource {
     String keyword, {
     int? page,
   }) async => networkApi.searchByType(
-    searchType: SearchType.topic,
-    keyword: keyword,
+    SearchType.topic,
+    keyword,
     page: page,
   );
   
@@ -188,8 +188,8 @@ class BiliNetworkSearch implements NetworkSearchDataSource {
     int? tids,
     DateRange? dateRange,
   }) async => networkApi.searchByType(
-    searchType: SearchType.video,
-    keyword: keyword,
+    SearchType.video,
+    keyword,
     page: page,
     order: order,
     duration: duration,

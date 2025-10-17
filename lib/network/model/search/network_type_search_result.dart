@@ -27,7 +27,7 @@ enum SearchType {
 sealed class NetworkTypeSearchResult with _$NetworkTypeSearchResult {
   const factory NetworkTypeSearchResult(
     //@JsonKey(unknownEnumValue: SearchType.un)
-    SearchType type,
+    String type,
   ) = NetworkUnSearchResult;
   
   const factory NetworkTypeSearchResult.article(
@@ -54,33 +54,37 @@ sealed class NetworkTypeSearchResult with _$NetworkTypeSearchResult {
     String categoryName,
   ) = NetworkArticleSearchResult;
   
-  const factory NetworkTypeSearchResult.live(
-    @JsonKey('rank_offset')
+  const factory NetworkTypeSearchResult.liveRoom(
+    SearchType type,
+    @JsonKey(name: 'rank_offset')
     int rankOffset,
     int uid,
     String tags,
-    @JsonKey('live_time')
+    @JsonKey(name: 'live_time')
     String liveTime,
     String uname,
     String uface,
     String face,
-    @JsonKey('user_cover')
+    @JsonKey(name: 'user_cover')
     String userCover,
-    SearchType type,
     HtmlTitle title,
     String cover,
     int online,
-    @JsonKey('rank_index')
+    @JsonKey(name: 'rank_index')
     int rankIndex,
-    @JsonKey('rank_score')
+    @JsonKey(name: 'rank_score')
     int rankScore,
     int roomid,
     int attentions,
-    @JsonKey('cate_name')
+    @JsonKey(name: 'cate_name')
     String cateName,
-    @JsonKey('watched_show')
+    @JsonKey(name: 'watched_show')
     Map watchedShow,
-  ) = NetworkLiveSearchResult;
+  ) = NetworkLiveRoomSearchResult;
+  
+  const factory NetworkTypeSearchResult.liveUser(
+    SearchType type,
+  ) = NetworkLiveUserSearchResult;
   
   const factory NetworkTypeSearchResult.biliUser(
     SearchType type,
