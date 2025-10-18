@@ -194,11 +194,15 @@ class BiliNetworkSearch implements NetworkSearchDataSource {
     order: order,
     duration: duration,
     tids: tids,
-    pubTimeBeginS: (dateRange != null : dateRange.start.millisecondsSinceEpoch ~/ 1000 ? null),
-    pubTimeEndS: (dateRange != null : dateRange.end.millisecondsSinceEpoch ~/ 1000 ? null),
+    pubTimeBeginS: dateRange?.start.millisecondsSinceEpoch.intDiv(1000),
+    pubTimeEndS: dateRange?.end.millisecondsSinceEpoch.intDiv(1000),
   );
   
   @override
   Future<Result<NetworkSearchSuggest>> searchSuggest(String term) async =>
     networkApi.searchSuggest(term, term);
+}
+
+extension on int {
+  int intDiv(int divisor) => this ~/ divisor;
 }
