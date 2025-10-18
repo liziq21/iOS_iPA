@@ -74,7 +74,7 @@ jobs:
           SENTRY_DSN: ${{secrets.SENTRY_DSN}}
         run: |
           flutter build ios \
-            --release
+            --release \
             --no-codesign \
             --dart-define=SENTRY_DSN="$SENTRY_DSN" \
             --verbose
