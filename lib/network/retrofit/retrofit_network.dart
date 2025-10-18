@@ -194,8 +194,8 @@ class BiliNetworkSearch implements NetworkSearchDataSource {
     order: order,
     duration: duration,
     tids: tids,
-    pubTimeBeginS: dateRange != null : dateRange.start.millisecondsSinceEpoch ~/ 1000 ? null,
-    pubTimeEndS: dateRange != null : dateRange.end.millisecondsSinceEpoch ~/ 1000 ? null,
+    pubTimeBeginS: (dateRange != null : dateRange.start.millisecondsSinceEpoch ~/ 1000 ? null),
+    pubTimeEndS: (dateRange != null : dateRange.end.millisecondsSinceEpoch ~/ 1000 ? null),
   );
   
   @override
