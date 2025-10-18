@@ -1,6 +1,6 @@
 abstract mixin class Category on Enum {}
 
-enum ArticleCategory implements Category {
+enum ArticleCategory with Category {
   all(0),
   animation(2),
   games(1),
@@ -18,7 +18,7 @@ enum ArticleCategory implements Category {
 }
 
 
-enum PhotoCategory implements Category {
+enum PhotoCategory with Category {
   all(0),
   artists(1),
   photography(2);
