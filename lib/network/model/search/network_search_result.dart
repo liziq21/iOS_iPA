@@ -64,7 +64,7 @@ abstract class NetworkSearchResult with _$NetworkSearchResult {
   
   static List<T> _parseList<T>(List list, T Function(Map<String, dynamic>) fromJson) {
     return list.map((e) =>
-        fromJson(e as Map<String, dynamic>);
+        fromJson(e as Map<String, dynamic>)
     ).whereType<T>().toList();
   }
 }
