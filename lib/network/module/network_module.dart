@@ -4,7 +4,6 @@ import 'package:injectable/injectable.dart';
 //import 'package:retrofit/retrofit.dart';
 
 import 'package:f_biuli/bili/constonts/uris.dart';
-import 'package:f_biuli/network/retrofit/retrofit_network.dart';
 
 @module
 abstract class NetworkModule {
