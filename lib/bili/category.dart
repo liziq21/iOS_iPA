@@ -1,4 +1,4 @@
-abstract class Category {}
+abstract mixin class Category on Enum {}
 
 enum ArticleCategory implements Category {
   all(0),

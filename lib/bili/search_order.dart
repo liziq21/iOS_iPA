@@ -1,4 +1,4 @@
-abstract class SearchOrder {}
+abstract mixin class SearchOrder on Enum {}
 
 enum ArticleSearchOrder implements SearchOrder {
   totalrank,

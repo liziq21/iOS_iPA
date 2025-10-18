@@ -15,6 +15,7 @@ import '../network_search_data_source.dart';
 import '../model/search/network_search.dart';
 import '../model/search/network_search_suggest.dart';
 import 'api_call_adapter.dart';
+import 'api_result.dart'; // retrofit_network.g.dart 需要
 
 part 'retrofit_network.g.dart';
 
