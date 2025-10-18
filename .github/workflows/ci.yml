@@ -64,10 +64,10 @@ jobs:
       - name: Build IPA
         env:
           SENTRY_DSN: ${{secrets.SENTRY_DSN}}
-        run: |
-          flutter build ios \
+        run: flutter build ios \
             --no-codesign \
             --dart-define=SENTRY_DSN="$SENTRY_DSN"
+        run: |
           mkdir -p Payload
           mv ./build/ios/iphoneos/Runner.app Payload
           zip -r -y Payload.zip Payload/Runner.app
