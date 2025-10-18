@@ -62,7 +62,9 @@ abstract class NetworkSearchResult with _$NetworkSearchResult {
     return NetworkSearchResult(un, article, liveRoom, liveUser);
   }
   
-  static List<T> _parseList<T>(List list, T Function(Map<String, dynamic>) fromJson) {
+  static List<T> _parseList<T>(List? list, T Function(Map<String, dynamic>) fromJson) {
+    if (dataList == null || dataList.isEmpty) return [];
+    
     return list.map((e) =>
         fromJson(e as Map<String, dynamic>)
     ).whereType<T>().toList();
