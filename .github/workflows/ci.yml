@@ -18,7 +18,9 @@ jobs:
     timeout-minutes: 60
     
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v5
+        with:
+          fetch-depth: 0
       
       - name: Setup Flutter
         uses: subosito/flutter-action@v2
@@ -46,11 +48,14 @@ jobs:
     needs: [flutter_test]
     runs-on: macos-latest
     steps:
-      - uses: actions/checkout@v4
+      - name: Checkout
+        uses: actions/checkout@v5
+        with:
+          fetch-depth: 0
 
       - uses: subosito/flutter-action@v2
         with:
-          cache: true
+          #cache: true
           channel: stable
           flutter-version-file: pubspec.yaml
       - run: flutter pub get
@@ -65,7 +70,9 @@ jobs:
         env:
           SENTRY_DSN: ${{secrets.SENTRY_DSN}}
         run: |
-          flutter build ios --no-codesign --dart-define=SENTRY_DSN="$SENTRY_DSN"
+          flutter build ios \
+            --no-codesign \
+            --dart-define=SENTRY_DSN="$SENTRY_DSN"
           mkdir -p Payload
           mv ./build/ios/iphoneos/Runner.app Payload
           zip -r -y Payload.zip Payload/Runner.app
