@@ -63,7 +63,7 @@ abstract class NetworkSearchResult with _$NetworkSearchResult {
   }
   
   static List<T> _parseList<T>(List? list, T Function(Map<String, dynamic>) fromJson) {
-    if (dataList == null || dataList.isEmpty) return [];
+    if (list == null || list.isEmpty) return [];
     
     return list.map((e) =>
         fromJson(e as Map<String, dynamic>)
