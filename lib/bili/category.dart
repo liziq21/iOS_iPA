@@ -1,8 +1,13 @@
 abstract interface class Category {
+  String toJson();
+}
+
+mixin class CategoryMixin implements Category {
+  @ovrride
   String toJson() => toString();
 }
 
-enum ArticleCategory implements Category {
+enum ArticleCategory with CategoryMixin {
   all(0),
   animation(2),
   games(1),
@@ -20,14 +25,11 @@ enum ArticleCategory implements Category {
 }
 
 
-enum PhotoCategory implements Category {
-  all(0),
-  artists(1),
-  photography(2);
+enum PhotoCategory with CategoryMixin {
+  all,
+  artists,
+  photography;
 
-  const PhotoCategory(this.id);
-  final int id;
-  
   @override
-  String toString() => '$id';
+  String toString() => '${this.index}';
 }
