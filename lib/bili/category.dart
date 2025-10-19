@@ -1,4 +1,4 @@
-base class Category extends Enum with CategoryMixin {
+base class Category with CategoryMixin {
   //String toJson() => toString();
 }
 
