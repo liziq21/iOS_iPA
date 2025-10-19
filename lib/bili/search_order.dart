@@ -1,4 +1,4 @@
-abstract mixin class SearchOrder on Enum {}
+abstract mixin class SearchOrder extends Enum {}
 
 enum ArticleSearchOrder with SearchOrder {
   totalrank,

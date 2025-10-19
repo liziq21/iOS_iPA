@@ -1,4 +1,4 @@
-abstract mixin class Category on Enum {}
+abstract mixin class Category extends Enum {}
 
 enum ArticleCategory with Category {
   all(0),
