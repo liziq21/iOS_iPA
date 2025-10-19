@@ -18,6 +18,7 @@ enum ArticleCategory implements Category {
 }
 
 
+enum PhotoCategory implements Category {
   all(0),
   artists(1),
   photography(2);
