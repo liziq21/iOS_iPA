@@ -1,9 +1,9 @@
-class Category extends Enum with CategoryMixin {
+interests class Category extends Enum with CategoryMixin {
   //String toJson() => toString();
 }
 
 mixin CategoryMixin on Enum {
-  //String toJson() => toString();
+  String toJson() => toString();
 }
 
 enum ArticleCategory implements Category {
