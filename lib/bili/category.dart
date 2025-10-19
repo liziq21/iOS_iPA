@@ -1,6 +1,6 @@
-abstract mixin class Category extends Enum {}
+abstract interface class Category extends Enum {}
 
-enum ArticleCategory with Category {
+enum ArticleCategory implements Category {
   all(0),
   animation(2),
   games(1),
@@ -18,7 +18,6 @@ enum ArticleCategory with Category {
 }
 
 
-enum PhotoCategory with Category {
   all(0),
   artists(1),
   photography(2);

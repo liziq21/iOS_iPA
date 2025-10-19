@@ -1,6 +1,6 @@
-abstract mixin class SearchOrder extends Enum {}
+abstract interface class SearchOrder extends Enum {}
 
-enum ArticleSearchOrder with SearchOrder {
+enum ArticleSearchOrder implements SearchOrder {
   totalrank,
   attention,
   click,
@@ -10,7 +10,7 @@ enum ArticleSearchOrder with SearchOrder {
   stow;
 }
 
-enum PhotoOrVideoSearchOrder with SearchOrder {
+enum PhotoOrVideoSearchOrder implements SearchOrder {
   totalrank,
   click,
   dm,
@@ -19,14 +19,14 @@ enum PhotoOrVideoSearchOrder with SearchOrder {
   stow;
 }
 
-enum LiveRoomSearchOrder with SearchOrder {
+enum LiveRoomSearchOrder implements SearchOrder {
   online, liveTime;
   
   @override
   String toString() => this == liveTime ? 'live_time' : super.toString();
 }
 
-enum UserSearchOrder with SearchOrder{
+enum UserSearchOrder implements SearchOrder{
   defaultOrder, fons, level;
   
   @override

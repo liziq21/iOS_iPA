@@ -1,9 +1,8 @@
 class DateRange {
-  DateTime start;
-  DateTime end;
+  DateTime start = DateTime(2009, 6, 26);
+  DateTime end = DateTime.now();
   
-  /// 基础构造函数
-  DateRange({
+/*  DateRange({
     DateTime? start,
     DateTime? end,
   }) : 
@@ -15,38 +14,7 @@ class DateRange {
         'Start date (${this.start}) must be before or equal to end date (${this.end})'
       );
     }
-  }
-  
-  /// 命名构造函数：从某个日期到现在
-  factory DateRange.since(DateTime start) {
-    return DateRange(start: start, end: DateTime.now());
-  }
-  
-  /// 命名构造函数：从 Bilibili 诞生到现在
-  factory DateRange.fromBilibiliStart() {
-    return DateRange(
-      start: DateTime(2009, 6, 26),
-      end: DateTime.now(),
-    );
-  }
-  
-  /// 命名构造函数：从现在开始的指定天数
-  factory DateRange.nextDays(int days) {
-    final now = DateTime.now();
-    return DateRange(
-      start: now,
-      end: now.add(Duration(days: days)),
-    );
-  }
-  
-  /// 命名构造函数：过去的指定天数到现在
-  factory DateRange.lastDays(int days) {
-    final now = DateTime.now();
-    return DateRange(
-      start: now.subtract(Duration(days: days)),
-      end: now,
-    );
-  }
+  }*/
   
   /// 日期范围的持续时间
   Duration get duration => end.difference(start);
