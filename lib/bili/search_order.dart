@@ -1,13 +1,8 @@
-abstract interface class SearchOrder {
-  String toJson();
-}
-
-mixin class SearchOrderMixin implements SearchOrder {
-  @override
+abstract class SearchOrder {
   String toJson() => toString();
 }
 
-enum ArticleSearchOrder implements SearchOrder with SearchOrderMixin {
+enum ArticleSearchOrder extends SearchOrder {
   totalrank,
   attention,
   click,
@@ -17,7 +12,7 @@ enum ArticleSearchOrder implements SearchOrder with SearchOrderMixin {
   stow;
 }
 
-enum PhotoOrVideoSearchOrder implements SearchOrder with SearchOrderMixin {
+enum PhotoOrVideoSearchOrder extends SearchOrder {
   totalrank,
   click,
   dm,
@@ -26,14 +21,14 @@ enum PhotoOrVideoSearchOrder implements SearchOrder with SearchOrderMixin {
   stow;
 }
 
-enum LiveRoomSearchOrder implements SearchOrder with SearchOrderMixin {
+enum LiveRoomSearchOrder extends SearchOrder {
   online, liveTime;
   
   @override
   String toString() => this == liveTime ? 'live_time' : super.toString();
 }
 
-enum UserSearchOrder implements SearchOrder with SearchOrderMixin {
+enum UserSearchOrder extends SearchOrder {
   defaultOrder, fons, level;
   
   @override

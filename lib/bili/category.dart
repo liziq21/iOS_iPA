@@ -1,13 +1,8 @@
-abstract interface class Category {
-  String toJson();
-}
-
-mixin class CategoryMixin implements Category {
-  @override
+abstract class Category {
   String toJson() => toString();
 }
 
-enum ArticleCategory implements Category with CategoryMixin {
+enum ArticleCategory extends Category {
   all(0),
   animation(2),
   games(1),
@@ -25,7 +20,7 @@ enum ArticleCategory implements Category with CategoryMixin {
 }
 
 
-enum PhotoCategory implements Category with CategoryMixin {
+enum PhotoCategory extends Category {
   all,
   artists,
   photography;
