@@ -40,12 +40,12 @@ abstract class BiliNetworkApi {
     @Query('search_type') SearchType searchType,
     @Query('keyword') String keyword, {
     @Query('page') int? page,
-    @Query('order') Enum extends SearchOrder? order,
+    @Query('order') SearchOrder? order,
     @Query('duration') VideoDurationFilter? duration,
     @Query('tids') int? tids,
     @Query('order_sort') OrderSort? orderSort,
     @Query('user_type') UserType? userType,
-    @Query('category_id') Enum extends Category? categoryId,
+    @Query('category_id') Category? categoryId,
     @Query('pubtime_begin_s') int? pubTimeBeginS,
     @Query('pubtime_end_s') int? pubTimeEndS,
   });

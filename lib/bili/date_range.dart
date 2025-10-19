@@ -42,11 +42,11 @@ class DateRange {
     _start = start ?? globalMinDateLimit,
     _end = end ?? globalMaxDateLimit
   {
-    _validateStartLimit();
-    _validateEndLimit();
     if (_hasConflict()) {
       throw ArgumentError('End date must be at least one day after the start date.');
     }
+    _validateStartLimit();
+    _validateEndLimit();
   }
   
   void _validateStartLimit() {

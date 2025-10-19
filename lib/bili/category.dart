@@ -1,4 +1,6 @@
-abstract interface class Category {}
+abstract interface class Category {
+  String toJson();
+}
 
 enum ArticleCategory implements Category {
   all(0),
@@ -14,7 +16,7 @@ enum ArticleCategory implements Category {
   final int id;
   
   @override
-  String toString() => '$id';
+  String toJson() => '$id';
 }
 
 
@@ -27,5 +29,5 @@ enum PhotoCategory implements Category {
   final int id;
   
   @override
-  String toString() => '$id';
+  String toJson() => '$id';
 }
