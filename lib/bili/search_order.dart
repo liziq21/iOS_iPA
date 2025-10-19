@@ -1,8 +1,8 @@
-abstract class SearchOrder {
+abstract interface class SearchOrder {
   String toJson() => toString();
 }
 
-enum ArticleSearchOrder extends SearchOrder {
+enum ArticleSearchOrder implements SearchOrder {
   totalrank,
   attention,
   click,
@@ -10,29 +10,42 @@ enum ArticleSearchOrder extends SearchOrder {
   pubdate,
   scores,
   stow;
+  
+  @override
+  String toJson() => toString();
 }
 
-enum PhotoOrVideoSearchOrder extends SearchOrder {
+enum PhotoOrVideoSearchOrder implements SearchOrder {
   totalrank,
   click,
   dm,
   pubdate,
   scores,
   stow;
+  
+  @override
+  String toJson() => toString();
 }
 
-enum LiveRoomSearchOrder extends SearchOrder {
+enum LiveRoomSearchOrder implements SearchOrder {
   online, liveTime;
   
   @override
   String toString() => this == liveTime ? 'live_time' : super.toString();
+  
+  @override
+  String toJson() => toString();
 }
 
-enum UserSearchOrder extends SearchOrder {
+enum UserSearchOrder implements SearchOrder {
   defaultOrder, fons, level;
   
   @override
   String toString() => this == defaultOrder ? '0' : super.toString();
+
+  @override
+  String toJson() => toString();
+
 }
 
 enum OrderSort {
@@ -40,6 +53,9 @@ enum OrderSort {
   
   @override
   String toString() => '${this.index}';
+  
+  @override
+  String toJson() => toString();
 }
 
 enum UserSearchSort {

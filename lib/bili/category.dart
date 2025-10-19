@@ -1,8 +1,12 @@
-abstract class Category {
+abstract interests class Category extends Enum with CategoryMixin {
+  //String toJson() => toString();
+}
+
+mixin CategoryMixin on Enum {
   String toJson() => toString();
 }
 
-enum ArticleCategory extends Category {
+enum ArticleCategory implements Category {
   all(0),
   animation(2),
   games(1),
@@ -17,14 +21,20 @@ enum ArticleCategory extends Category {
   
   @override
   String toString() => '$id';
+  
+  //@override
+  //String toJson() => toString();
 }
 
 
-enum PhotoCategory extends Category {
+enum PhotoCategory implements Category {
   all,
   artists,
   photography;
 
   @override
   String toString() => '${this.index}';
+  
+  //@override
+  //String toJson() => toString();
 }
