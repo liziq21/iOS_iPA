@@ -1,13 +1,13 @@
 extension DateTimeExtension on DateTime {
   DateTime toSecondPrecision() => DateTime(year, month, day, hour, minute, second);
-  DateTime get addOneSecond => add(const Duration(second: 1));
-  DateTime get subtractOneSecond => subtract(const Duration(second: 1));
+  DateTime get addOneSecond => add(const Duration(seconds: 1));
+  DateTime get subtractOneSecond => subtract(const Duration(seconds: 1));
   DateTime get endOfDay => DateTime(year, month, day, 23, 59, 59);
   DateTime get startOfDay => DateTime(year, month, day);
 }
 
 class DateRange {
-  static final globalMinDateLimit = const DateTime(2009, 6, 26);
+  static final globalMinDateLimit = DateTime(2009, 6, 26);
   static get globalMaxDateLimit => DateTime.now().toSecondPrecision();
   
   static final DateTime selectableMinDate = globalMinDateLimit.addOneSecond;
@@ -51,13 +51,13 @@ class DateRange {
   
   void _validateStartLimit() {
     if (_start.isBefore(globalMinDateLimit)) {
-      throw ArgumentError('Start date cannot be before $_globalMinDateLimit.');
+      throw ArgumentError('Start date cannot be before $globalMinDateLimit.');
     }
   }
   
   void _validateEndLimit() {
     if (_end.isAfter(globalMaxDateLimit)) {
-      throw ArgumentError('End date cannot be in the future (beyond today: $_globalMaxDateLimit).');
+      throw ArgumentError('End date cannot be in the future (beyond today: $globalMaxDateLimit).');
     }
   }
 
