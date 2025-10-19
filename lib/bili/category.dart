@@ -2,7 +2,7 @@ base class Category with CategoryMixin {
   //String toJson() => toString();
 }
 
-mixin CategoryMixin on Enum {
+mixin CategoryMixin {
   String toJson() => toString();
 }
 
