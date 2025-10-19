@@ -2,7 +2,7 @@ abstract interface class SearchOrder {
   String toJson();
 }
 
-mixin class SearchOrderMixin implements SearchOrderMixin {
+mixin class SearchOrderMixin implements SearchOrder {
   @ovrride
   String toJson() => toString();
 }
