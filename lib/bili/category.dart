@@ -7,7 +7,7 @@ mixin class CategoryMixin implements Category {
   String toJson() => toString();
 }
 
-enum ArticleCategory with CategoryMixin {
+enum ArticleCategory implements Category with CategoryMixin {
   all(0),
   animation(2),
   games(1),
@@ -25,7 +25,7 @@ enum ArticleCategory with CategoryMixin {
 }
 
 
-enum PhotoCategory with CategoryMixin {
+enum PhotoCategory implements Category with CategoryMixin {
   all,
   artists,
   photography;

@@ -7,7 +7,7 @@ mixin class SearchOrderMixin implements SearchOrder {
   String toJson() => toString();
 }
 
-enum ArticleSearchOrder with SearchOrderMixin {
+enum ArticleSearchOrder implements SearchOrder with SearchOrderMixin {
   totalrank,
   attention,
   click,
@@ -17,7 +17,7 @@ enum ArticleSearchOrder with SearchOrderMixin {
   stow;
 }
 
-enum PhotoOrVideoSearchOrder with SearchOrderMixin {
+enum PhotoOrVideoSearchOrder implements SearchOrder with SearchOrderMixin {
   totalrank,
   click,
   dm,
@@ -26,14 +26,14 @@ enum PhotoOrVideoSearchOrder with SearchOrderMixin {
   stow;
 }
 
-enum LiveRoomSearchOrder with SearchOrderMixin {
+enum LiveRoomSearchOrder implements SearchOrder with SearchOrderMixin {
   online, liveTime;
   
   @override
   String toString() => this == liveTime ? 'live_time' : super.toString();
 }
 
-enum UserSearchOrder with SearchOrderMixin {
+enum UserSearchOrder implements SearchOrder with SearchOrderMixin {
   defaultOrder, fons, level;
   
   @override
