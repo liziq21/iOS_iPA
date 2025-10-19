@@ -1,61 +1,70 @@
+extension DateTimeExtension on DateTime {
+  DateTime toSecondPrecision() => DateTime(year, month, day, hour, minute, second);
+  DateTime get addOneSecond => add(const Duration(second: 1));
+  DateTime get subtractOneSecond => subtract(const Duration(second: 1));
+  DateTime get endOfDay => DateTime(year, month, day, 23, 59, 59);
+  DateTime get startOfDay => DateTime(year, month, day);
+}
+
 class DateRange {
-  DateTime start = DateTime(2009, 6, 26);
-  DateTime end = DateTime.now();
+  static final globalMinDateLimit = const DateTime(2009, 6, 26);
+  static get globalMaxDateLimit => DateTime.now().toSecondPrecision();
   
-/*  DateRange({
-    DateTime? start,
-    DateTime? end,
-  }) : 
-    start = start ?? DateTime(2009, 6, 26),
-    end = end ?? DateTime.now() {
-    // 验证：确保 start 不晚于 end
-    if (this.start.isAfter(this.end)) {
-      throw ArgumentError(
-        'Start date (${this.start}) must be before or equal to end date (${this.end})'
-      );
+  static final DateTime selectableMinDate = globalMinDateLimit.addOneSecond;
+  static get selectableMaxDate => globalMaxDateLimit.subtractOneSecond;
+
+  DateTime _start;
+  DateTime _end;
+
+  DateTime get start => _start;
+  DateTime get end => _end;
+
+  set start(DateTime newStart) {
+    _start = newStart.toSecondPrecision();
+    _validateStartLimit();
+    if (_hasConflict()) {
+      end = _start.addOneSecond;
     }
-  }*/
-  
-  /// 日期范围的持续时间
-  Duration get duration => end.difference(start);
-  
-  /// 持续的天数
-  int get days => duration.inDays;
-  
-  /// 是否包含指定日期
-  bool contains(DateTime date) {
-    return (date.isAfter(start) || date.isAtSameMomentAs(start)) &&
-           (date.isBefore(end) || date.isAtSameMomentAs(end));
   }
-  
-  /// 是否与另一个日期范围重叠
-  bool overlaps(DateRange other) {
-    return start.isBefore(other.end) && end.isAfter(other.start);
+
+  set end(DateTime newEnd) {
+    _end = newEnd.toSecondPrecision();
+    _validateEndLimit();
+    if (_hasConflict()) {
+      start = _end.subtractOneSecond;
+    }
   }
-  
-  DateRange copyWith({
+
+  DateRange({
     DateTime? start,
     DateTime? end,
-  }) {
-    return DateRange(
-      start: start ?? this.start,
-      end: end ?? this.end,
-    );
+  }) :
+    _start = start ?? globalMinDateLimit,
+    _end = end ?? globalMaxDateLimit
+  {
+    _validateStartLimit();
+    _validateEndLimit();
+    if (_hasConflict()) {
+      throw ArgumentError('End date must be at least one day after the start date.');
+    }
   }
   
+  void _validateStartLimit() {
+    if (_start.isBefore(globalMinDateLimit)) {
+      throw ArgumentError('Start date cannot be before $_globalMinDateLimit.');
+    }
+  }
+  
+  void _validateEndLimit() {
+    if (_end.isAfter(globalMaxDateLimit)) {
+      throw ArgumentError('End date cannot be in the future (beyond today: $_globalMaxDateLimit).');
+    }
+  }
+
+  bool _hasConflict() => _end.isBefore(_start);
+
   @override
   String toString() {
-    return 'DateRange(start: $start, end: $end, days: $days)';
+    return 'DateRange(start: $_start, end: $_end)';
   }
-  
-  @override
-  bool operator ==(Object other) {
-    if (identical(this, other)) return true;
-    return other is DateRange &&
-           other.start == start &&
-           other.end == end;
-  }
-  
-  @override
-  int get hashCode => Object.hash(start, end);
 }

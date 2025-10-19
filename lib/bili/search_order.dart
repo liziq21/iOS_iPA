@@ -1,4 +1,4 @@
-abstract interface class SearchOrder extends Enum {}
+abstract interface class SearchOrder {}
 
 enum ArticleSearchOrder implements SearchOrder {
   totalrank,

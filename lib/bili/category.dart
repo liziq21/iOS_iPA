@@ -1,4 +1,4 @@
-abstract interface class Category extends Enum {}
+abstract interface class Category {}
 
 enum ArticleCategory implements Category {
   all(0),
