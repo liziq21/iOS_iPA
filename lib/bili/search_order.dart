@@ -3,7 +3,7 @@ abstract interface class SearchOrder {
 }
 
 mixin class SearchOrderMixin implements SearchOrder {
-  @ovrride
+  @override
   String toJson() => toString();
 }
 

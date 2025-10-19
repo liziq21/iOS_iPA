@@ -3,7 +3,7 @@ abstract interface class Category {
 }
 
 mixin class CategoryMixin implements Category {
-  @ovrride
+  @override
   String toJson() => toString();
 }
 
