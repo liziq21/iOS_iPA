@@ -1,0 +1,73 @@
+{
+  "code": 0,
+  "message": "0",
+  "ttl": 1,
+  "data": {
+    "page": 1,
+    "pagesize": 20,
+    "numResults": 1000,
+    "numPages": 50,
+    "top_tlist": {
+      "video": 1000,
+      "bangumi": 0,
+      "special": 0,
+      "topic": 0,
+      "upuser": 0,
+      "tv": 0,
+      "movie": 0,
+      "card": 0,
+      "media_bangumi": 9,
+      "media_ft": 98,
+      "pgc": 0,
+      "live": 654,
+      "user": 0,
+      "activity": 0,
+      "operation_card": 0,
+      "live_master": 0,
+      "live_user": 0,
+      "article": 1000,
+      "live_room": 654,
+      "bili_user": 1000,
+      "clustering_card": 0,
+      "related_search": 0
+    },
+    "result": {
+      "live_room": [
+        {
+          "area": 6,
+          "attentions": 668,
+          "cate_name": "颜值",
+          "cover": "//i0.hdslb.com/bfs/live-key-frame/keyframe102119150018401760254qtnbr.jpg",
+          "hit_columns": [
+            "title"
+          ],
+          "is_live_room_inline": 0,
+          "live_status": 1,
+          "live_time": "2025-10-21 18:37:33",
+          "online": 6878,
+          "rank_index": 1,
+          "rank_offset": 0,
+          "roomid": 1840176025,
+          "short_id": 0,
+          "tags": "",
+          "title": "<em class=\"keyword\">看</em>什么<em class=\"keyword\">看</em>！进来啊冤种",
+          "type": "live_room",
+          "uface": "//i2.hdslb.com/bfs/face/133735e83c82f4e170e91ba33f903c56b3af5005.jpg",
+          "uid": 3546963064653922,
+          "uname": "七御-s",
+          "user_cover": "//i0.hdslb.com/bfs/live/new_room_cover/08afb062444554863e247cc9b255331b850f8440.jpg",
+          "watched_show": {
+            "switch": true,
+            "num": 1417,
+            "text_small": "1417",
+            "text_large": "1417人看过",
+            "icon": "https://i0.hdslb.com/bfs/live/a725a9e61242ef44d764ac911691a7ce07f36c1d.png",
+            "icon_location": "",
+            "icon_web": "https://i0.hdslb.com/bfs/live/8d9d0f33ef8bf6f308742752d13dd0df731df19c.png"
+          }
+        }
+      ],
+      "live_user": null
+    }
+  }
+}

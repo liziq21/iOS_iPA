@@ -1,12 +1,8 @@
-base class Category with CategoryMixin {
-  //String toJson() => toString();
+abstract interface class Category {
+  String toJson();
 }
 
-mixin CategoryMixin {
-  String toJson() => toString();
-}
-
-enum ArticleCategory with CategoryMixin implements Category {
+enum ArticleCategory implements Category {
   all(0),
   animation(2),
   games(1),
@@ -22,12 +18,12 @@ enum ArticleCategory with CategoryMixin implements Category {
   @override
   String toString() => '$id';
   
-  //@override
-  //String toJson() => toString();
+  @override
+  String toJson() => toString();
 }
 
 
-enum PhotoCategory with CategoryMixin implements Category {
+enum PhotoCategory implements Category {
   all,
   artists,
   photography;
@@ -35,6 +31,6 @@ enum PhotoCategory with CategoryMixin implements Category {
   @override
   String toString() => '${this.index}';
   
-  //@override
-  //String toJson() => toString();
+  @override
+  String toJson() => toString();
 }

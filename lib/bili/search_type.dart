@@ -11,18 +11,31 @@ enum SearchType {
   live,
   liveRoom,
   liveUser,
-  photo,
-  topic,
   video;
-  /*
-  static bool hasType(String value) {
-    return SearchType.values.any((e) => e.type == value);
-  }*/
   
-  static SearchType? parse(String type) =>
+  /*static SearchType? parse(String type) =>
     $enumDecodeNullable(
       _$SearchTypeEnumMap,
       type,
       unknownValue: JsonKey.nullForUndefinedEnumValue,
+    );*/
+}
+
+@JsonEnum(alwaysCreate: true, fieldRename: FieldRename.snake)
+enum SearchResultType {
+  article,
+  biliUser,
+  mediaBangumi,
+  mediaFt,
+  liveRoom,
+  liveUser,
+  video,
+  un;
+  
+  static SearchResultType parse(String type) =>
+    $enumDecode(
+      _$SearchResultTypeEnumMap,
+      type,
+      unknownValue: SearchResultType.un,
     );
 }

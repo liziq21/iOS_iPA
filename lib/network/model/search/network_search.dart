@@ -1,4 +1,6 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
+
+import 'package:f_biuli/bili/search_result_type.dart';
 import 'network_search_result.dart';
 
 part 'network_search.freezed.dart';
@@ -7,25 +9,73 @@ part 'network_search.g.dart';
 @freezed
 abstract class NetworkSearch with _$NetworkSearch {
   const factory NetworkSearch(
-    int? nums,
-    @JsonKey(fromJson: NetworkSearchResult.fromJson)
-    NetworkSearchResult result,
+    int page,
+    int pagesize,
+    int numResults,
+    int numPages,
+    Map<@JsonKey(unknownEnumValue: SearchResultType.un) SearchResultType, Pageinfo>? pageinfo,
+    @JsonKey(fromJson: _resultMapFromJson)
+    Map<SearchResultType, List<NetworkSearchResult>?> result,
   ) = _NetworkSearch;
+  
+  static Map<SearchResultType, List<NetworkSearchResult>?> _resultMapFromJson(Object json) {
 
+    List<NetworkSearchResult>? _resultsFromJson(dynamic results) {
+      return (results as List?)?.
+        .map((e) => NetworkSearchResult.fromJson(e as Map<String, dynamic>))
+        .toList();
+    }
+    
+    if (json is List) {
+      
+      // 综合搜索结果
+      if ((json[0] as Map<String, dynamic>).containsKey('result_type')) {
+        return json
+          .map((e) => {
+            final resultMap = (e as Map<String, dynamic>);
+            final type = SearchResultType.parse(resultMap['result_type']);
+            final results = resultMap['data'];
+            return MapEntry(type, _resultsFromJson(results));
+          })
+          .toMap();
+      
+      // 其它类型搜索结果
+      } else {
+        return json
+          .map((e) => {
+            final results = (e as Map<String, dynamic>);
+            final type = SearchResultType.parse(results['type']);
+            return MapEntry(type, _resultsFromJson(results));
+          })
+          .toMap();
+      }
+    
+    // live 类型搜索结果
+    } else if (json is Map<String, dynamic>) {
+      json.entries
+        .map((entry) => {
+          final type = SearchResultType.parse(entry.key);
+          final results = entry.value;
+          return MapEntry(type, _resultsFromJson(results));
+        })
+        .toMap();
+    }
+    
+    throw ArgumentError.value(json, 'json', 'Cannot convert the provided data.');
+  }
+  
   factory NetworkSearch.fromJson(Map<String, dynamic> json)
     => _$NetworkSearchFromJson(json);
 }
 
 @freezed
-abstract class NetworkTypeSearch with _$NetworkTypeSearch {
-  const factory NetworkTypeSearch(
+class Pageinfo with _$Pageinfo {
+  const factory Pageinfo(
+    int total,
     int numResults,
-    @JsonKey(fromJson: NetworkSearchResult.fromJson)
-    NetworkSearchResult result,
-  ) = _NetworkTypeSearch;
-
-  factory NetworkTypeSearch.fromJson(Map<String, dynamic> json)
-    => _$NetworkTypeSearchFromJson(json);
+    int pages,
+  ) = _Pageinfo;
+  
+  factory Pageinfo.fromJson(Map<String, dynamic> json)
+    => _$PageinfoFromJson(json);
 }
-
-

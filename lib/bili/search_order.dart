@@ -1,5 +1,5 @@
 abstract interface class SearchOrder {
-  String toJson() => toString();
+  String toJson();
 }
 
 enum ArticleSearchOrder implements SearchOrder {
