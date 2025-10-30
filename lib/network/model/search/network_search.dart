@@ -13,7 +13,7 @@ abstract class NetworkSearch with _$NetworkSearch {
     int pagesize,
     int numResults,
     int numPages,
-    Map<@JsonKey(unknownEnumValue: SearchResultType.un) SearchResultType, Pageinfo>? pageinfo,
+    Map<@JsonKey(unknownEnumValue: SearchResultType.unknown) SearchResultType, NetworkPageinfo>? NetworkPageinfo,
     @JsonKey(fromJson: _resultMapFromJson)
     Map<SearchResultType, List<NetworkSearchResult>?> result,
   ) = _NetworkSearch;
@@ -69,13 +69,13 @@ abstract class NetworkSearch with _$NetworkSearch {
 }
 
 @freezed
-class Pageinfo with _$Pageinfo {
-  const factory Pageinfo(
+class NetworkPageinfo with _$NetworkPageinfo {
+  const factory NetworkPageinfo(
     int total,
     int numResults,
     int pages,
-  ) = _Pageinfo;
+  ) = _NetworkPageinfo;
   
-  factory Pageinfo.fromJson(Map<String, dynamic> json)
-    => _$PageinfoFromJson(json);
+  factory NetworkPageinfo.fromJson(Map<String, dynamic> json)
+    => _$NetworkPageinfoFromJson(json);
 }

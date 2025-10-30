@@ -36,6 +36,6 @@ enum SearchResultType {
     $enumDecode(
       _$SearchResultTypeEnumMap,
       type,
-      unknownValue: SearchResultType.un,
+      unknownValue: SearchResultType.unknown,
     );
 }

@@ -2,35 +2,123 @@
   "code": 0,
   "message": "0",
   "ttl": 1,
+  "pageinfo": {
+    "video": {
+      "total": 1000,
+      "numResults": 1000,
+      "pages": 50
+    },
+    "bangumi": {
+      "total": 0,
+      "numResults": 0,
+      "pages": 0
+    },
+    "special": {
+      "total": 0,
+      "numResults": 0,
+      "pages": 0
+    },
+    "topic": {
+      "total": 0,
+      "numResults": 0,
+      "pages": 0
+    },
+    "upuser": {
+      "total": 0,
+      "numResults": 0,
+      "pages": 0
+    },
+    "tv": {
+      "total": 0,
+      "numResults": 0,
+      "pages": 0
+    },
+    "movie": {
+      "total": 0,
+      "numResults": 0,
+      "pages": 0
+    },
+    "media_bangumi": {
+      "total": 9,
+      "numResults": 9,
+      "pages": 1
+    },
+    "media_ft": {
+      "total": 98,
+      "numResults": 98,
+      "pages": 5
+    },
+    "related_search": {
+      "total": 0,
+      "numResults": 0,
+      "pages": 0
+    },
+    "user": {
+      "total": 0,
+      "numResults": 0,
+      "pages": 0
+    },
+    "activity": {
+      "total": 0,
+      "numResults": 0,
+      "pages": 0
+    },
+    "operation_card": {
+      "total": 0,
+      "numResults": 0,
+      "pages": 0
+    },
+    "pgc": {
+      "total": 0,
+      "numResults": 0,
+      "pages": 0
+    },
+    "live": {
+      "total": 654,
+      "numResults": 654,
+      "pages": 33
+    },
+    "live_all": {
+      "total": 654,
+      "numResults": 654,
+      "pages": 33
+    },
+    "live_master": {
+      "total": 0,
+      "numResults": 0,
+      "pages": 0
+    },
+    "live_user": {
+      "total": 0,
+      "numResults": 0,
+      "pages": 0
+    },
+    "article": {
+      "total": 1000,
+      "numResults": 1000,
+      "pages": 50
+    },
+    "live_room": {
+      "total": 654,
+      "numResults": 654,
+      "pages": 33
+    },
+    "bili_user": {
+      "total": 1000,
+      "numResults": 1000,
+      "pages": 50
+    },
+    "clustering_card": {
+      "total": 0,
+      "numResults": 0,
+      "pages": 0
+    }
+  },
   "data": {
     "page": 1,
     "pagesize": 20,
     "numResults": 1000,
     "numPages": 50,
-    "top_tlist": {
-      "video": 1000,
-      "bangumi": 0,
-      "special": 0,
-      "topic": 0,
-      "upuser": 0,
-      "tv": 0,
-      "movie": 0,
-      "card": 0,
-      "media_bangumi": 9,
-      "media_ft": 98,
-      "pgc": 0,
-      "live": 654,
-      "user": 0,
-      "activity": 0,
-      "operation_card": 0,
-      "live_master": 0,
-      "live_user": 0,
-      "article": 1000,
-      "live_room": 654,
-      "bili_user": 1000,
-      "clustering_card": 0,
-      "related_search": 0
-    },
     "result": [
       {
         "result_type": "article",
@@ -201,6 +289,200 @@
           "corner": 2,
           "index_show": "全80话"
       }
+      },
+      {
+        "result_type": "media_ft",
+        "data": {
+          "type": "media_ft",
+          "media_id": 22663696,
+          "title": "地平线：宇宙中的怪异天气",
+          "org_title": "Horizon: The Weirdest Weather In The Universe",
+          "media_type": 3,
+          "cv": "",
+          "staff": "BBC Worldwide Limited",
+          "season_id": 26798,
+          "is_avid": false,
+          "hit_columns": null,
+          "hit_epids": "",
+          "season_type": 3,
+          "season_type_name": "纪录片",
+          "selection_style": "grid",
+          "ep_size": 0,
+          "url": "https://www.bilibili.com/bangumi/play/ep265146",
+          "button_text": "立即观看",
+          "is_follow": 0,
+          "is_selection": 0,
+          "eps": null,
+          "badges": [
+            {
+              "text": "大会员",
+              "text_color": "#FFFFFF",
+              "text_color_night": "#E5E5E5",
+              "bg_color": "#FB7299",
+              "bg_color_night": "#D44E7D",
+              "border_color": "#FB7299",
+              "border_color_night": "#D44E7D",
+              "bg_style": 1
+            }
+          ],
+          "cover": "http://i0.hdslb.com/bfs/bangumi/285aded5faa04401b8c3135496b84e76d6cb75ca.jpg",
+          "areas": "英国",
+          "styles": "宇宙/自然/科技",
+          "goto_url": "https://www.bilibili.com/bangumi/play/ep265146",
+          "desc": "从保龄球大小的冰雹到扭曲的龙卷风，地球上的天气可以说是无奇不有，但即使是我们见过的最极端的天气也无法和太阳系其他行星或宇宙中数百万光年以外的行星上的天气相比。通过参观先进的实验室和使用神奇的CGI图像...",
+          "pubtime": 1451577600,
+          "media_mode": 1,
+          "fix_pubtime_str": "",
+          "media_score": {
+            "score": 0,
+            "user_count": 0
+          },
+          "display_info": [
+            {
+              "text": "大会员",
+              "text_color": "#FFFFFF",
+              "text_color_night": "#E5E5E5",
+              "bg_color": "#FB7299",
+              "bg_color_night": "#D44E7D",
+              "border_color": "#FB7299",
+              "border_color_night": "#D44E7D",
+              "bg_style": 1
+            }
+          ],
+          "pgc_season_id": 26798,
+          "corner": 13,
+          "index_show": ""
+        }
+      },
+      {
+        "result_type": "live_room",
+        "data": {
+          "area": 3,
+          "attentions": 240820,
+          "cate_name": "守望先锋",
+          "cover": "//i0.hdslb.com/bfs/live-key-frame/keyframe1012190100002128102089i7ja.jpg",
+          "hit_columns": [
+            "title"
+          ],
+          "id": 21281020,
+          "inline_title_style": 0,
+          "is_fold": false,
+          "is_live_room_inline": 0,
+          "is_rk1": false,
+          "live_status": 1,
+          "live_time": "2025-10-12 15:32:24",
+          "online": 15658,
+          "pic": "//i0.hdslb.com/bfs/live-key-frame/keyframe1012190100002128102089i7ja.jpg",
+          "rank_index": 1,
+          "rank_offset": 0,
+          "roomid": 21281020,
+          "short_id": 0,
+          "spread_id": 0,
+          "style": 1,
+          "tags": "守望先锋,美少女,解说,小姐姐",
+          "title": "先<em class=\"keyword\">看</em>韩再<em class=\"keyword\">看</em>中",
+          "type": "live_room",
+          "uface": "//i1.hdslb.com/bfs/face/48a292a34f391b935bd76c69761e17ed9d019d68.jpg",
+          "uid": 1779128,
+          "uname": "小霜请你吃颗糖",
+          "user_cover": "//i0.hdslb.com/bfs/live/new_room_cover/5411343a34b96b91f57aa4d2561301269aa94fa7.jpg"
+        }
+      },
+      {
+        "result_type": "live_user",
+        "data": {
+          "area": 6,
+          "area_v2_id": 715,
+          "attentions": 2163958,
+          "cate_name": "时政",
+          "hit_columns": [
+            "uname"
+          ],
+          "id": 22142427,
+          "is_live": true,
+          "live_status": 1,
+          "live_time": "2025-09-30 10:34:13",
+          "rank_index": 1,
+          "rank_offset": 0,
+          "roomid": 22142427,
+          "tags": "",
+          "type": "live_user",
+          "uface": "//i1.hdslb.com/bfs/face/127e4c355254788f41ce3dd493f1f2925ebd423d.jpg",
+          "uid": 451320374,
+          "uname": "央视网快<em class=\"keyword\">看</em>"
+        }
+      },
+      {
+        "result_type": "video",
+                "data": {
+          "type": "video",
+          "id": 114179860077362,
+          "author": "阿周说事",
+          "mid": 215998368,
+          "typeid": "95", 
+          "typename": "数码",
+          "arcurl": "http://www.bilibili.com/video/av114179860077362",
+          "aid": 114179860077362,
+          "bvid": "BV1LoXgYFEQu",
+          "title": "<em class=\"keyword\">ZUI</em>系统刷成类原生安卓教程",
+          "description": "原帖链接https://xdaforums.com/t/tb-q706f-pad-pro-12-6-bypass-lenovos-region-lock-row-zui-easy.4487871/\nHXD的提取码6je7，链接https://www.lanzouj.com/b389297\n系统包下载链接https://mirrors-obs-1.lolinet.com/firmware/lenowow/2021/Tab_P12_Pro/TB-Q706F/\n9008线刷工具https://www.yhcre",
+          "pic": "//i1.hdslb.com/bfs/archive/42cb9a7dad4e8655b6f69283a0edf2633e740c26.jpg",
+          "play": 6545,
+          "video_review": 0,
+          "favorites": 189,
+          "tag": "ZUI,GOOGLE,刷机,安卓系统,区域限制,类原生,必剪创作,QFIL,P12 PRO,小新pad pro12.6",
+          "review": 28,
+          "pubdate": 1742256000,
+          "senddate": 1742256021,
+          "duration": "6:16",
+          "badgepay": false,
+          "hit_columns": [
+            "title",
+            "tag"
+          ],
+          "view_type": "",
+          "is_pay": 0,
+          "is_union_video": 0,
+          "rec_tags": null,
+          "new_rec_tags": [],
+          "like": 120,
+          "upic": "https://i0.hdslb.com/bfs/face/55424210b215ee87c5e561f6c870533cb80e71fe.jpg",
+          "corner": "",
+          "cover": "",
+          "desc": "",
+          "url": "",
+          "rec_reason": "",
+          "danmaku": 0,
+          "biz_data": null,
+          "is_charge_video": 0,
+          "vt": 0,
+          "enable_vt": 0,
+          "vt_display": "",
+          "subtitle": "",
+          "episode_count_text": "",
+          "release_status": 0,
+          "is_intervene": 0,
+          "area": 0,
+          "style": 0,
+          "cate_name": "",
+          "is_live_room_inline": 0,
+          "live_status": 0,
+          "live_time": "",
+          "online": 0,
+          "rank_index": 1,
+          "rank_offset": 1,
+          "roomid": 0,
+          "short_id": 0,
+          "spread_id": 0,
+          "tags": "",
+          "uface": "",
+          "uid": 0,
+          "uname": "",
+          "user_cover": "",
+          "parent_area_id": 0,
+          "parent_area_name": "",
+          "watched_show": null
+        }
       }
     ]
   }

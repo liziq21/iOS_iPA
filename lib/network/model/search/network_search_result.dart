@@ -14,7 +14,7 @@ part 'network_search_result.g.dart';
 @Freezed(unionKey: 'type')
 sealed class NetworkSearchResult with _$NetworkSearchResult {
 
-  const factory NetworkSearchResult(String: type) = Un;
+  const factory NetworkSearchResult(String: type) = Unknown;
   
   const factory NetworkSearchResult.article(
     int categoryId;
@@ -57,7 +57,7 @@ sealed class NetworkSearchResult with _$NetworkSearchResult {
     int isUpuser,
     int isLive,
     int roomId,
-    List<BiliUserRes> res,
+    List<NetworkBiliUserRes> res,
     NetworkUserOfficialVerify officialVerify,
     int isSeniorMember,
   ) = NetworkBiliUserSearchResult;
@@ -85,7 +85,7 @@ sealed class NetworkSearchResult with _$NetworkSearchResult {
     String desc,
     int pubtime,
     int mediaMode,
-    Map mediaScore,
+    NetworkMediaScore mediaScore,
     String indexShow,
   ) = NetworkMediaBangumiSearchResult;
   
@@ -105,7 +105,6 @@ sealed class NetworkSearchResult with _$NetworkSearchResult {
     String url,
     String buttonText,
     int isFollow,
-    int isSelection,
     String cover,
     String areas,
     String styles,
@@ -113,16 +112,16 @@ sealed class NetworkSearchResult with _$NetworkSearchResult {
     String desc,
     int pubtime,
     int mediaMode,
-    Map mediaScore,
+    NetworkMediaScore mediaScore,
     String indexShow,
   ) = NetworkMediaFtSearchResult;
 
   const factory NetworkSearchResult.liveRoom(
+    SearchResultType type,
     int area,
     int attentions,
     String cateName,
     String cover,
-    List<String> hitColumns,
     int isLiveRoomInline,
     int liveStatus,
     String liveTime,
@@ -133,16 +132,29 @@ sealed class NetworkSearchResult with _$NetworkSearchResult {
     int shortId,
     String tags,
     HtmlTitle title,
-    SearchResultType type,
     String uface,
     int uid,
     String uname,
     String userCover,
-    WatchedShow watchedShow,
   ) = NetworkLiveRoomSearchResult;
   
   const factory NetworkSearchResult.liveUser(
     SearchType type,
+    int area,
+    int areaV2Id,
+    int attentions,
+    String cateName,
+    int id,
+    bool isLive,
+    int liveStatus,
+    String liveTime,
+    int rankIndex,
+    int rankOffset,
+    int roomid,
+    String tags,
+    String uface,
+    int uid,
+    HtmlTitle uname: '央视网快<em class=\'keyword\">看</em>"
   ) = NetworkLiveUserSearchResult;
 
   const factory NetworkSearchResult.video(
@@ -194,35 +206,19 @@ class HtmlTitle {
 }
 
 @freezed
-class MediaScore with _$MediaScore{
-  const factory MediaScore(
+class NetworkMediaScore with _$NetworkMediaScore{
+  const factory NetworkMediaScore(
     int score;
     int userCount;
-  ) = _MediaScore;
+  ) = _NetworkMediaScore;
   
-  factory MediaScore.fromJson(Map<String, dynamic> json)
-    => _$MediaScoreFromJson(json);
+  factory NetworkMediaScore.fromJson(Map<String, dynamic> json)
+    => _$NetworkMediaScoreFromJson(json);
 }
 
 @freezed
-class WatchedShow with _$WatchedShow{
-  const factory WatchedShow(
-    bool switch,
-    int num,
-    String textSmall,
-    String textLarge,
-    String icon,
-    String iconLocation,
-    String iconWeb,
-  ) = _WatchedShow;
-  
-  factory WatchedShow.fromJson(Map<String, dynamic> json)
-    => _$WatchedShowFromJson(json);
-}
-
-@freezed
-class BiliUserRes with _$BiliUserRes {
-  const factory BiliUserRes(
+class NetworkBiliUserRes with _$NetworkBiliUserRes {
+  const factory NetworkBiliUserRes(
     int aid,
     String bvid,
     String title,
@@ -241,9 +237,9 @@ class BiliUserRes with _$BiliUserRes {
     int vt,
     int enableVt,
     String vtDisplay,
-  ) = _BiliUserRes;
+  ) = _NetworkBiliUserRes;
   
-  factory BiliUserRes.fromJson(Map<String, dynamic> json)
-    => _$BiliUserResFromJson(json);
+  factory NetworkBiliUserRes.fromJson(Map<String, dynamic> json)
+    => _$NetworkBiliUserResFromJson(json);
 }
 
