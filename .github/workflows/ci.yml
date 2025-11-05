@@ -30,12 +30,6 @@ jobs:
           flutter-version-file: pubspec.yaml
       - run: flutter pub get
 
-      - name: Analyzer
-        uses: invertase/github-action-dart-analyzer@v3
-        with:
-          fatal-infos: false
-          fatal-warnings: false
-      
       - name: Build_runner
         run: dart run build_runner build \
           --delete-conflicting-outputs \
@@ -51,6 +45,12 @@ jobs:
           git commit -m "chore: Update generated files [skip ci]" || echo "No changes to commit"
           git push origin HEAD:${GITHUB_REF}
       
+      - name: Analyzer
+        uses: invertase/github-action-dart-analyzer@v3
+        with:
+          fatal-infos: false
+          fatal-warnings: false
+
       - run: flutter test
 
   build_iOSApp:
