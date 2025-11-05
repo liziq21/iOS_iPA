@@ -8,9 +8,6 @@ import 'package:f_biuli/network/model/user/network_user_official_verify.dart';
 part 'network_search_result.freezed.dart';
 part 'network_search_result.g.dart';
 
-// {8} *"([^"]+)": (.*$)
-// int $1, // $2
-
 @Freezed(unionKey: 'type')
 sealed class NetworkSearchResult with _$NetworkSearchResult {
 
@@ -208,8 +205,8 @@ class HtmlTitle {
 @freezed
 class NetworkMediaScore with _$NetworkMediaScore{
   const factory NetworkMediaScore(
-    int score;
-    int userCount;
+    int score,
+    int userCount,
   ) = _NetworkMediaScore;
   
   factory NetworkMediaScore.fromJson(Map<String, dynamic> json)

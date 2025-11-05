@@ -33,7 +33,7 @@ abstract class NetworkSearch with _$NetworkSearch {
       if ((json[0] as Map<String, dynamic>).containsKey('result_type')) {
         return json
           .map((e) => {
-            final resultMap = (e as Map<String, dynamic>);
+            final resultMap = e as Map<String, dynamic>;
             final type = SearchResultType.parse(resultMap['result_type']);
             final results = resultMap['data'];
             return MapEntry(type, _resultsFromJson(results));
@@ -44,7 +44,7 @@ abstract class NetworkSearch with _$NetworkSearch {
       } else {
         return json
           .map((e) => {
-            final results = (e as Map<String, dynamic>);
+            final results = e as Map<String, dynamic>;
             final type = SearchResultType.parse(results['type']);
             return MapEntry(type, _resultsFromJson(results));
           })
