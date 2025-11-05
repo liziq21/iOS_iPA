@@ -196,10 +196,7 @@ class HtmlTitle {
   
   final String _title;
 
-  String stripTags() => parse(_title).body?.text ? _title,
-  
-  @override
-  String toString() => _title;
+  get text => parse(_title).body?.text ?? _title;
 }
 
 @freezed
