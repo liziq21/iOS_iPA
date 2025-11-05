@@ -13,7 +13,8 @@ abstract class NetworkSearch with _$NetworkSearch {
     int pagesize,
     int numResults,
     int numPages,
-    Map<@JsonKey(unknownEnumValue: SearchResultType.unknown) SearchResultType, NetworkPageinfo>? NetworkPageinfo,
+    @JsonKey(unknownEnumValue: SearchResultType.unknown)
+    Map<SearchResultType, NetworkPageinfo>? NetworkPageinfo,
     @JsonKey(fromJson: _resultMapFromJson)
     Map<SearchResultType, List<NetworkSearchResult>?> result,
   ) = _NetworkSearch;
@@ -21,8 +22,8 @@ abstract class NetworkSearch with _$NetworkSearch {
   static Map<SearchResultType, List<NetworkSearchResult>?> _resultMapFromJson(Object json) {
 
     List<NetworkSearchResult>? _resultsFromJson(dynamic results) {
-      return (results as List?)?.
-        .map((e) => NetworkSearchResult.fromJson(e as Map<String, dynamic>))
+      return (results as List?)
+        ?.map((e) => NetworkSearchResult.fromJson(e as Map<String, dynamic>))
         .toList();
     }
     

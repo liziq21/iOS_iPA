@@ -14,10 +14,11 @@ part 'network_search_result.g.dart';
 @Freezed(unionKey: 'type')
 sealed class NetworkSearchResult with _$NetworkSearchResult {
 
-  const factory NetworkSearchResult(String: type) = Unknown;
+  const factory NetworkSearchResult(String type) = Unknown;
   
   const factory NetworkSearchResult.article(
-    int categoryId;
+    SearchResultType type,
+    int categoryId,
     String categoryName,
     String commentUrl,
     String desc,
@@ -36,7 +37,6 @@ sealed class NetworkSearchResult with _$NetworkSearchResult {
     int subType,
     int templateId,
     HtmlTitle title,
-    SearchResultType type,
     String version,
     int view,
   ) = NetworkArticleSearchResult;
@@ -154,7 +154,7 @@ sealed class NetworkSearchResult with _$NetworkSearchResult {
     String tags,
     String uface,
     int uid,
-    HtmlTitle uname: '央视网快<em class=\'keyword\">看</em>"
+    HtmlTitle uname,
   ) = NetworkLiveUserSearchResult;
 
   const factory NetworkSearchResult.video(
