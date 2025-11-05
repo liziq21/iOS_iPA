@@ -60,7 +60,7 @@ sealed class NetworkSearchResult with _$NetworkSearchResult {
   ) = NetworkBiliUserSearchResult;
 
   const factory NetworkSearchResult.mediaBangumi(
-    SearchType type,
+    SearchResultType type,
     int mediaId,
     HtmlTitle title,
     String orgTitle,
@@ -87,7 +87,7 @@ sealed class NetworkSearchResult with _$NetworkSearchResult {
   ) = NetworkMediaBangumiSearchResult;
   
   const factory NetworkSearchResult.mediaFt(
-    SearchType type,
+    SearchResultType type,
     int mediaId,
     HtmlTitle title,
     String orgTitle,
@@ -136,7 +136,7 @@ sealed class NetworkSearchResult with _$NetworkSearchResult {
   ) = NetworkLiveRoomSearchResult;
   
   const factory NetworkSearchResult.liveUser(
-    SearchType type,
+    SearchResultType type,
     int area,
     int areaV2Id,
     int attentions,
@@ -155,7 +155,7 @@ sealed class NetworkSearchResult with _$NetworkSearchResult {
   ) = NetworkLiveUserSearchResult;
 
   const factory NetworkSearchResult.video(
-    SearchType type,
+    SearchResultType type,
     int id,
     String author,
     int mid,
