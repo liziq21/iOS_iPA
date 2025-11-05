@@ -67,9 +67,8 @@ jobs:
         with:
           channel: stable
           flutter-version-file: pubspec.yaml
-      - run: |
-        flutter pub get
-        flutter doctor
+      - run: flutter pub get
+      - run: flutter doctor
       
       - name: Run build_runner
         run: dart run build_runner build \
