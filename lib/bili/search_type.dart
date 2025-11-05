@@ -20,22 +20,3 @@ enum SearchType {
       unknownValue: JsonKey.nullForUndefinedEnumValue,
     );*/
 }
-
-@JsonEnum(alwaysCreate: true, fieldRename: FieldRename.snake)
-enum SearchResultType {
-  article,
-  biliUser,
-  mediaBangumi,
-  mediaFt,
-  liveRoom,
-  liveUser,
-  video,
-  un;
-  
-  static SearchResultType parse(String type) =>
-    $enumDecode(
-      _$SearchResultTypeEnumMap,
-      type,
-      unknownValue: SearchResultType.unknown,
-    );
-}
